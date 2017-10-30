@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/indent/indent",
     "pages/me/me",
-    "pages/found/found"
+    "pages/found/found",
+    "pages/address/setAddress/setAddress",
+    "pages/menu/makeMenu/makeMenu",
+    "pages/menu/tabMenu/tabMenu"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,11 +1,36 @@
-<view class="top">
-    <view class="address">
-        <view>{{address}}</view>
+<view class="index">
+    <view class="top">
+        <view class="address">
+            <text bindtap="clickAddress">{{address}}</text>
+        </view>
+        <view class="search" bindtap="clickMenu">
+            <view>搜索商家、商品名称
+                <icon type="search" size="12" color="black"></icon>
+            </view>
+        </view>
+        <view class="classify">
+            <scroll-view scroll-x = "true" scroll-left="0">
+                <!--<view>-->
+                    <view wx:for="{{type.type}}" class="type" id="{{item.name}}" bindtap="clickType">{{item.name}}</view>
+                <!--</view>-->
+                 
+            </scroll-view>
+        </view>
     </view>
-    <view class="search">
-        <icon type="search" size="" color="#666"/>
-        <text>搜索商家、商品名称</text>
-    </view>
-    <view class="classify">
+    <view class="introduce">
+       <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="5000" duration="500">
+                <swiper-item>
+                    <view wx:for="{{intro1}}">
+                        <image src="{{item.img}}"/>
+                        <view>{{item.title}}</view>
+                    </view>
+                </swiper-item>
+                <swiper-item>
+                    <block  wx:for="{{intro2}}">
+                        <image src="{{item.img}}"/>
+                        <view>{{item.title}}</view>
+                    </block>
+                </swiper-item>
+        </swiper>
     </view>
 </view>
