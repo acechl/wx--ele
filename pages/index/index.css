@@ -38,6 +38,8 @@
 .index .top .classify scroll-view {
   width: 100%;
   height: 20px;
+  display: inline-flex;
+  flex-wrap: nowrap;
   white-space: nowrap;
 }
 .index .top .classify scroll-view .type {
@@ -46,4 +48,35 @@
   line-height: 20px;
   color: #fff;
   margin-right: 10px;
+}
+.index .introduce {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.index .introduce swiper {
+  width: 100%;
+  height: 350rpx;
+}
+.index .introduce swiper .contain {
+  width: 25%;
+  display: inline-block;
+  margin-bottom: 20rpx;
+}
+.index .introduce swiper .contain image {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  margin-left: calc((100% - 100rpx)/2);
+}
+.index .introduce swiper .contain .title {
+  text-align: center;
+  line-height: 20rpx;
+}
+.index .adverting {
+  padding: 0 20rpx;
+}
+.index .adverting .alone {
+  width: 100%;
+  height: 100px;
 }

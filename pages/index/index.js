@@ -10,6 +10,8 @@ Page({
         introduce: [],
         intro1: [],
         intro2: [],
+        a_top: [],
+        a_bottom: []
     },
     onLoad () {//当小程序初始化完成时，全局触发一次
     },
@@ -38,11 +40,25 @@ Page({
                 {"img":"../../images/ricce.jpeg","title": "日韩料理"},
             ]
         })
-        console.log(introduce);
+        let a_top = Mock.mock({
+            type: [
+                    {"title":"限量抢购","introduce":"超值美味9.9元起","num":"101人正在抢>","img":"../../images/a_left.webp","color1":"#e81919",'color2':"#e81919"},
+                    {"title":"热卖套餐","introduce":"销量最高,好评最多","num":"TOP 100>","img":"../../images/a_right.webp","color1":"black","color2":"#af8260"}
+                ]
+        })
+        let a_bottom = Mock.mock({
+            type: [
+                {"title":"天天特价","introduce":"低至1折","img":"../../images/b_left.webp","color1":"#ff5339","color2":"#ffa89b"},
+                {"title":"乐享鲜果","introduce":"鲜果乐享7折","img":"../../images/b_center.webp","color1":"#777","color2":"#bbb"},
+                {"title":"品质优选","introduce":"尖货来袭","img":"../../images/b_right.webp","color1":"#777","color2":"#bbb"}
+            ]
+        })
         this.setData({
             type: data,
             intro1: introduce.type.slice(0,8),
-            intro2: introduce.type.slice(9)
+            intro2: introduce.type.slice(9),
+            a_top:a_top,
+            a_bottom: a_bottom
         })
         let BMap = new bmap.BMapWX({
             ak: "4X4uPt3XfLVMg18PlnEQxYvbpz1GFWK2"
@@ -98,5 +114,8 @@ Page({
     },
     clickWidth (e) {
         console.log(e)
+    },
+    scrollDown (e) {
+        console.log(e);
     }
-})
+ })

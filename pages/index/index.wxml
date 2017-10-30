@@ -1,5 +1,6 @@
 <view class="index">
-    <view class="top">
+    <scroll-view scroll-y="true" bindscroll="scrollDown">
+        <view class="top">
         <view class="address">
             <text bindtap="clickAddress">{{address}}</text>
         </view>
@@ -10,27 +11,46 @@
         </view>
         <view class="classify">
             <scroll-view scroll-x = "true" scroll-left="0">
-                <!--<view>-->
+                <view>
                     <view wx:for="{{type.type}}" class="type" id="{{item.name}}" bindtap="clickType">{{item.name}}</view>
-                <!--</view>-->
+                </view>
                  
             </scroll-view>
         </view>
     </view>
     <view class="introduce">
-       <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="5000" duration="500">
+       <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="5000" duration="500" indicator-dots="true">
                 <swiper-item>
-                    <view wx:for="{{intro1}}">
+                    <view wx:for="{{intro1}}" class="contain">
                         <image src="{{item.img}}"/>
-                        <view>{{item.title}}</view>
+                        <view class="title">{{item.title}}</view>
                     </view>
                 </swiper-item>
-                <swiper-item>
-                    <block  wx:for="{{intro2}}">
+                <swiper-item class="second">
+                    <view  wx:for="{{intro2}}" class="contain">
                         <image src="{{item.img}}"/>
-                        <view>{{item.title}}</view>
-                    </block>
+                        <view class="title">{{item.title}}</view>
+                    </view>
                 </swiper-item>
         </swiper>
     </view>
+    <view class="adverting">
+        <image src="../../images/advertising.webp" class="alone"/>
+        <view class="top">
+            <view wx:for="{{a_top.type}}" class="a_top">
+                <view>{{item.title}}</view>
+                <view>{{item.introduce}}</view>
+                <view>{{item.num}}</view>
+                <image src="{{item.img}}"/>
+            </view>
+        </view>
+        <view class="bottom" class="a_bottom">
+            <view wx:for="{{a_bottom.type}}">
+                <view>{{item.title}}</view>
+                <view>{{item.introduce}}</view>
+                <image src="{{item.img}}"/>
+            </view>
+        </view>
+    </view>
+    </scroll-view>
 </view>

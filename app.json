@@ -22,26 +22,26 @@
     "list": [{
        "pagePath": "pages/index/index",
        "text":"外卖",
-       "iconPath": "iamges/biz_navigation_tab_exchange.png",
-       "selectedIconPath": "iamges/biz_navigation_tab_exchange_selected.png"
+       "iconPath": "images/biz_navigation_tab_exchange.png",
+       "selectedIconPath": "images/biz_navigation_tab_exchange_selected.png"
     },
     {
        "pagePath": "pages/found/found",
        "text":"发现",
-       "iconPath": "iamges/biz_navigation_tab_squeue.png",
-       "selectedIconPath": "iamges/biz_navigation_tab_squeue_selected.png"
+       "iconPath": "images/biz_navigation_tab_squeue.png",
+       "selectedIconPath": "images/biz_navigation_tab_squeue_selected.png"
     },
     {
        "pagePath": "pages/indent/indent",
        "text":"订单",
-       "iconPath": "iamges/biz_navigation_tab_mymission.png",
-       "selectedIconPath": "iamges/biz_navigation_tab_mymission_selected.png"
+       "iconPath": "images/biz_navigation_tab_mymission.png",
+       "selectedIconPath": "images/biz_navigation_tab_mymission_selected.png"
     },
     {
        "pagePath": "pages/me/me",
        "text":"我的",
-       "iconPath": "iamges/biz_navigation_tab_mine_uericon.png",
-       "selectedIconPath": "iamges/biz_navigation_tab_mine_selected.png"
+       "iconPath": "images/biz_navigation_tab_mine_uericon.png",
+       "selectedIconPath": "images/biz_navigation_tab_mine_selected.png"
     }
     ]
   }
