@@ -1,0 +1,11 @@
+<view class="top">
+    <view class="address">
+        <view>{{address}}</view>
+    </view>
+    <view class="search">
+        <icon type="search" size="" color="#666"/>
+        <text>搜索商家、商品名称</text>
+    </view>
+    <view class="classify">
+    </view>
+</view>

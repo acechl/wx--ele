@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/indent/indent",
+    "pages/me/me",
+    "pages/found/found"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "老板上菜",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectColor": "skyblue",
+    "borderStyle": "white",
+    "position": "bottom",
+    "list": [{
+       "pagePath": "pages/index/index",
+       "text":"外卖",
+       "iconPath": "iamges/biz_navigation_tab_exchange.png",
+       "selectedIconPath": "iamges/biz_navigation_tab_exchange_selected.png"
+    },
+    {
+       "pagePath": "pages/found/found",
+       "text":"发现",
+       "iconPath": "iamges/biz_navigation_tab_squeue.png",
+       "selectedIconPath": "iamges/biz_navigation_tab_squeue_selected.png"
+    },
+    {
+       "pagePath": "pages/indent/indent",
+       "text":"订单",
+       "iconPath": "iamges/biz_navigation_tab_mymission.png",
+       "selectedIconPath": "iamges/biz_navigation_tab_mymission_selected.png"
+    },
+    {
+       "pagePath": "pages/me/me",
+       "text":"我的",
+       "iconPath": "iamges/biz_navigation_tab_mine_uericon.png",
+       "selectedIconPath": "iamges/biz_navigation_tab_mine_selected.png"
+    }
+    ]
+  }
+}
