@@ -11,9 +11,26 @@ Page({
         intro1: [],
         intro2: [],
         a_top: [],
-        a_bottom: []
+        a_bottom: [],
+        winHeight: "",
+        position: "",
+        top: 10,
+        bottom: 10,
+        height: 50,
+        m_top: 0,
+        shop_intro: [],
+        shop_intro1: [],
+        shop_intro2: []
     },
     onLoad () {//当小程序初始化完成时，全局触发一次
+        let that = this;
+        wx.getSystemInfo({
+            success (res) {
+                that.setData({
+                    winHeight: res.screenHeight
+                })
+            }
+        })
     },
     onShow () {//当小程序启动 或者从后台进入前台时显示
         let that = this;
@@ -53,12 +70,41 @@ Page({
                 {"title":"品质优选","introduce":"尖货来袭","img":"../../images/b_right.webp","color1":"#777","color2":"#bbb"}
             ]
         })
+        let shop_intro = Mock.mock({
+             "type|2": [
+                {"name":"广州麦当劳信德商务诚信店","average":"4.7","num":"333","fare":"0","fare1":"15","distance":"1.2km","time":"38","new":"7","discount":[{"first":"新用户下单立减17元"},{"big":"[99]元超值套餐"},{"dis":"满40减30"},{"star":"[星球大战]星球金枕超值双人餐首发","good":"1"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"},{"discount":"[双十一]王牌5折工作餐"}],"brand":"1","img":"../../images/m1.jpeg","bao":"1","piao":"1","send":"1"},
+                {"name":"海银海记牛肉火锅","average":"3.4","num":"444","fare":"10","fare1":"25","distance":"2.2km","time":"39","new":"8","discount":[{"first":"新用户下单立减17元"},{"star":"[星球大战]星球金枕超值双人餐首发"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"},{"discount":"[双十一]王牌5折工作餐"}],"brand":"1","img":"../../images/m2.jpeg","piao":"1","send":"1"},
+                {"name":"汉拿山韩式料理","average":"2.6","num":"555","fare":"20","fare1":"35","distance":"3.2km","time":"40","new":"9","discount":[{"first":"新用户下单立减17元"},{"dis":"满40减30"},{"star":"[星球大战]星球金枕超值双人餐首发"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"},{"discount":"[双十一]王牌5折工作餐"}],"brand":"0","img":"../../images/m3.jpeg","bao":"1","send":"1","good":"1"},
+                {"name":"摩打寿司黄沙店","average":"4.8","num":"666","fare":"30","fare1":"45","distance":"4.2km","time":"41","new":"10","discount":[{"first":"新用户下单立减17元"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"}],"brand":"1","img":"../../images/m4.jpeg","send":"1"},
+                {"name":"情愿鸡粥","average":"2.9","num":"777","fare":"40","fare1":"55","distance":"5.2km","time":"42","new":"11","brand":"0","img":"../../images/m5.jpeg","discount":[{"first":"新用户下单立减17元"}],"good":"1"}
+            ]
+        })
+        let shop1_intro = Mock.mock({
+            "type|2": [
+                {"name":"广州麦当劳信德商务诚信店","average":"4.7","num":"333","fare":"0","fare1":"15","distance":"1.2km","time":"38","new":"7","discount":[{"first":"新用户下单立减17元"},{"big":"[99]元超值套餐"},{"dis":"满40减30"},{"star":"[星球大战]星球金枕超值双人餐首发","good":"1"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"},{"discount":"[双十一]王牌5折工作餐"}],"brand":"1","img":"../../images/m1.jpeg","bao":"1","piao":"1","send":"1"},
+                {"name":"海银海记牛肉火锅","average":"3.4","num":"444","fare":"10","fare1":"25","distance":"2.2km","time":"39","new":"8","discount":[{"first":"新用户下单立减17元"},{"star":"[星球大战]星球金枕超值双人餐首发"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"},{"discount":"[双十一]王牌5折工作餐"}],"brand":"1","img":"../../images/m2.jpeg","piao":"1","send":"1"},
+                {"name":"汉拿山韩式料理","average":"2.6","num":"555","fare":"20","fare1":"35","distance":"3.2km","time":"40","new":"9","discount":[{"first":"新用户下单立减17元"},{"dis":"满40减30"},{"star":"[星球大战]星球金枕超值双人餐首发"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"},{"discount":"[双十一]王牌5折工作餐"}],"brand":"0","img":"../../images/m3.jpeg","bao":"1","send":"1","good":"1"},
+                {"name":"摩打寿司黄沙店","average":"4.8","num":"666","fare":"30","fare1":"45","distance":"4.2km","time":"41","new":"10","discount":[{"first":"新用户下单立减17元"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"}],"brand":"1","img":"../../images/m4.jpeg","send":"1"},
+                {"name":"情愿鸡粥","average":"2.9","num":"777","fare":"40","fare1":"55","distance":"5.2km","time":"42","new":"11","brand":"0","img":"../../images/m5.jpeg","discount":[{"first":"新用户下单立减17元"}],"good":"1"}
+            ]
+        });
+        let shop2_intro = Mock.mock({
+            "type|2": [
+                {"name":"广州麦当劳信德商务诚信店","average":"4.7","num":"333","fare":"0","fare1":"15","distance":"1.2km","time":"38","new":"7","discount":[{"first":"新用户下单立减17元"},{"big":"[99]元超值套餐"},{"dis":"满40减30"},{"star":"[星球大战]星球金枕超值双人餐首发","good":"1"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"},{"discount":"[双十一]王牌5折工作餐"}],"brand":"1","img":"../../images/m1.jpeg","bao":"1","piao":"1","send":"1"},
+                {"name":"海银海记牛肉火锅","average":"3.4","num":"444","fare":"10","fare1":"25","distance":"2.2km","time":"39","new":"8","discount":[{"first":"新用户下单立减17元"},{"star":"[星球大战]星球金枕超值双人餐首发"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"},{"discount":"[双十一]王牌5折工作餐"}],"brand":"1","img":"../../images/m2.jpeg","piao":"1","send":"1"},
+                {"name":"汉拿山韩式料理","average":"2.6","num":"555","fare":"20","fare1":"35","distance":"3.2km","time":"40","new":"9","discount":[{"first":"新用户下单立减17元"},{"dis":"满40减30"},{"star":"[星球大战]星球金枕超值双人餐首发"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"},{"discount":"[双十一]王牌5折工作餐"}],"brand":"0","img":"../../images/m3.jpeg","bao":"1","send":"1","good":"1"},
+                {"name":"摩打寿司黄沙店","average":"4.8","num":"666","fare":"30","fare1":"45","distance":"4.2km","time":"41","new":"10","discount":[{"first":"新用户下单立减17元"},{"new":"249元超值[4人新品咖喱虾蟹狂欢套餐]"}],"brand":"1","img":"../../images/m4.jpeg","send":"1"},
+                {"name":"情愿鸡粥","average":"2.9","num":"777","fare":"40","fare1":"55","distance":"5.2km","time":"42","new":"11","brand":"0","img":"../../images/m5.jpeg","discount":[{"first":"新用户下单立减17元"}],"good":"1"}
+            ]
+        })
         this.setData({
             type: data,
             intro1: introduce.type.slice(0,8),
             intro2: introduce.type.slice(9),
-            a_top:a_top,
-            a_bottom: a_bottom
+            a_top: a_top,
+            a_bottom: a_bottom,
+            shop_intro: shop_intro,
+            shop1_intro: shop1_intro,
         })
         let BMap = new bmap.BMapWX({
             ak: "4X4uPt3XfLVMg18PlnEQxYvbpz1GFWK2"
@@ -84,6 +130,7 @@ Page({
                         ak: "4X4uPt3XfLVMg18PlnEQxYvbpz1GFWK2"
                     },
                     success (res) {
+                        console.log(res)
                         let add = res.data.result.addressComponent.city.substr(0,res.data.result.addressComponent.city.length-1);
                     }
                 })
@@ -116,6 +163,26 @@ Page({
         console.log(e)
     },
     scrollDown (e) {
-        console.log(e);
-    }
+        if(e.detail.scrollTop >= 26) {
+            this.setData({
+                position: "fixed",
+                top: 10,
+                bottom: 10,
+                height: 50,
+                m_top: 50
+            })
+        }else {
+            this.setData({
+                position: "",
+                top: 10,
+                bottom: 10,
+                height: 50,
+                m_top: 0
+            })
+        }
+
+    },
+    scrollToLower (e) {
+        
+    } 
  })

@@ -1,20 +1,21 @@
-<view class="index">
-    <scroll-view scroll-y="true" bindscroll="scrollDown">
-        <view class="top">
+<scroll-view scroll-y = "true" bindscroll="scrollDown" style="height:{{winHeight}}px" lower-threshold = "100" bindscrolltolower="scrollToLower" enable-back-to-top = "true">
+<view class="index" style="height: 1000px">
+    <view class="top">
         <view class="address">
             <text bindtap="clickAddress">{{address}}</text>
         </view>
-        <view class="search" bindtap="clickMenu">
-            <view>搜索商家、商品名称
-                <icon type="search" size="12" color="black"></icon>
+        <view  style="position:{{position}};padding-top:{{top}}px;padding-bottom:{{bottom}}px;height:{{height}}px" class="search">
+            <view  bindtap="clickMenu" class="searcher">
+                <view>搜索商家、商品名称
+                    <icon type="search" size="12" color="black"></icon>
+                </view>
             </view>
         </view>
-        <view class="classify">
+        <view class="classify" style="margin-top:{{m_top}}px">
             <scroll-view scroll-x = "true" scroll-left="0">
                 <view>
                     <view wx:for="{{type.type}}" class="type" id="{{item.name}}" bindtap="clickType">{{item.name}}</view>
                 </view>
-                 
             </scroll-view>
         </view>
     </view>
@@ -36,21 +37,53 @@
     </view>
     <view class="adverting">
         <image src="../../images/advertising.webp" class="alone"/>
-        <view class="top">
+        <view class="topper clearfix">
             <view wx:for="{{a_top.type}}" class="a_top">
-                <view>{{item.title}}</view>
+                <view style="color:{{item.color1}}">{{item.title}}</view>
                 <view>{{item.introduce}}</view>
-                <view>{{item.num}}</view>
+                <view style="color:{{item.color2}}">{{item.num}}</view>
                 <image src="{{item.img}}"/>
             </view>
         </view>
-        <view class="bottom" class="a_bottom">
-            <view wx:for="{{a_bottom.type}}">
+        <view class="bottom clearfix">
+            <view wx:for="{{a_bottom.type}}" class="a_bottom">
                 <view>{{item.title}}</view>
-                <view>{{item.introduce}}</view>
+                <view style="color:{{item.color1}};border:1px solid {{item.color2}}">{{item.introduce}}</view>
                 <image src="{{item.img}}"/>
             </view>
         </view>
     </view>
-    </scroll-view>
+    <view class="in_shop">
+        <view>推荐商家</view>
+        <view wx:for="{{shop_intro.type}}">
+            <image src="{{item.img}}"></image>
+            <view>
+                <view class="title">
+                    <view wx:if="{{item.brand == 1}}">品牌</view>
+                    <view>{{item.name}}</view>
+                </view>
+                <view class="second">
+                    <!--放星星的-->
+                    <view>{{item.average}}</view>
+                    <view>月售{{item.num}}单</view>
+                </view>
+                <view class="third">
+                    <view>￥{{item.fare1}}起送 | 配送费￥{{item.fare2}}</view>
+                    <view>{{item.distance}} | {{item.time}}分钟</view>
+                </view>
+                <view class="forth" wx:if="{{item.good == 1}}">
+                    <view></view>
+                    口碑人气好店
+                </view>
+                <view class="fifth">
+                    <view class="left" wx:for="{{item.distance}}">
+                        
+                    </view>
+                    <view class="right">{{}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+   
 </view>
+ </scroll-view>

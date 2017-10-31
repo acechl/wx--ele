@@ -1,5 +1,16 @@
+.clearfix::before,
+.clearfix::after {
+  height: 0;
+  line-height: 0;
+  content: "";
+  clear: both;
+  visibility: hidden;
+  display: block;
+}
+.mb10 {
+  margin-bottom: 10px;
+}
 .index .top {
-  padding: 0 20rpx;
   box-sizing: border-box;
   width: 100%;
   height: 100px;
@@ -13,27 +24,40 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 .index .top .search {
   height: 30px;
+  width: 100%;
+  background-image: linear-gradient(90deg, #0af, #0085ff);
+  z-index: 99;
+  padding: 10px 0;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+}
+.index .top .search .searcher {
   width: 80%;
   margin-left: 10%;
-  background-color: #fff;
 }
 .index .top .search view {
   line-height: 30px;
   text-align: center;
   width: 100%;
   position: relative;
+  background: #fff;
 }
 .index .top .search icon {
   position: absolute;
-  left: 145rpx;
+  left: 170rpx;
   top: 20%;
 }
 .index .top .classify {
-  margin-top: 10px;
   width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
 }
 .index .top .classify scroll-view {
   width: 100%;
@@ -76,7 +100,69 @@
 .index .adverting {
   padding: 0 20rpx;
 }
-.index .adverting image {
+.index .adverting .alone {
   width: 100%;
   height: 100px;
+}
+.index .adverting .topper {
+  width: 100%;
+}
+.index .adverting .topper view:first-child {
+  margin-right: 10px;
+}
+.index .adverting .topper .a_top {
+  width: calc((100% - 10px)/2);
+  background: linear-gradient(0deg, #f4f4f4 5%, #fafafa 95%);
+  position: relative;
+  height: 200rpx;
+  float: left;
+}
+.index .adverting .topper .a_top view:first-child {
+  font-size: 32rpx;
+  font-weight: 700;
+  line-height: 54rpx;
+}
+.index .adverting .topper .a_top view:nth-child(2) {
+  color: #777;
+  font-size: 28rpx;
+  line-height: 38rpx;
+}
+.index .adverting .topper .a_top view:nth-child(3) {
+  font-weight: 600;
+}
+.index .adverting .topper .a_top image {
+  width: 160rpx;
+  height: 160rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.index .adverting .bottom {
+  width: 100%;
+  margin-top: 10px;
+}
+.index .adverting .bottom view:nth-child(2) {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.index .adverting .bottom .a_bottom {
+  width: calc((100% - 20px)/3);
+  position: relative;
+  height: 230rpx;
+  background: linear-gradient(0deg, #f4f4f4 5%, #fafafa 95%);
+  float: left;
+  text-align: center;
+}
+.index .adverting .bottom .a_bottom view:first-child {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.index .adverting .bottom .a_bottom view:nth-child(2) {
+  display: inline-block;
+  border-radius: 3px;
+}
+.index .adverting .bottom .a_bottom image {
+  width: 100%;
+  height: 130rpx;
 }

@@ -1,8 +1,40 @@
-.p10 () {
+.clearfix::before,.clearfix::after {
+    height: 0;
+    line-height: 0;
+    content: "";
+    clear: both;
+    visibility: hidden;
+    display: block;
+}
+.p20 () {
     padding: 0 20rpx;
 }
-.m10 () {
+.m20 () {
     margin: 0 20rpx;
+}
+.ml10 () {
+    margin-left: 10px;
+}
+.mr10 () {
+    margin-right: 10px;
+}
+.mb10 {
+    margin-bottom: 10px;
+}
+.mt10 () {
+    margin-top: 10px;
+}
+.pl20(@px) {
+    padding-left: @px;
+}
+.pr20(@px) {
+    padding-right: @px;
+}
+.pt20(@px) {
+    padding-top: @px;
+}
+.pb20(@px) {
+    padding-bottom: @px;
 }
 .fl () {
     float: left;
@@ -24,7 +56,6 @@
 }
 .index {
     .top {
-        .p10();
         box-sizing: border-box;
         width: 100%;
         height: 100px;
@@ -37,27 +68,41 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            padding: 0 20px;
+            box-sizing: border-box;
         }
         .search {
             height: 30px;
-            width: 80%;
-            margin-left: 10%;
-            background-color: #fff;
+            width: 100%;
+            background-image: linear-gradient(90deg,#0af,#0085ff);
+            z-index: 99;
+            padding: 10px 0;
+            box-sizing: border-box;
+            top: 0;
+            left: 0;
+            .searcher {
+                width: 80%;
+                margin-left: 10%;
+            }
             view {
                 line-height: 30px;
                 text-align: center;
                 width: 100%;
                 position: relative;
+                background: #fff;
             }
             icon {
                 position: absolute;
-                left: 145rpx;
+                left: 170rpx;
                 top: 20%;
             }
         }
         .classify {
-            margin-top: 10px;
             width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+            position: relative;
+            // z-index: 100;
             scroll-view {
                 width: 100%;
                 height: 20px;
@@ -99,20 +144,72 @@
         }
     }
     .adverting {
-        .p10();
+        .p20();
         .alone {
             width: 100%;
             height: 100px;
         }
-        .top {
+        .topper {
+            width: 100%;
+            view:first-child {
+               .mr10();
+            }
             .a_top {
-                view:first-child {
-                    
-                }
+                width: calc(~"(100% - 10px)/2");
+                background: linear-gradient(0deg,#f4f4f4 5%,#fafafa 95% );
+                position: relative;
+                height: 200rpx;
+                .fl();
+               view:first-child {
+                   font-size: 32rpx;
+                   font-weight: 700;
+                   line-height: 54rpx;  
+               }
+               view:nth-child(2){
+                   color: #777;
+                   font-size: 28rpx;
+                   line-height: 38rpx;
+               }
+               view:nth-child(3){
+                   font-weight: 600;
+               }
+               image {
+                    width: 160rpx;
+                    height: 160rpx;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+               }
             }
         }
         .bottom {
-
+            width: 100%;
+            .mt10();
+            view:nth-child(2) {
+                .ml10();
+                .mr10();
+            }
+            .a_bottom {
+                width: calc(~"(100% - 20px)/3");
+                position: relative;
+                height: 230rpx;
+                background: linear-gradient(0deg,#f4f4f4 5%,#fafafa 95% );
+                .fl();
+                text-align: center;
+                view:first-child {
+                    font-size: 36rpx;
+                    font-weight: 600;
+                    .mb10();
+                }
+                view:nth-child(2) {
+                    display: inline-block;
+                    border-radius: 3px;
+                }
+                image {
+                    width: 100%;
+                    height: 130rpx;
+                }
+            }
         }
     }
 }
