@@ -53,31 +53,35 @@
             </view>
         </view>
     </view>
+    <view class="space"></view>
     <view class="in_shop">
-        <view>推荐商家</view>
-        <view wx:for="{{shop_intro.type}}">
+        <view class="intro">推荐商家</view>
+        <view wx:for="{{shop_intro.type}}" class="single">
             <image src="{{item.img}}"></image>
-            <view>
-                <view class="title">
-                    <view wx:if="{{item.brand == 1}}">品牌</view>
-                    <view>{{item.name}}</view>
+            <view class="content">
+                <view class="title clearfix">
+                    <text wx:if="{{item.brand == 1}}" class="brand">品牌</text>
+                    <text class="name">{{item.names}}</text>
                 </view>
                 <view class="second">
                     <!--放星星的-->
-                    <view>{{item.average}}</view>
-                    <view>月售{{item.num}}单</view>
+                    <text class="average">{{item.average}}</text>
+                    <text>月售{{item.num}}单</text>
                 </view>
-                <view class="third">
-                    <view>￥{{item.fare1}}起送 | 配送费￥{{item.fare2}}</view>
+                <view class="third clearfix">
+                    <view>￥{{item.fare}}起送 | 配送费￥{{item.fare1}}</view>
                     <view>{{item.distance}} | {{item.time}}分钟</view>
                 </view>
                 <view class="forth" wx:if="{{item.good == 1}}">
-                    <view></view>
+                    <text></text>
                     口碑人气好店
                 </view>
-                <view class="fifth">
-                    <view class="left" wx:for="{{item.distance}}">
-                        
+                <view class="fifth" style="max-height:{{max_height}}rpx">
+                    <view class="left">
+                        <view class="left_single" wx:for="{{item.discount}}" wx:for-item="items">
+                            <text style="background:{{items.color}}" class="word">{{items.word}}</text>
+                        {{items.name}}
+                    </view>
                     </view>
                     <view class="right">{{}}</view>
                 </view>

@@ -185,6 +185,7 @@
         .bottom {
             width: 100%;
             .mt10();
+            .mb10();
             view:nth-child(2) {
                 .ml10();
                 .mr10();
@@ -208,6 +209,103 @@
                 image {
                     width: 100%;
                     height: 130rpx;
+                }
+            }
+        }  
+    }
+    .space {
+        width: 100%;
+        background: #eee;
+        height: 10px;
+    }
+    .in_shop {
+        padding: 0 20px;
+        .intro {
+            height: 30px;
+            line-height: 30px;
+            font-weight: 600;
+        }
+        .single {
+            .pr();
+            margin-bottom: 20px;
+            image {
+                width: 90rpx;
+                height: 90rpx;
+                .pa();
+                top: 0;
+                left: 0;
+            }
+            .content {
+                width: 100%;
+                padding-left: 100rpx;
+                box-sizing: border-box;
+                .title {
+                    .brand {
+                       background-image: linear-gradient(-139deg,#fff100,#ffe339);
+                       color:  #6f3f15;
+                       border-radius: 2px;
+                       padding: 0 4px;
+                    }
+                    .name {
+                        font-weight: 500;
+                        margin-left: 5px;
+                        display: inline-block;
+                        width: 40%;
+                        overflow: hidden;
+                        text-overflow:ellipsis;
+                        white-space: nowrap;
+                        vertical-align: top;
+                    }
+                }
+                .second {
+                    text {
+                        color: #666;
+                        font-size: 20rpx;
+                    }
+                    .average {
+                        margin: 0 5px;
+                    }
+                }
+                .third {
+                    padding-bottom: 5px;
+                   view {
+                       font-size: 20rpx;
+                       color: #666;
+                       .fl();
+                   } 
+                   view:last-child {
+                        .fr();
+                   }
+                }
+                .forth {
+                    color: rgb(232, 71, 11);
+                    font-size: 20rpx;
+                    margin-bottom: 5px;
+                    text {
+                        background: data-uri("../../images/good.webp");
+                        background-size: 100%;
+                        display: inline-block;
+                        width: 18rpx;
+                        height: 18rpx;
+                    }
+                }
+                .fifth {
+                    border-top: 1px dashed #ddd;
+                    overflow: hidden;
+                    view:first-child {
+                        margin-top: 5px;
+                    }
+                    .left_single {
+                        margin-bottom: 10rpx;
+                        font-size: 20rpx;
+                        line-height: 30rpx;
+                    }
+                    .word {
+                        color: #fff;
+                        display: inline-block;
+                        padding: 0 3px;
+                        border-radius: 3px;
+                    }
                 }
             }
         }
