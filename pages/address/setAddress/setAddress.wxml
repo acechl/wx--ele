@@ -1,4 +1,16 @@
 <view class="setAddress">
     <import src="../../../template/header/header.wxml"/>
     <template is="header" data="{{title:'选择收货地址'}}"></template>
+    <view class="input">
+        <view class="inner">
+            <view></view>
+            <input type="text" placeholder="请输入地址"/>
+            <button type="mini" size="defaultSize">搜索</button>
+        </view>
+    </view>
+    <view class="local">当前地址</view>
+    <view class="again">
+        <view>{{address}}</view>
+        <view bindtap="localAgain">{{again}}</view>
+    </view>
 </view>

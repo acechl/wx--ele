@@ -1,0 +1,72 @@
+@import "../../../template/header/header.wxss";
+.fl() {
+    float: left;
+}
+.fr () {
+    float: right;
+}
+.setAddress {
+    background-color: #f2f2f2;
+    .input {
+        background-color: #fff;
+        width: 100%;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        .inner {
+            width: 100%;
+            position: relative;
+            input {
+                width: 75%;
+                background-color: #f4f4f4;
+                padding-left: 30px;
+                box-sizing: border-box;
+                color: #999;
+                height: 40px;
+                line-height: 40px;
+                font-size: 26rpx;
+                display: inline-block;
+            }
+            button {
+                width: calc(~"25% - 20px");
+                margin-left: 20px;
+                display: inline-block;
+                height: 40px;
+                line-height: 40px;
+                background-color: #2395ff;
+                color: #fff;
+            }
+            view {
+                background: data-uri("../../../images/search.png");
+                background-size: 100%;
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                top: 12px;
+                left: 10px;
+            }
+        }  
+    }
+    .local {
+        padding: 10px 20px;
+        color: #666;
+    }
+    .again {
+        padding: 0 20px;
+        margin-top: 10px;
+        background: #fff;
+        view:first-child {
+            .fl();
+            font-weight: 600;
+            font-size: 30rpx;
+            width: 70%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        view:last-child {
+            .fr();
+            color: #2395ff;
+            font-size: 26rpx;
+        }
+    }
+}
