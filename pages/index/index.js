@@ -21,7 +21,11 @@ Page({
         shop_intro: [],
         shop_intro1: [],
         shop_intro2: [],
-        max_height: 80
+        max_height: 80,
+        flag: [],
+        page: 1,
+        iden: false,
+        meg: ""
     },
     onLoad () {//当小程序初始化完成时，全局触发一次
         let that = this;
@@ -75,29 +79,12 @@ Page({
              "type|2": [
                 {"names":"广州麦当劳信德商务诚信店","average":"4.7","num":"333","fare":"0","fare1":"15","distance":"1.2km","time":"38","new":"7","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"},{"name":"249元超值[4人新品咖喱虾蟹狂欢套餐]","word":"新","color":"rgb(241, 136, 79)"},{"name":"[双十一]王牌5折工作餐","word":"爆","color":"rgb(241, 136, 79)"}],"brand":"1","img":"../../images/m1.jpeg","bao":"1","piao":"1","send":"1","good":"1","number":6},
                 {"names":"海银海记牛肉火锅","average":"3.4","num":"444","fare":"10","fare1":"25","distance":"2.2km","time":"39","new":"8","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"},{"name":"249元超值[4人新品咖喱虾蟹狂欢套餐]","word":"新","color":"rgb(241, 136, 79)"}],"brand":"1","img":"../../images/m2.png","piao":"1","send":"1","number":5},
-                {"names":"汉拿山韩式料理","average":"2.6","num":"555","fare":"20","fare1":"35","distance":"3.2km","time":"40","new":"9","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"}],"brand":"0","img":"../../images/m3.jpeg","bao":"1","send":"1","good":"1","num":4},
-                {"names":"摩打寿司黄沙店","average":"4.8","num":"666","fare":"30","fare1":"45","distance":"4.2km","time":"41","new":"10","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"}],"name":"1","img":"../../images/m4.png","send":"1","num":3},
+                {"names":"汉拿山韩式料理","average":"2.6","num":"555","fare":"20","fare1":"35","distance":"3.2km","time":"40","new":"9","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"}],"brand":"0","img":"../../images/m3.jpeg","bao":"1","send":"1","good":"1","number":4},
+                {"names":"摩打寿司黄沙店","average":"4.8","num":"666","fare":"30","fare1":"45","distance":"4.2km","time":"41","new":"10","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"}],"name":"1","img":"../../images/m4.png","send":"1","number":3},
                 {"names":"情愿鸡粥","average":"2.9","num":"777","fare":"40","fare1":"55","distance":"5.2km","time":"42","new":"11","brand":"0","img":"../../images/m5.jpeg","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"}],"good":"1","number":1}
             ]
         })
-        let shop1_intro = Mock.mock({
-            "type|2": [
-                {"names":"广州麦当劳信德商务诚信店","average":"4.7","num":"333","fare":"0","fare1":"15","distance":"1.2km","time":"38","new":"7","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"},{"name":"249元超值[4人新品咖喱虾蟹狂欢套餐]","word":"新","color":"rgb(241, 136, 79)"},{"name":"[双十一]王牌5折工作餐","word":"爆","color":"rgb(241, 136, 79)"}],"brand":"1","img":"../../images/m1.jpeg","bao":"1","piao":"1","send":"1","good":"1","numner":6},
-                {"names":"海银海记牛肉火锅","average":"3.4","num":"444","fare":"10","fare1":"25","distance":"2.2km","time":"39","new":"8","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"},{"name":"249元超值[4人新品咖喱虾蟹狂欢套餐]","word":"新","color":"rgb(241, 136, 79)"}],"brand":"1","img":"../../images/m2.png","piao":"1","send":"1","number":5},
-                {"names":"汉拿山韩式料理","average":"2.6","num":"555","fare":"20","fare1":"35","distance":"3.2km","time":"40","new":"9","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"}],"brand":"0","img":"../../images/m3.jpeg","bao":"1","send":"1","good":"1","number":4},
-                {"names":"摩打寿司黄沙店","average":"4.8","num":"666","fare":"30","fare1":"45","distance":"4.2km","time":"41","new":"10","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"}],"brand":"1","img":"../../images/m4.png","send":"1","number":3},
-                {"names":"情愿鸡粥","average":"2.9","num":"777","fare":"40","fare1":"55","distance":"5.2km","time":"42","new":"11","brand":"0","img":"../../images/m5.jpeg","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"}],"good":"1","number":1}
-            ]
-        });
-        let shop2_intro = Mock.mock({
-            "type|2": [
-                {"names":"广州麦当劳信德商务诚信店","average":"4.7","num":"333","fare":"0","fare1":"15","distance":"1.2km","time":"38","new":"7","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"},{"name":"249元超值[4人新品咖喱虾蟹狂欢套餐]","word":"新","color":"rgb(241, 136, 79)"},{"name":"[双十一]王牌5折工作餐","word":"爆","color":"rgb(241, 136, 79)"}],"brand":"1","img":"../../images/m1.jpeg","bao":"1","piao":"1","send":"1","good":"1","number":6},
-                {"names":"海银海记牛肉火锅","average":"3.4","num":"444","fare":"10","fare1":"25","distance":"2.2km","time":"39","new":"8","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"},{"name":"249元超值[4人新品咖喱虾蟹狂欢套餐]","word":"新","color":"rgb(241, 136, 79)"}],"brand":"1","img":"../../images/m2.png","piao":"1","send":"1","number":5},
-                {"names":"汉拿山韩式料理","average":"2.6","num":"555","fare":"20","fare1":"35","distance":"3.2km","time":"40","new":"9","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"}],"brand":"0","img":"../../images/m3.jpeg","bao":"1","send":"1","good":"1","number":4},
-                {"names":"摩打寿司黄沙店","average":"4.8","num":"666","fare":"30","fare1":"45","distance":"4.2km","time":"41","new":"10","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"}],"brand":"1","img":"../../images/m4.png","send":"1","number":3},
-                {"names":"情愿鸡粥","average":"2.9","num":"777","fare":"40","fare1":"55","distance":"5.2km","time":"42","new":"11","brand":"0","img":"../../images/m5.jpeg","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"}],"good":"1","number":1}
-            ]
-        })
+        this.changeLength(shop_intro.type);
         this.setData({
             type: data,
             intro1: introduce.type.slice(0,8),
@@ -105,8 +92,6 @@ Page({
             a_top: a_top,
             a_bottom: a_bottom,
             shop_intro: shop_intro,
-            shop1_intro: shop1_intro,
-            shop2_intro: shop2_intro
         })
         let BMap = new bmap.BMapWX({
             ak: "4X4uPt3XfLVMg18PlnEQxYvbpz1GFWK2"
@@ -156,7 +141,6 @@ Page({
         })
     },
     clickType (e) {
-        console.log(e)
         wx.redirectTo({
             url: "../menu/tabMenu/tabMenu?id="+ e.currentTarget.id
         })
@@ -185,6 +169,65 @@ Page({
 
     },
     scrollToLower (e) {
-        
-    } 
+        let shop1_intro = Mock.mock({
+            "type|2": [
+                {"names":"广州麦当劳信德商务诚信店","average":"4.7","num":"333","fare":"0","fare1":"15","distance":"1.2km","time":"38","new":"7","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"},{"name":"249元超值[4人新品咖喱虾蟹狂欢套餐]","word":"新","color":"rgb(241, 136, 79)"},{"name":"[双十一]王牌5折工作餐","word":"爆","color":"rgb(241, 136, 79)"}],"brand":"1","img":"../../images/m1.jpeg","bao":"1","piao":"1","send":"1","good":"1","numner":6},
+                {"names":"海银海记牛肉火锅","average":"3.4","num":"444","fare":"10","fare1":"25","distance":"2.2km","time":"39","new":"8","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"},{"name":"249元超值[4人新品咖喱虾蟹狂欢套餐]","word":"新","color":"rgb(241, 136, 79)"}],"brand":"1","img":"../../images/m2.png","piao":"1","send":"1","number":5},
+                {"names":"汉拿山韩式料理","average":"2.6","num":"555","fare":"20","fare1":"35","distance":"3.2km","time":"40","new":"9","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"},{"name":"[星球大战]星球金枕超值双人餐首发","word":"星","color":"rgb(241, 136, 79)"}],"brand":"0","img":"../../images/m3.jpeg","bao":"1","send":"1","good":"1","number":4},
+                {"names":"摩打寿司黄沙店","average":"4.8","num":"666","fare":"30","fare1":"45","distance":"4.2km","time":"41","new":"10","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"},{"name":"[99]元超值套餐","word":"超","color":"rgb(240, 115, 115)"},{"name":"满40减30","word":"折","color":"rgb(240, 115, 115)"}],"brand":"1","img":"../../images/m4.png","send":"1","number":3},
+                {"names":"情愿鸡粥","average":"2.9","num":"777","fare":"40","fare1":"55","distance":"5.2km","time":"42","new":"11","brand":"0","img":"../../images/m5.jpeg","discount":[{"name":"新用户下单立减17元","word":"首","color":"rgb(112, 188, 70)"}],"good":"1","number":1}
+            ]
+        });
+        if(this.data.inden == false) {
+            return false;
+        }
+        this.setData({
+            inden: false,
+            meg: "正在加载中..."
+        })
+        if(this.data.page >= 3) {
+            this.setData({
+                meg: "亲，没有可以推荐的商家了"
+            })
+            return false;
+        }
+        let shop_intro = this.data.shop_intro.type.concat(shop1_intro.type)
+        let that = this;
+        setTimeout(function () {
+            that.setData({
+                shop_intro: {"type":shop_intro}
+            })
+            that.changeLength(shop_intro);
+            that.setData({
+                page: that.data.page + 1,
+                inden: true,
+                meg: ""
+            })
+        },500)
+    },
+    tapRotate (e) {
+        let data_index = e.currentTarget.dataset.index;
+        let flag = this.data.flag;
+        flag.forEach(function(value,index,arr){
+            if(index == data_index){
+                if(value.deg == 0){ //当为0时 释放
+                    arr[index] = {"deg":180,"height":"auto"}
+                }else {//当为180时 回收
+                    arr[index] = {"deg":0,"height":"80rpx"}
+                }
+            }
+        })
+        this.setData({
+            flag: flag
+        })
+    },
+    changeLength (shop_intro) {
+        let flag = [];
+        shop_intro.forEach(function(value,index,arr){
+            flag[index] = {"deg":0,"height": "80rpx"};
+        })
+        this.setData({
+            flag: flag
+        })
+    }
  })

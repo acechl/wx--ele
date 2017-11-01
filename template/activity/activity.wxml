@@ -1,0 +1,11 @@
+<template name="activity">
+    <view class="fifth_left">
+        <view class="left_single" wx:for="{{discount}}" wx:for-item="items">
+            <text style="background:{{items.color}}" class="word">{{items.word}}</text>
+            {{items.name}}
+        </view>
+    </view>
+    <view class="fifth_right" wx:if="{{number >= 3}}" bindtap="tapRotate" data-index = "{{idx}}">{{number}}个活动
+        <text class="arrow" style="transform: rotate({{flag[idx].deg}}deg)"></text>
+    </view>
+</template>

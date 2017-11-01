@@ -240,30 +240,60 @@
                 padding-left: 100rpx;
                 box-sizing: border-box;
                 .title {
-                    .brand {
-                       background-image: linear-gradient(-139deg,#fff100,#ffe339);
-                       color:  #6f3f15;
-                       border-radius: 2px;
-                       padding: 0 4px;
+                    .title_left {
+                        .fl();
+                        .brand {
+                            background-image: linear-gradient(-139deg,#fff100,#ffe339);
+                            color:  #6f3f15;
+                            border-radius: 2px;
+                            padding: 0 4px;
+                        }
+                        .name {
+                            font-weight: 500;
+                            margin-left: 5px;
+                            display: inline-block;
+                            width: 250rpx;
+                            overflow: hidden;
+                            text-overflow:ellipsis;
+                            white-space: nowrap;
+                            vertical-align: top;
+                        }
                     }
-                    .name {
-                        font-weight: 500;
-                        margin-left: 5px;
-                        display: inline-block;
-                        width: 40%;
-                        overflow: hidden;
-                        text-overflow:ellipsis;
-                        white-space: nowrap;
-                        vertical-align: top;
+                    .title_right {
+                        .fr();
+                        .sure {
+                            color: #999;
+                            border: 1px solid #ddd;
+                            border-radius: 3px;
+                            font-size: 20rpx;
+                            display: inline-block;
+                            padding: 0 3rpx;  
+                        }
+                        text:first-child {
+                            margin-right: 5px;
+                        }
                     }
+                    
                 }
                 .second {
-                    text {
-                        color: #666;
-                        font-size: 20rpx;
+                    margin: 5px 0;
+                    .second_left {
+                        .fl();
+                        text {
+                            color: #666;
+                            font-size: 20rpx;
                     }
-                    .average {
-                        margin: 0 5px;
+                        .average {
+                            margin: 0 5px;
+                        }
+                    }
+                    .second_right {
+                        .fr();
+                        color: #fff;
+                        background-image: linear-gradient(45deg,#0085ff,#0af);
+                        font-size: 20rpx;
+                        padding: 0 3rpx;
+                        border-radius: 3px;
                     }
                 }
                 .third {
@@ -292,22 +322,46 @@
                 .fifth {
                     border-top: 1px dashed #ddd;
                     overflow: hidden;
-                    view:first-child {
+                    .fifth_left {
+                        .fl();
+                        view:first-child {
+                            margin-top: 5px;
+                        }
+                        .left_single {
+                            margin-bottom: 10rpx;
+                            font-size: 20rpx;
+                            line-height: 30rpx;
+                        }
+                        .word {
+                            color: #fff;
+                            display: inline-block;
+                            padding: 0 3px;
+                            border-radius: 3px;
+                        }
+                    }
+                    .fifth_right {
                         margin-top: 5px;
-                    }
-                    .left_single {
-                        margin-bottom: 10rpx;
-                        font-size: 20rpx;
-                        line-height: 30rpx;
-                    }
-                    .word {
-                        color: #fff;
-                        display: inline-block;
-                        padding: 0 3px;
-                        border-radius: 3px;
+                        .fr();
+                        .arrow {
+                            display: inline-block;
+                            width: 0px;
+                            height: 0px;
+                            border-left: 7px solid transparent;
+                            border-right: 7px solid transparent;
+                            border-top: 7px solid #868686;
+                            margin-right: 4px;
+                        }
                     }
                 }
             }
         }
+    }
+    .loading {
+        text-align: center;
+        height: 50rpx;
+        line-height: 50rpx;
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 26rpx;
     }
 }

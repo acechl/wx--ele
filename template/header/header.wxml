@@ -1,0 +1,7 @@
+<template name="header">
+    <view class="header">
+        <view class="goBack" bindtap="goBack"> < </view>
+        {{title}}
+        <view class="space"></view>
+    </view>
+</template>

@@ -1,0 +1,9 @@
+<template name="star">
+    <view class="star clearfix">
+        <view class="full"></view>
+        <view class="{{star>1?'full':'empty'}}"></view>
+        <view class="{{star>2?'full':'empty'}}"></view>
+        <view class="{{star>3?'full':'empty'}}"></view>
+        <view class="{{star>4?'full':'empty'}}"></view>
+    </view>
+</template>
