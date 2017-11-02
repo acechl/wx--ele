@@ -7,6 +7,7 @@
 }
 .setAddress {
     background-color: #f2f2f2;
+    overflow: hidden;
     .input {
         background-color: #fff;
         width: 100%;
@@ -15,8 +16,13 @@
         .inner {
             width: 100%;
             position: relative;
-            input {
+            .in {
+                position: relative;
                 width: 75%;
+                display: inline-block;
+            }
+            input {
+                width: 100%;
                 background-color: #f4f4f4;
                 padding-left: 30px;
                 box-sizing: border-box;
@@ -34,8 +40,10 @@
                 line-height: 40px;
                 background-color: #2395ff;
                 color: #fff;
+                padding-left: 5px;
+                padding-right: 5px;
             }
-            view {
+            .icon {
                 background: data-uri("../../../images/search.png");
                 background-size: 100%;
                 width: 16px;
@@ -44,29 +52,79 @@
                 top: 12px;
                 left: 10px;
             }
+            .delete {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                font-size: 30rpx;
+                color: #2395ff;
+                z-index: 99;
+            }
         }  
     }
-    .local {
-        padding: 10px 20px;
-        color: #666;
+    .location {
+        .local {
+            padding: 10px 20px;
+            color: #666;
+        }
+        .again {
+            padding: 20px;
+            margin-top: 10px;
+            background-color: #fff;
+            view:first-child {
+                .fl();
+                font-weight: 600;
+                font-size: 30rpx;
+                width: 70%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            view:last-child {
+                .fr();
+                color: #2395ff;
+                font-size: 26rpx;
+            }
+        }
     }
-    .again {
-        padding: 0 20px;
-        margin-top: 10px;
-        background: #fff;
+    .address {
+        background-color: #fff;
+        .single {
+            border-bottom: 1px solid #eee;
+            padding: 10px 20px;
+            view:first-child {
+                font-size: 30rpx;
+                color: #333;
+                font-weight: 700;
+            }
+            view:last-child {
+                color: #333;
+                font-size: 26rpx;
+            }
+        }
+        .single:last-child {
+            border-bottom: 0;
+        }
+    }
+    .nothing {
+        background-color: #f2f2f2;
+        padding-top: calc(~"(100% - 103px)/2");
+        box-sizing: border-box;
+        image {
+            margin: 0 auto;
+            display: block;
+        }
+        view {
+            width: 100%;
+            text-align: center;
+        }
         view:first-child {
-            .fl();
-            font-weight: 600;
-            font-size: 30rpx;
-            width: 70%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            color: #6a6a6a;
+            font-size: 28rpx;
         }
         view:last-child {
-            .fr();
-            color: #2395ff;
-            font-size: 26rpx;
+            color: #999;
+            font-size: 24rpx;
         }
     }
 }

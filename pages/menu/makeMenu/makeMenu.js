@@ -6,7 +6,7 @@ Page({
     onShow () {
 
     },
-    onLoad (options) {
+    onLaunch (options) {
         this.setData({
             id: option.id
         })

@@ -3,7 +3,7 @@ let Mock = require("../../utils/mock")
 let app = getApp();
 Page({
     data: {
-        address: "未能获取地址...",
+        address: app.globalData.address,
         latitude: "",
         longitude: "",
         type: [],
@@ -12,7 +12,7 @@ Page({
         intro2: [],
         a_top: [],
         a_bottom: [],
-        winHeight: "",
+        winHeight: app.globalData.winHeight,
         position: "",
         top: 10,
         bottom: 10,
@@ -27,15 +27,7 @@ Page({
         iden: false,
         meg: ""
     },
-    onLoad () {//当小程序初始化完成时，全局触发一次
-        let that = this;
-        wx.getSystemInfo({
-            success (res) {
-                that.setData({
-                    winHeight: res.screenHeight
-                })
-            }
-        })
+    onLaunch () {//当小程序初始化完成时，全局触发一次
     },
     onShow () {//当小程序启动 或者从后台进入前台时显示
         let that = this;
@@ -92,36 +84,7 @@ Page({
             a_top: a_top,
             a_bottom: a_bottom,
             shop_intro: shop_intro,
-        })
-        let BMap = new bmap.BMapWX({
-            ak: "4X4uPt3XfLVMg18PlnEQxYvbpz1GFWK2"
-        })
-        BMap.search({
-            fail (data) {
-            },
-            success (data) {
-                let wxMarkerData =  data.wxMarkerData;
-                that.setData({
-                    address: wxMarkerData[1].address
-                })
-            }
-        })
-        wx.getLocation({
-            type: "wgs84",
-            success (res) {
-                wx.request({
-                    url: "https://api.map.baidu.com/geocoder/v2/",
-                    data: {
-                        location: res.latitude + "," + res.longitude,
-                        output: "json",
-                        ak: "4X4uPt3XfLVMg18PlnEQxYvbpz1GFWK2"
-                    },
-                    success (res) {
-                        console.log(res)
-                        let add = res.data.result.addressComponent.city.substr(0,res.data.result.addressComponent.city.length-1);
-                    }
-                })
-            }
+            address: app.globalData.address
         })
     },
     onHide () {//当小程序从前台进入后台时
@@ -146,7 +109,6 @@ Page({
         })
     },
     clickWidth (e) {
-        console.log(e)
     },
     scrollDown (e) {
         if(e.detail.scrollTop >= 26) {

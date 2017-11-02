@@ -1,0 +1,14 @@
+<view class="makeMenu">
+    <view class="search">
+        <view class="left">{{"<"}}</view>
+        <view>
+            <view></view>
+            <input type="" placeholder="" auto-focus password />
+        </view>
+        <view>搜索</view>
+    </view>
+    <view class="hot">
+        <view>热门搜索</view>
+        <view wx:for="{{hotMenu}}"></view>
+    </view>
+</view>

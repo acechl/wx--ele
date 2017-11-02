@@ -30,6 +30,7 @@
 }
 .setAddress {
   background-color: #f2f2f2;
+  overflow: hidden;
 }
 .setAddress .input {
   background-color: #fff;
@@ -41,8 +42,13 @@
   width: 100%;
   position: relative;
 }
-.setAddress .input .inner input {
+.setAddress .input .inner .in {
+  position: relative;
   width: 75%;
+  display: inline-block;
+}
+.setAddress .input .inner input {
+  width: 100%;
   background-color: #f4f4f4;
   padding-left: 30px;
   box-sizing: border-box;
@@ -60,8 +66,10 @@
   line-height: 40px;
   background-color: #2395ff;
   color: #fff;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-.setAddress .input .inner view {
+.setAddress .input .inner .icon {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAeCAYAAADdGWXmAAAAAXNSR0IArs4c6QAAA7VJREFUSA21lltIk2EYx923eZiFzU6YdRMF0U1RGaVptOk6QkYUQkgXEZVEIN1oFkglIgWGoZfdFBSU0cGEQKckBRJ2kWUoiy5WqSW1wmyJh/V7Pr93rK0xp/OFh+f9nsP//77Pe/pMCVGay+Xa6Pf7CxGHyWRaQXgG/d/ofr57kcdWq7U5JyfnexSoBFOkgJaWllyArgCcHSlG2Yn7Q7/ObDbX2O32H8oeqsPIurq6Er1e73UCT0kwQF9QjZqmNdHvoz+YnJycOjIyshzbtsnJyQPYdzIowRrCdig/P7+Dflj7h6y9vX3+xMREE4k7APChq9PT02uzsrKkbBEbVdhAfK2RN4Y+7nQ6b4YmBMgIMLE+D9CFJH5mhIUOh+NVaEKkb/I08qvRZeSPk7+bfFdwvKY+2traKgyib9i2x0IkGBBMFhQUlKMvg2OhvPc6OjqWKXzROhnly8B5TjdoWhFJH4KDYumzXpXEN0OYPjo6ejE4VyeDqALjPEbVGDr14ODp9MHwWyyWUvQY8cco7SqVpzECDbIiMdC/pByz0Wz/9+TfRsxgH1ZYGmu1lY+liJsd9EY5ZquZ2X0Do1BhyazWywfONmWMh2Y3ths46xQeNi1TPijhJ2WMh6aUv8D5iaRyDhcIpmwQvYMWR1wb1dKvLiZkE2Ap41e9o2mybvFuOiYX9RQH6P3CQBlXxpNJzi6YVpkdL4JPsDVu6hcGyS6c5ngRUrE9BtZzhak5HA65yXshWswBdCrHbDV4RwSDmT1SWPoNwgLeMAxVBAUuZxUUq25tbbWDUyAlTEpKUudt6m6ErB7AjwRsIrA0VvDg+M7OzjRwGsQGWU1eXp5X+fWZcSbkpT2D04++yrnYpwJi0T09PUnDw8N3yFkLVjeTqAvO18nEwFUltZUb20zgQwhLxD7dxnOyZGBgoJX4vcgQGPuNSQQgwtYHkiq8540IF7u1jE0U8RF1u93JHo+nhNJdQBaR5yFnPzmvAyxGJ4xM7KybvAINRrKY3iJPKEsftkF0KjoTyUVki6dJELNp4QAX+3y+euzjPDVHmd24+KT9l0wcxn1WTvcEslBskRokL/FV8ug+lRhy3ajVDOoaj+lZsUmLSDblTkjgJrDwE5QHoIPRhv03YmtivT0qXjSVyUY9w5dISYso6V2xRyWToJk0CE9DVs8g5fbfwqzfzRmZDBDCWxAWQ9iXkpKyObD1ZzL6aDk2m+0kRN0QrmHT1M0pmfzcQnYQGUQyog0uLn42WQqzM/0FXTKWPLk7ay8AAAAASUVORK5CYII=");
   background-size: 100%;
   width: 16px;
@@ -70,16 +78,24 @@
   top: 12px;
   left: 10px;
 }
-.setAddress .local {
+.setAddress .input .inner .delete {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 30rpx;
+  color: #2395ff;
+  z-index: 99;
+}
+.setAddress .location .local {
   padding: 10px 20px;
   color: #666;
 }
-.setAddress .again {
-  padding: 0 20px;
+.setAddress .location .again {
+  padding: 20px;
   margin-top: 10px;
-  background: #fff;
+  background-color: #fff;
 }
-.setAddress .again view:first-child {
+.setAddress .location .again view:first-child {
   float: left;
   font-weight: 600;
   font-size: 30rpx;
@@ -88,8 +104,48 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.setAddress .again view:last-child {
+.setAddress .location .again view:last-child {
   float: right;
   color: #2395ff;
   font-size: 26rpx;
+}
+.setAddress .address {
+  background-color: #fff;
+}
+.setAddress .address .single {
+  border-bottom: 1px solid #eee;
+  padding: 10px 20px;
+}
+.setAddress .address .single view:first-child {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 700;
+}
+.setAddress .address .single view:last-child {
+  color: #333;
+  font-size: 26rpx;
+}
+.setAddress .address .single:last-child {
+  border-bottom: 0;
+}
+.setAddress .nothing {
+  background-color: #f2f2f2;
+  padding-top: calc((100% - 103px)/2);
+  box-sizing: border-box;
+}
+.setAddress .nothing image {
+  margin: 0 auto;
+  display: block;
+}
+.setAddress .nothing view {
+  width: 100%;
+  text-align: center;
+}
+.setAddress .nothing view:first-child {
+  color: #6a6a6a;
+  font-size: 28rpx;
+}
+.setAddress .nothing view:last-child {
+  color: #999;
+  font-size: 24rpx;
 }

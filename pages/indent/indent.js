@@ -3,7 +3,7 @@ Page({
     data: {
 
     },
-    onLoad () {
+    onLaunch () {
         
     }
 })
