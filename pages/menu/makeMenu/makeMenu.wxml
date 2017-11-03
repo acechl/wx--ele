@@ -1,14 +1,26 @@
 <view class="makeMenu">
     <view class="search">
         <view class="left">{{"<"}}</view>
-        <view>
-            <view></view>
-            <input type="" placeholder="" auto-focus password />
+        <view class="input">
+            <view class="icon"></view>
+            <input type="text" placeholder="输入商家、商品名称" bindinput="searchInput" bindfocus="searchFocus" bindblur="searchBlur" value="{{value}}"/>
+            <view class="delete" wx:if="{{delete}}" bindtap="searchDelete">x</view>
         </view>
-        <view>搜索</view>
+        <view class="click" bindtap="searchItem">搜索</view>
+    </view>
+    <view class="history" wx:if="{{history.type[0]}}">
+        <view class="clearfix">
+            <view class="title">历史搜索</view>
+            <view class="empty" bindtap="historyEmpty">清空</view>
+        </view>
+        <view class="content clearfix">
+            <view wx:for="{{history.type}}" class="single">{{item.name}}</view>
+        </view>
     </view>
     <view class="hot">
-        <view>热门搜索</view>
-        <view wx:for="{{hotMenu}}"></view>
+        <view class="title">热门搜索</view>
+        <view class="content clearfix">
+            <view wx:for="{{hot.type}}" class="single">{{item.name}}</view>
+        </view>
     </view>
 </view>

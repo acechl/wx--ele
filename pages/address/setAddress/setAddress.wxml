@@ -1,13 +1,13 @@
-<view class="setAddress" style="height:100%">
+<view class="setAddress" style="height:{{winHeight}}px">
     <import src="../../../template/header/header.wxml"/>
     <template is="header" data="{{title:'选择收货地址'}}"></template>
     <view class="input">
         <view class="inner">
            <view class="in">
-        <view class="icon"></view>
-        <input type="text" placeholder="请输入地址" bindinput="searchInput" value="{{value}}" bindfocus="searchFocus" bindblur="searchBlur"/>
-        <view class="delete" wx:if="{{delete}}" bindtap="deleteAll">x</view>
-    </view>
+                <view class="icon"></view>
+                <input type="text" placeholder="请输入地址" bindinput="searchInput" value="{{value}}" bindfocus="searchFocus" bindblur="searchBlur"/>
+                <view class="delete" wx:if="{{delete}}" bindtap="deleteAll">x</view>
+            </view>
             <button type="default" size="mini" bindtap="searchAddress">搜索</button>
         </view>
     </view>

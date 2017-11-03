@@ -1,0 +1,126 @@
+.p20 () {
+    padding: 0 10px;
+}
+.fl () {
+    float: left;
+}
+.fr () {
+    float: right;
+}
+.makeMenu {
+    padding-top: 10px;
+    .p20();
+    width: 100%;
+    box-sizing: border-box;
+    .search {
+        width: 100%;
+        position: relative;
+        height: 40px;
+        margin-bottom: 10px;
+        .left {
+            position: absolute;
+            width: 30px;
+            text-align: left;
+            height: 40px;
+            line-height: 40px;
+            top: 0;
+            left: 0px;
+            font-size: 30rpx;
+            font-family: Consolas;
+        }
+        .input {
+            width: 100%;
+            padding-left: 30px;
+            padding-right: 50px;
+            box-sizing: border-box;
+            position: relative;
+            input {
+                width: 100%;
+                color: #666;
+                background-color: #f8f8f8;
+                height: 40px;
+                line-height: 40px;
+                padding-left: 30px;
+                box-sizing: border-box;
+            }
+            .icon {
+                background: data-uri("../../../images/search.png");
+                background-size: 100%;
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                top: 12px;
+                left: 40px;
+            }
+            .delete {
+                position: absolute;
+                top: 0;
+                width: 40px;
+                height: 40px;
+                right: 50px;
+                text-align: center;
+                line-height: 40px;
+                color: #0085ff;
+                font-size: 30rpx;
+                z-index: 99;
+            }
+        }
+        .click {
+            position: absolute;
+            width: 50px;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            top: 0;
+            right: 0;
+        }
+    }
+    .hot {
+        .title {
+            font-size: 30rpx;
+            font-weight: 400;
+            height: 30px;
+            line-height: 30px;
+        }
+        .content {
+            .single {
+                .fl();
+                color: #666;
+                background-color: #f7f7f7;
+                padding: 5px;
+                margin-left: 30rpx;
+                margin-bottom: 30rpx;
+                border-radius: 5rpx;
+            }
+        }
+    }
+    .history {
+        .title {
+            .fl();
+            font-size: 30rpx;
+            font-weight: 400;
+            height: 30px;
+            line-height: 30px;
+        }
+        .empty {
+            .fr();
+            color: #04BE02;
+            font-size: 26rpx;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .content {
+            .single {
+                .fl();
+                color: #666;
+                background-color: #f7f7f7;
+                padding: 5px;
+                margin-left: 30rpx;
+                margin-bottom: 30rpx;
+                border-radius: 5rpx;
+            }
+        }
+    }
+}

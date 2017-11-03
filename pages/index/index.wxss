@@ -1,4 +1,3 @@
-@import "../../template/star/star.wxss";
 .clearfix::before,
 .clearfix::after {
   height: 0;

@@ -8,12 +8,21 @@ Page({
         value: "",
         delete: false,
         search: false,
-        winHeight: app.globalData.winHeight,
+        winHeight: 0,
         addressArray: {"type":[]}
     },
     onShow () {
+        let that = this;
         this.setData({
             address: app.globalData.address
+        })
+        wx.getSystemInfo({
+            success (res) {
+                that.setData({
+                    winHeight: res.windowHeight
+                })
+                app.globalData.winHeight = res.winHeight;
+            }
         })
     },
     goBack () {
@@ -132,6 +141,6 @@ Page({
         this.setData({
             value: ""
         })
-        // methods.deleteAll(this)
-    }
+    },
+   
 })
