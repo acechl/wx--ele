@@ -23,8 +23,8 @@ App({
         that.globalData.address = wxMarkerData[1].address;
       }
     })
-      var res = wx.getSystemInfoSync();
-      this.globalData.winHeight = res.windowHeight;
+      // var res = wx.getSystemInfoSync();
+      // this.globalData.winHeight = res.windowHeight;
   },
   getUserInfo:function(cb){
     var that = this

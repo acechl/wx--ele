@@ -9,3 +9,22 @@ page {
   visibility: hidden;
   display: block;
 }
+.arrow {
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #868686;
+  margin-right: 4px;
+}
+.arrow_up {
+  transform: rotate(180deg);
+}
+.bg {
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  position: absolute;
+  top: 101px;
+  left: 0;
+}

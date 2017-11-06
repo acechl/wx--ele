@@ -12,7 +12,7 @@ Page({
         intro2: [],
         a_top: [],
         a_bottom: [],
-        winHeight: app.globalData.winHeight,
+        winHeight: 0,
         position: "",
         top: 10,
         bottom: 10,
@@ -77,6 +77,14 @@ Page({
             ]
         })
         this.changeLength(shop_intro.type);
+        wx.getSystemInfo({
+            success (res) {
+                console.log(res.windowHeight)
+                that.setData({
+                    winHeight: res.windowHeight
+                })
+            }
+        });
         this.setData({
             type: data,
             intro1: introduce.type.slice(0,8),
@@ -85,7 +93,7 @@ Page({
             a_bottom: a_bottom,
             shop_intro: shop_intro,
             address: app.globalData.address
-        })
+        });
     },
     onHide () {//当小程序从前台进入后台时
 

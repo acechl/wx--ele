@@ -1,11 +1,11 @@
 .makeMenu {
   padding-top: 10px;
-  padding: 0 10px;
   width: 100%;
-  box-sizing: border-box;
 }
 .makeMenu .search {
   width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
   position: relative;
   height: 40px;
   margin-bottom: 10px;
@@ -17,7 +17,7 @@
   height: 40px;
   line-height: 40px;
   top: 0;
-  left: 0px;
+  left: 10px;
   font-size: 30rpx;
   font-family: Consolas;
 }
@@ -67,6 +67,10 @@
   top: 0;
   right: 0;
 }
+.makeMenu .hot {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
 .makeMenu .hot .title {
   font-size: 30rpx;
   font-weight: 400;
@@ -78,9 +82,13 @@
   color: #666;
   background-color: #f7f7f7;
   padding: 5px;
-  margin-left: 30rpx;
+  margin-right: 30rpx;
   margin-bottom: 30rpx;
   border-radius: 5rpx;
+}
+.makeMenu .history {
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 .makeMenu .history .title {
   float: left;
@@ -106,4 +114,196 @@
   margin-left: 30rpx;
   margin-bottom: 30rpx;
   border-radius: 5rpx;
+}
+.makeMenu .select {
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #ddd;
+}
+.makeMenu .select .title {
+  border-bottom: 1px solid #ddd;
+}
+.makeMenu .select .title view {
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  border-right: 1px solid #ddd;
+  box-sizing: border-box;
+}
+.makeMenu .select .title view:last-child {
+  border-right: none;
+}
+.makeMenu .select .title .selected {
+  color: #3190e8;
+}
+.makeMenu .select .title .tran_selected {
+  border-top: 7px solid #3190e8;
+}
+.makeMenu .select .title text {
+  margin-left: 3px;
+}
+.makeMenu .select .content .classify_content {
+  font-size: 28rpx;
+  height: 400px;
+  overflow: auto;
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  z-index: 11;
+}
+.makeMenu .select .content .classify_content .left {
+  width: 40%;
+  background-color: #fafafa;
+  color: #666;
+  float: left;
+}
+.makeMenu .select .content .classify_content .left .c_c view {
+  float: left;
+}
+.makeMenu .select .content .classify_content .left .c_c view:first-child {
+  height: 50px;
+  line-height: 50px;
+  margin-left: 20px;
+}
+.makeMenu .select .content .classify_content .left .c_c view:last-child {
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  margin-top: 15px;
+  float: right;
+  margin-right: 20px;
+  padding: 1px 5px;
+}
+.makeMenu .select .content .classify_content .left .c_s {
+  background-color: #fff;
+}
+.makeMenu .select .content .classify_content .left .s_s view:last-child {
+  background-color: #fff;
+}
+.makeMenu .select .content .classify_content .right {
+  width: 60%;
+  float: right;
+}
+.makeMenu .select .content .classify_content .right .c_c view {
+  height: 50px;
+  line-height: 50px;
+  font-size: 28rpx;
+  color: #666;
+}
+.makeMenu .select .content .classify_content .right .c_c view:first-child {
+  float: left;
+  margin-left: 20px;
+}
+.makeMenu .select .content .classify_content .right .c_c view:last-child {
+  float: right;
+  margin-right: 20px;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 1px 5px;
+}
+.makeMenu .select .content .rank_content {
+  position: relative;
+  z-index: 11;
+  width: 100%;
+  height: 200px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.makeMenu .select .content .rank_content view {
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  padding-left: 10px;
+}
+.makeMenu .select .content .rank_content view:last-child {
+  border: none;
+}
+.makeMenu .select .content .selection_content {
+  background-color: #fafafa;
+  position: relative;
+  z-index: 11;
+}
+.makeMenu .select .content .selection_content .title {
+  padding-left: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 30px;
+  line-height: 30px;
+  color: #666;
+  font-size: 28rpx;
+  border: none;
+}
+.makeMenu .select .content .selection_content .content {
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.makeMenu .select .content .selection_content .content > view {
+  float: left;
+  width: calc(33.33% + 1px);
+  padding: 0 20px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: -1px;
+  margin-left: -1px;
+  text-align: left;
+  height: 35px;
+  line-height: 35px;
+  font-size: 28rpx;
+}
+.makeMenu .select .content .selection_content .content > view:first-child,
+.makeMenu .select .content .selection_content .content > view:nth-child(2),
+.makeMenu .select .content .selection_content .content > view:nth-child(3) {
+  border-top: none;
+}
+.makeMenu .select .content .selection_content .content > view:nth-child(3n) {
+  border-right: none;
+}
+.makeMenu .select .content .selection_content .thild .content > view,
+.makeMenu .select .content .selection_content .forth .content > view {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.makeMenu .select .content .selection_content .thild .content > view text:first-child,
+.makeMenu .select .content .selection_content .forth .content > view text:first-child {
+  border-radius: 2px;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  width: 16px;
+  text-align: center;
+  margin-right: 4px;
+}
+.makeMenu .select .content .selection_content .fifth {
+  padding: 0 10px;
+  margin: 10px 0 20px 0;
+}
+.makeMenu .select .content .selection_content .fifth button {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  display: inline-block;
+  width: calc((100% - 20px)/2);
+}
+.makeMenu .select .content .selection_content .fifth button:first-child {
+  margin-right: 20px;
+  color: #333;
+  border: 1px solid #ddd;
+}
+.makeMenu .select .content .selection_content .fifth button:last-child {
+  background-color: #56d176;
+  border: 1px solid #56d176;
+  border-radius: 5px;
+  color: #fff;
 }

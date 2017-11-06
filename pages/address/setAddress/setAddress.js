@@ -21,7 +21,6 @@ Page({
                 that.setData({
                     winHeight: res.windowHeight
                 })
-                app.globalData.winHeight = res.winHeight;
             }
         })
     },
