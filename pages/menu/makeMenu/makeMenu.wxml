@@ -1,6 +1,6 @@
 <view class="makeMenu">
     <view class="search">
-        <view class="left">{{"<"}}</view>
+        <view class="left" bindtap="goBack">{{"<"}}</view>
         <view class="input">
             <view class="icon"></view>
             <input type="text" placeholder="输入商家、商品名称" bindinput="searchInput" bindfocus="searchFocus" bindblur="searchBlur" value="{{value}}"/>
@@ -8,7 +8,7 @@
         </view>
         <view class="click" bindtap="searchItem">搜索</view>
     </view>
-    <view class="history" wx:if="{{history.type[0]}}">
+    <view class="history" wx:if="{{history.type[0] && !search}}">
         <view class="clearfix">
             <view class="title">历史搜索</view>
             <view class="empty" bindtap="historyEmpty">清空</view>
@@ -17,10 +17,67 @@
             <view wx:for="{{history.type}}" class="single">{{item.name}}</view>
         </view>
     </view>
-    <view class="hot">
+    <view class="hot" wx:if="{{!search}}">
         <view class="title">热门搜索</view>
         <view class="content clearfix">
             <view wx:for="{{hot.type}}" class="single">{{item.name}}</view>
         </view>
     </view>
+    <view class="select">
+        <view class="classify">
+            <view>分类<view class="triangle"></view></view>
+            <view class="content">
+                <view class="left">
+                    <view wx:for="{{classify_left.type}}">
+                        <view>{{item.name}}</view>
+                        <view>{{item.num}}</view>
+                    </view>
+                </view>
+                <view class="right">
+                   <view wx:for="{{classify_right.type}}">
+                        <image src="{{item.img}}"/>
+                        <view>{{item.name}}</view>
+                        <view>{{item.num}}</view>
+                   </view>
+                </view>
+            </view>
+        </view>
+        <view class="rank">
+            <view wx:for="{{rank_type.type}}">{{item.name}}</view>
+        </view>
+        <view class="selection">
+            <view class="first">
+                <view>配送方式</view>
+                <view>
+                    <view wx:for="{{send_type.type}}">{{item.name}}</view>
+                </view>
+            </view>
+            <view class="second">
+                <view>人均消费</view>
+                <view>
+                    <view wx:for="{{consume.type}}">￥{{item.name}}</view>
+                </view>
+            </view>
+            <view class="thild">
+                <view>优惠活动</view>
+                <view wx:for="{{activity_type}}">
+                    <view>{{item.title}}</view>
+                    <view>{{item.name}}</view>
+                </view>
+            </view>
+            <view class="forth">
+                <view>商家属性(可多选)</view>
+                <view wx:for="{{shop.type}}">
+                    <view>{{item.title}}</view>
+                    <view>{{item.name}}</view>
+                </view>
+            </view>
+            <view class="fifth">
+                <view>清空</view>
+                <view>确定</view>
+            </view>
+        </view>
+    </view>
+    <view class="filtrate"></view>
+    <view class="food_intro"></view>
 </view>
