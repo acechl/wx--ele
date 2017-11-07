@@ -307,3 +307,7 @@
   border-radius: 5px;
   color: #fff;
 }
+.makeMenu .select .content .selection_content .choosed {
+  color: #3190e8;
+  background-color: #edf5ff;
+}

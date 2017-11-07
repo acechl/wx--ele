@@ -52,19 +52,19 @@
                 <view class="first">
                     <view class="title">配送方式</view>
                     <view class="content clearfix">
-                        <view wx:for="{{send_type.type}}">{{item.name}}</view>
+                        <view wx:for="{{send_type.type}}" bindtap="itemTap" data-id="{{item.id}}" data-attr="send_type" wx:for-index="idx" data-index="{{idx}}" class="{{selected[send_type][idx]?'choosed':''}}">{{item.name}}</view>
                     </view>
                 </view>
                 <view class="second">
                     <view class="title">人均消费</view>
                     <view class="content clearfix">
-                        <view wx:for="{{consume.type}}">￥{{item.name}}</view>
+                        <view wx:for="{{consume.type}}" bindtap="itemTap" data-id="{{item.id}}" data-attr="{{consume}}" wx:for-index="idx" data-index="{{idx}}" class="{{selected[consume][idx]?'choosed':''}}">￥{{item.name}}</view>
                     </view>
                 </view>
                 <view class="thild">
                     <view class="title">优惠活动</view>
                     <view class="content clearfix">
-                        <view wx:for="{{activity_type.type}}">
+                        <view wx:for="{{activity_type.type}}" bindtap="itemTap" data-id="{{item.id}}" data-attr="{{activity_type}}" wx:for-index="idx" data-index="{{idx}}" class="{{selected[activity_type][idx]?'choosed':''}}">
                             <text style="background-color:{{item.color}};color:#fff">{{item.title}}</text>
                             <text>{{item.name}}</text>
                         </view>
@@ -73,7 +73,7 @@
                 <view class="forth">
                     <view class="title">商家属性(可多选)</view>
                     <view  class="content clearfix">
-                        <view wx:for="{{shop_attr.type}}">
+                        <view wx:for="{{shop_attr.type}}" bindtap="itemTap" data-id="{{item.id}}" data-attr="shop_attr" wx:for-index="idx" data-index="{{idx}}" class="{{selected[shop_attr][idx]?'choosed':''}}">
                             <text style="color:{{item.color}};border:1px solid {{item.color}}">{{item.title}}</text>
                             <text>{{item.name}}</text>
                         </view>

@@ -16,7 +16,8 @@ Page({
         selection: [],
         winHeight: 0,
         last: "",
-        selected: {}
+        selected: {},
+        choosed: {"send_type":[],"consume":[],"activity_type":[],"shop_attr":[]}
     },
     onShow () {
         let winHeight = 0;
@@ -112,6 +113,23 @@ Page({
                 {"title":"付","name":"在线支付","color":"rgb(255, 78, 0)","id":14}
             ]
         });
+        let selected = {"send_type":[],"consume":[],"activity_type":[],"shop_attr":[]};
+        send_type.type.forEach((value,index,arr)=>{
+            // selected.send_type[index] = arr[index].id;
+            selected.send_type[index] = undefined;
+        })
+        consume.type.forEach((value,index,arr)=>{
+            // selected.consume[index] = arr[index].id;
+            selected.consume[index] = undefined;
+        })
+        activity_type.type.forEach((value,index,arr)=>{
+            // selected.activity_type[index] = arr[index].id;
+            selected.activity_type[index] = undefined;
+        })
+        shop_attr.type.forEach((value,index,arr)=>{
+            // selected.shop_attr[index] = arr[index].id;
+            selected.shop_attr[index] = undefined;
+        })
         let history = wx.getStorageSync("history") || {"type":[]};
         this.setData({
             hot: hot,
@@ -124,7 +142,9 @@ Page({
             activity_type: activity_type,
             shop_attr: shop_attr,
             selection: selection,
-            winHeight: winHeight
+            winHeight: winHeight,
+            selected: selected
+
         });
         
     },
@@ -231,5 +251,28 @@ Page({
         this.setData({
             show: show
         })
+    },
+    itemTap (e) {
+        let choosed = this.data.selected;
+        if(e.currentTarget.dataset.attr != "shop_attr"){//当为单选时
+            if(choosed[e.currentTarget.dataset.attr].indexOf(e.currentTarget.dataset.id) != -1){//存在
+                choosed[e.currentTarget.dataset.attr][e.currentTarget.dataset.index] = undefined;
+            }else {//不存在
+                choosed[e.currentTarget.dataset.attr].forEach((value,index,arr)=>{
+                    choosed[e.currentTarget.dataset.attr][index] = undefined;
+                })
+                choosed[e.currentTarget.dataset.attr][e.currentTarget.dataset.index] = e.currentTarget.dataset.id
+            }
+        }else {//当为多选时
+            if(choosed[e.currentTarget.dataset.attr].indexOf(e.currentTarget.dataset.id) != -1){//存在
+                choosed[e.currentTarget.dataset.attr][e.currentTarget.dataset.index] = undefined;
+            }else {//不存在
+                choosed[e.currentTarget.dataset.attr][e.currentTarget.dataset.index] = e.currentTarget.dataset.id
+            }
+        }
+        this.setData({
+            selected: choosed
+        })
+        console.log(choosed);
     }
 })
