@@ -4,18 +4,20 @@
 }
 .makeMenu .search {
   width: 100%;
+  background-color: #fff;
+  z-index: 13;
   padding: 0 10px;
   box-sizing: border-box;
-  position: relative;
-  height: 40px;
-  margin-bottom: 10px;
+  position: fixed;
+  height: 30px;
+  margin-top: -10px;
 }
 .makeMenu .search .left {
   position: absolute;
   width: 30px;
   text-align: left;
-  height: 40px;
-  line-height: 40px;
+  height: 30px;
+  line-height: 30px;
   top: 0;
   left: 10px;
   font-size: 30rpx;
@@ -32,8 +34,8 @@
   width: 100%;
   color: #666;
   background-color: #f8f8f8;
-  height: 40px;
-  line-height: 40px;
+  height: 30px;
+  line-height: 30px;
   padding-left: 30px;
   box-sizing: border-box;
 }
@@ -43,14 +45,14 @@
   width: 16px;
   height: 16px;
   position: absolute;
-  top: 12px;
+  top: 8px;
   left: 40px;
 }
 .makeMenu .search .input .delete {
   position: absolute;
   top: 0;
   width: 40px;
-  height: 40px;
+  height: 30px;
   right: 50px;
   text-align: center;
   line-height: 40px;
@@ -62,8 +64,8 @@
   position: absolute;
   width: 50px;
   text-align: center;
-  height: 40px;
-  line-height: 40px;
+  height: 30px;
+  line-height: 30px;
   top: 0;
   right: 0;
 }
@@ -118,10 +120,11 @@
 .makeMenu .select {
   width: 100%;
   box-sizing: border-box;
-  border-top: 1px solid #ddd;
+  z-index: 12;
+  background-color: #fff;
 }
 .makeMenu .select .title {
-  border-bottom: 1px solid #ddd;
+  width: 100%;
 }
 .makeMenu .select .title view {
   float: left;
@@ -129,7 +132,6 @@
   text-align: center;
   height: 30px;
   line-height: 30px;
-  border-right: 1px solid #ddd;
   box-sizing: border-box;
 }
 .makeMenu .select .title view:last-child {
@@ -144,6 +146,9 @@
 .makeMenu .select .title text {
   margin-left: 3px;
 }
+.makeMenu .select .content {
+  width: 100%;
+}
 .makeMenu .select .content .classify_content {
   font-size: 28rpx;
   height: 400px;
@@ -152,6 +157,7 @@
   background-color: #fff;
   position: relative;
   z-index: 11;
+  border-top: 1px solid #ddd;
 }
 .makeMenu .select .content .classify_content .left {
   width: 40%;
@@ -215,6 +221,7 @@
   padding-left: 20px;
   box-sizing: border-box;
   background-color: #fff;
+  border-top: 1px solid #ddd;
 }
 .makeMenu .select .content .rank_content view {
   border-bottom: 1px solid #ddd;
@@ -231,6 +238,10 @@
   background-color: #fafafa;
   position: relative;
   z-index: 11;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  border-top: 1px solid #ddd;
+  width: 100%;
 }
 .makeMenu .select .content .selection_content .title {
   padding-left: 20px;
@@ -287,7 +298,7 @@
 }
 .makeMenu .select .content .selection_content .fifth {
   padding: 0 10px;
-  margin: 10px 0 20px 0;
+  margin-top: 10px;
 }
 .makeMenu .select .content .selection_content .fifth button {
   height: 30px;
@@ -310,4 +321,108 @@
 .makeMenu .select .content .selection_content .choosed {
   color: #3190e8;
   background-color: #edf5ff;
+}
+.makeMenu .filtrate {
+  width: 100%;
+  padding: 0 10px;
+  padding-top: 70px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.makeMenu .filtrate scroll-view {
+  width: 100%;
+  height: 25px;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.makeMenu .filtrate .single {
+  display: inline-block;
+  background-color: #f5f5f5;
+  color: #666;
+  padding: 0 5px;
+  height: 25px;
+  line-height: 25px;
+  margin-right: 8px;
+}
+.makeMenu .food_intro {
+  background-color: #f5f5f5;
+  font-size: 24rpx;
+  color: #666;
+}
+.makeMenu .food_intro .single {
+  padding: 0 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  padding-top: 10px;
+}
+.makeMenu .food_intro .single .shop_detail {
+  position: relative;
+  border-bottom: 1px solid rgba(227, 227, 227, 0.5);
+  padding-bottom: 10px;
+}
+.makeMenu .food_intro .single .shop_detail image {
+  float: left;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+}
+.makeMenu .food_intro .single .shop_detail > view {
+  float: right;
+  padding-left: 52px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.makeMenu .food_intro .single .shop_detail > view .top {
+  color: #333;
+  font-size: 34rpx;
+}
+.makeMenu .food_intro .single .shop_detail > view .bottom view:first-child {
+  float: left;
+}
+.makeMenu .food_intro .single .shop_detail > view .bottom view:last-child {
+  float: right;
+  margin-right: 10px;
+}
+.makeMenu .food_intro .single .food_detail {
+  width: 100%;
+  border-bottom: 1px solid rgba(227, 227, 227, 0.5);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.makeMenu .food_intro .single .food_detail .contents {
+  padding: 10px 0;
+  position: relative;
+  width: 100%;
+}
+.makeMenu .food_intro .single .food_detail image {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 10px;
+}
+.makeMenu .food_intro .single .food_detail .content {
+  width: 100%;
+  padding-left: 70px;
+  box-sizing: border-box;
+}
+.makeMenu .food_intro .single .food_detail .content view:first-child {
+  font-size: 34rpx;
+  color: #333;
+}
+.makeMenu .food_intro .single .food_detail .content view:nth-child(2) {
+  color: #666;
+  height: 26px;
+  line-height: 26px;
+}
+.makeMenu .food_intro .single .food_detail .content view:last-child {
+  color: #ff5339;
+  font-size: 28rpx;
+}
+.makeMenu .food_intro .single .more {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
 }

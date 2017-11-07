@@ -136,7 +136,6 @@ Page({
                 m_top: 0
             })
         }
-
     },
     scrollToLower (e) {
         let shop1_intro = Mock.mock({
