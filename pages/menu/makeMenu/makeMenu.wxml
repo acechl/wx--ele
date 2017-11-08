@@ -1,4 +1,4 @@
-<view class="makeMenu">
+<view class="makeMenu" style="{{(show.classify || show.rank || show.selection)?'overflow:hidden;height:'+winHeight+'px':''}}">
     <view class="search">
         <view class="left" bindtap="goBack">{{"<"}}</view>
         <view class="input">

@@ -1,6 +1,7 @@
 .makeMenu {
   padding-top: 10px;
   width: 100%;
+  box-sizing: border-box;
 }
 .makeMenu .search {
   width: 100%;
@@ -328,6 +329,8 @@
   padding-top: 70px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
+  background-color: #fff;
+  z-index: 11;
 }
 .makeMenu .filtrate scroll-view {
   width: 100%;
@@ -425,4 +428,7 @@
   height: 30px;
   line-height: 30px;
   text-align: center;
+}
+.makeMenu .food_intro .single .more text {
+  margin-left: 5px;
 }
