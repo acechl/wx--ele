@@ -1,0 +1,32 @@
+@import "../../../template/header/header.less";
+@import "../../../template/classify/classify.less";
+@import "../../../template/activity/activity.less";
+.tabMenu {
+    .bg {
+        top: 70px;
+        z-index: 10;
+    }
+    .in_shop {
+        .single {
+            .content{
+                .forth{
+                    text {
+                        background: data-uri("../../../images/good.webp") !important;
+                    }
+                }
+            }
+        }
+    }
+    .select .content {
+        position: relative;
+        z-index: 12;
+    } 
+    .loading {
+        text-align: center;
+        height: 50rpx;
+        line-height: 50rpx;
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 26rpx;
+    }
+}

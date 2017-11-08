@@ -1,0 +1,62 @@
+<template name="classify">
+    <view class="title clearfix">
+        <view class="{{show.classify?'selected':''}} classity_title" bindtap="select_tap" data-attr="classify">分类<text class="{{show.classify?'arrow_up tran_selected':''}} arrow"></text></view>
+        <view class="{{show.rank?'selected':''}} rank_title" bindtap="select_tap" data-attr="rank">排序<text class="{{show.rank?'arrow_up tran_selected':''}} arrow"></text></view>
+        <view class="{{show.selection?'selected':''}} selection_title" bindtap="select_tap" data-attr="selection">筛选<text class="{{show.selection?'arrow_up tran_selected':''}} arrow"></text></view>
+    </view>
+    <view class="content">
+        <view class="classify_content clearfix" wx:if="{{show.classify}}">
+            <view class="left">
+                <view wx:for="{{classify_left.type}}" class="{{selection[index]?'c_s':'s_s'}} clearfix c_c" bindtap="classify_select" wx:for-index="index" data-index="{{index}}">
+                    <view>{{item.name}}</view>
+                    <view>{{item.num}}</view>
+                </view>
+            </view>
+            <view class="right">
+                <view wx:for="{{classify_right.type}}" class="clearfix c_c" wx:for-index="index" data-index="{{index}}" wx:if="{{!selection[0]}}" bindtap="go_select">
+                        <view>{{item.name}}</view>
+                        <view>{{item.num}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="rank_content" wx:if="{{show.rank}}">
+            <view wx:for="{{rank_type.type}}" bindtap="go_select">{{item.name}}</view>
+        </view>
+        <view class="selection_content" wx:if="{{show.selection}}">
+            <view class="first">
+                <view class="title">配送方式</view>
+                <view class="content clearfix">
+                    <view wx:for="{{send_type.type}}" bindtap="itemTap" data-id="{item.id}}" data-attr="send_type" wx:for-index="idx" data-index="{{idx}}" class="{{selected.send_type[idx]?'choosed':''}}">{{item.name}}</view>
+                </view>
+            </view>
+            <view class="second">
+                <view class="title">人均消费</view>
+                <view class="content clearfix">
+                    <view wx:for="{{consume.type}}" bindtap="itemTap" data-id="{{item.id}}" data-attr="consume" wx:for-index="idx" data-index="{{idx}}" class="{{selected.consume[idx]?'choosed':''}}">￥{{item.name}}</view>
+                </view>
+            </view>
+            <view class="thild">
+                <view class="title">优惠活动</view>
+                <view class="content clearfix">
+                    <view wx:for="{{activity_type.type}}" bindtap="itemTap" data-id="{{item.id}}" data-attr="activity_type" wx:for-index="idx" data-index="{{idx}}" class="{{selected.activity_type[idx]?'choosed':''}}">
+                        <text style="background-color:{{item.color}};color:#fff">{{item.title}}</text>
+                        <text>{{item.name}}</text>
+                    </view>
+            </view>
+        </view>
+            <view class="forth">
+                <view class="title">商家属性(可多选)</view>
+                <view  class="content clearfix">
+                    <view wx:for="{{shop_attr.type}}" bindtap="itemTap" data-id="{{item.id}}" data-attr="shop_attr" wx:for-index="idx" data-index="{{idx}}" class="{{selected.shop_attr[idx]?'choosed':''}}">
+                        <text style="color:{{item.color}};border:1px solid {{item.color}}">{{item.title}}</text>
+                        <text>{{item.name}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="fifth">
+                <button type="default" size="defaultSize" bindtap="clearTap">清空</button>
+                   <button type="default" size="defaultSize" bindtap="go_select">确定<text wx:if="{{num>0}}">({{num}})</text></button>
+                </view>
+            </view>
+        </view>
+</template>

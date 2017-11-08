@@ -1,3 +1,20 @@
-<scroll-view scroll-y="true" style="height: 100%" lower-threshold = "100" bindtolower = "lower" bindscroll = "scrollDown">
-    <view style="height:1000px;background:yellow"></view>
-</scroll-view>
+<view class="tabMenu" style="{{(show.classify || show.rank || show.selection)?'overflow:hidden;height:'+winHeight+'px':''}}">
+    <view class="bg" wx:if="{{show.classify || show.rank || show.selection}}" style="height:{{winHeight-70}}px" bindtap="go_select"></view>
+    <view class="header" style="position:fixed;top:0;z-index:1;">
+        <import src="../../../template/header/header.wxml"/>
+        <template is="header" data="{{title:title}}"></template>
+    </view>
+    <view class="select" style="position: fixed;top:40px;z-index:12;">
+        <import src="../../../template/classify/classify.wxml"/>
+        <template is="classify" data="{{show:show,classify_left:classify_left,selection:selection,classify_right:classify_right,rank_type:rank_type,send_type:send_type,selected:selected,consume:consume,activity_type:activity_type,shop_attr:shop_attr,num:num}}"></template>
+    </view>
+    <scroll-view scroll-y="true" style="height:{{winHeight}}px" lower-threshold="100" bindscrolltolower = "scrollToLower" bindscroll="scrollDown">
+        <view class="in_shop" style="padding-top: 70px">
+            <view>
+                <import src="../../../template/activity/activity.wxml"/>
+                <template is="activity" data="{{shop_intro:shop_intro,flag:flag}}"></template>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="loading" wx:if="{{meg!=''}}">{{meg}}</view>
+</view>

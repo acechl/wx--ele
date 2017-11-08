@@ -1,11 +1,47 @@
 <template name="activity">
-    <view class="fifth_left">
-        <view class="left_single" wx:for="{{discount}}" wx:for-item="items">
-            <text style="background:{{items.color}}" class="word">{{items.word}}</text>
-            {{items.name}}
+     <view wx:for="{{shop_intro.type}}" class="single" wx:for-index="idx">
+            <image src="{{item.img}}"></image>
+            <view class="content">
+                <view class="title clearfix">
+                    <view class="title_left">
+                        <text wx:if="{{item.brand == 1}}" class="brand">品牌</text>
+                        <text class="name">{{item.names}}</text>
+                    </view>
+                    <view class="title_right">
+                        <text wx:if="{{item.bao == 1}}" class="sure">保</text>
+                        <text wx:if="{{item.piao == 1}}" class="sure">票</text>
+                    </view>
+                </view>
+                <view class="second clearfix">
+                   <view class="second_left">
+                        <import src="../../template/star/star.wxml"></import>
+                        <template is="star" data="{{star:item.average}}"></template>
+                        <text class="average">{{item.average}}</text>
+                        <text>月售{{item.num}}单</text>
+                   </view>
+                   <view class="second_right" wx:if="{{item.send == 1}}">
+                        蜂鸟专送
+                   </view>
+                </view>
+                <view class="third clearfix">
+                    <view>￥{{item.fare}}起送 | 配送费￥{{item.fare1}}</view>
+                    <view>{{item.distance}} | {{item.time}}分钟</view>
+                </view>
+                <view class="forth" wx:if="{{item.good == 1}}">
+                    <text></text>
+                    口碑人气好店
+                </view>
+                <view class="fifth clearfix" style="max-height:{{flag[idx].height}}">
+                    <view class="fifth_left">
+                        <view class="left_single" wx:for="{{item.discount}}" wx:for-item="items">
+                            <text style="background:{{items.color}}" class="word">{{items.word}}</text>
+                            {{items.name}}
+                        </view>
+                    </view>
+                    <view class="fifth_right" wx:if="{{item.number >= 3}}" bindtap="tapRotate" data-index = "{{idx}}">{{item.number}}个活动
+                        <text class="arrow" style="transform: rotate({{flag[idx].deg}}deg)"></text>
+                    </view>
+                </view>
+            </view>
         </view>
-    </view>
-    <view class="fifth_right" wx:if="{{number >= 3}}" bindtap="tapRotate" data-index = "{{idx}}">{{number}}个活动
-        <text class="arrow" style="transform: rotate({{flag[idx].deg}}deg)"></text>
-    </view>
 </template>

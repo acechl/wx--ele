@@ -1,0 +1,5 @@
+<template name="noResult">
+    <view class="noResult">
+        <image src="{{image}}"></image>
+    </view>
+</template>

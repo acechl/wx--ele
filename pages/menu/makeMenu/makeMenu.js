@@ -25,7 +25,21 @@ Page({
         intro_food: {},
         search_food: {},
         more: [],
-        more_num: []
+        more_num: [],
+        winHeight: 0,
+        times: 1,
+        meg: "",
+        state: false,
+        nothing: false
+    },
+    onLoad (options) {
+        if(options.id){
+            this.setData({
+                value: options.id,
+                search: true
+            })
+            this.searchFood();
+        }
     },
     onShow () {
         let winHeight = 0;
@@ -33,7 +47,7 @@ Page({
             success (res) {
                 winHeight = res.windowHeight
             }
-        })
+        });
         let hot = Mock.mock({
             "type|10": [
                 {
@@ -77,12 +91,6 @@ Page({
             winHeight: winHeight,
             selected: selected
         });
-        console.log(this.data.winHeight)
-    },
-    onLaunch (options) {
-        this.setData({
-            id: option.id
-        })
     },
     searchFocus () {
         if(this.data.value.length > 0) {
@@ -105,19 +113,33 @@ Page({
             this.setData({
                 delete: false,
                 value: e.detail.value,
-                search: false
+                search: false,
+                nothing: false
             })
         }else {
-            this.setData({
-                delete: true,
-                value: e.detail.value,
-            })
+            if(e.detail.value != "什么鬼"){
+                this.setData({
+                    delete: true,
+                    value: e.detail.value,
+                    nothing: false,
+                    search: false
+                })
+            }else {
+                this.setData({
+                    delete: true,
+                    value: e.detail.value,
+                    nothing: true,
+                    search: false
+                })
+            }
+            
         }
     },
     searchDelete () {
         this.setData({
             value: "",
-            search: false
+            search: false,
+            nothing: false
         })
     },
     searchItem () {
@@ -126,7 +148,6 @@ Page({
             return;
         }
         let history = wx.getStorageSync("history") || {"type": []};
-        console.log(history.type)
         history.type.forEach((value,index,arr)=>{
              if(this.data.value == value.name){
                 flag = true;
@@ -140,6 +161,12 @@ Page({
             history: history,
             search: true
         })
+        if(this.data.value == "什么鬼") {
+            this.setData({
+                nothing: true,
+                search: true
+            })
+        }
         this.searchFood();
     },
     searchItem1 (e) {
@@ -159,6 +186,12 @@ Page({
             search: true,
             value: e.currentTarget.dataset.value
         })
+        if(e.currentTarget.dataset.value == "什么鬼") {
+            this.setData({
+                nothing: true,
+                search: true
+            })
+        }
         this.searchFood();
     },
     historyEmpty () {
@@ -167,7 +200,8 @@ Page({
             history: {}
         })
     },
-    goBack () {
+   goBack () {
+       console.log("nini")
         wx.switchTab({
             url: "../../index/index"
         })
@@ -193,7 +227,6 @@ Page({
                 last: ""
         })
         }
-        
     },
     classify_select (e) {
         let selection = this.data.selection;
@@ -259,6 +292,9 @@ Page({
         })
     },
     searchFood () {
+        if(this.data.nothing == true){
+            return false;
+        }
         let intro_food = Mock.mock({
             "type|12": [
                 {
@@ -274,17 +310,17 @@ Page({
             ]
         })
         let more = [];
-        let more_num = []
+        let more_num = [];
         search_food.type.forEach((value,index,arr)=>{
             let num = value.food.length-2;
-            more.push({"name":"展开更多商品"+num+"个","height":"170px"});
+            more.push({"name":"展开更多商品"+num+"个","height":"160px"});
             more_num.push(num);
         })
         this.setData({
             intro_food: intro_food,
             search_food: search_food,
             more: more,
-            more_num: more_num
+            more_num: more_num,
         })
     },
     goods_fade (e) {
@@ -295,7 +331,7 @@ Page({
             if(index == e.currentTarget.dataset.index){
                 if(value.height == "auto"){
                     //展开了 需要收起来
-                    arr[index] = {"name":"展开更多商品"+more_num[index]+"个","height":"170px"}
+                    arr[index] = {"name":"展开更多商品"+more_num[index]+"个","height":"160px"}
                 }else {
                     //收起来了 需要展开
                     arr[index] = {"name":"收起","height":"auto"}
@@ -305,5 +341,47 @@ Page({
         this.setData({
             more: more
         })
+    },
+    toLower (e) {
+        let times = this.data.times;
+        if(this.data.times > 3){
+            this.setData({
+                meg: "亲，没有再多的数据了"
+            })
+            return false;
+        }
+        if(this.data.state == true){
+            return false;
+        }
+        this.setData({
+            state: true,
+            meg: "正在加载中..."
+        })
+        let search_food = this.data.search_food;
+        let search_food1 = Mock.mock({
+            "type": [
+                {"name":"神户料理.陆羽茶居","average":4.7,"fare":20,"fare1":5,"distance":'2.00km',"time":38,"food":[{"name":"酱烧玻璃虾寿司","num":210,"good":"92%","prize":"7.2","img":"../../../images/good.jpeg"},{"name":"鳗鱼寿司","num":211,"good":"92%","prize":"7.2","img":"../../../images/fruit.jpeg"},{"name":"北极贝寿司","num":212,"good":"92%","prize":"7.2","img":"../../../images/breakfast.jpeg"},{"name":"三文鱼寿司","num":213,"good":"92%","prize":"7.2","img":"../../../images/cake.jpeg"},{"name":"海草寿司","num":213,"good":"92%","prize":"7.2","img":"../../../images/humbeger.jpeg"},{"name":"左口寿司","num":214,"good":"92%","prize":"7.2","img":"../../../images/drink.jpeg"}],"img":"../../../images/m2.png"},
+                {"name":"宫崎寿司","average":4.7,"fare":20,"fare1":5,"distance":'2.00km',"time":38,"food":[{"name":"酱烧玻璃虾寿司","num":210,"good":"92%","prize":"7.2","img":"../../../images/good.jpeg"},{"name":"鳗鱼寿司","num":211,"good":"92%","prize":"7.2","img":"../../../images/fruit.jpeg"},{"name":"北极贝寿司","num":212,"good":"92%","prize":"7.2","img":"../../../images/breakfast.jpeg"},{"name":"三文鱼寿司","num":213,"good":"92%","prize":"7.2","img":"../../../images/cake.jpeg"},{"name":"海草寿司","num":213,"good":"92%","prize":"7.2","img":"../../../images/humbeger.jpeg"}],"img":"../../../images/m3.jpeg"},
+                {"name":"藤原和寿司","average":4.7,"fare":20,"fare1":5,"distance":'2.00km',"time":38,"food":[{"name":"酱烧玻璃虾寿司","num":210,"good":"92%","prize":"7.2","img":"../../../images/good.jpeg"},{"name":"鳗鱼寿司","num":211,"good":"92%","prize":"7.2","img":"../../../images/fruit.jpeg"},{"name":"北极贝寿司","num":212,"good":"92%","prize":"7.2","img":"../../../images/breakfast.jpeg"},{"name":"三文鱼寿司","num":213,"good":"92%","prize":"7.2","img":"../../../images/cake.jpeg"}],"img":"../../../images/m5.jpeg"},
+            ]
+        })
+        search_food.type = search_food.type.concat(search_food1.type);
+        let more = [];
+        let more_num = [];
+        search_food.type.forEach((value,index,arr)=>{
+            let num = value.food.length-2;
+            more.push({"name":"展开更多商品"+num+"个","height":"160px"});
+            more_num.push(num);
+        })
+        setTimeout(()=>{
+            this.setData({
+                search_food: search_food,
+                meg: "",
+                more: more,
+                more_num: more_num,
+                state: false,
+                times: times + 1
+            })
+        },1000)
     }
 })
