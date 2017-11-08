@@ -22,7 +22,20 @@ Page({
         intro_food: {},
         search_food: {},
         more: [],
-        more_num: []
+        more_num: [],
+        winHeight: 0,
+        times: 1,
+        meg: "",
+        state: false,
+    },
+    onLoad (options) {
+        if(options.id){
+            this.setData({
+                value: options.id,
+                search: true
+            })
+            this.searchFood();
+        }
     },
     onShow () {
         let winHeight = 0;
@@ -147,11 +160,6 @@ Page({
             selected: selected
         });
         
-    },
-    onLaunch (options) {
-        this.setData({
-            id: option.id
-        })
     },
     searchFocus () {
         if(this.data.value.length > 0) {
@@ -343,7 +351,7 @@ Page({
             ]
         })
         let more = [];
-        let more_num = []
+        let more_num = [];
         search_food.type.forEach((value,index,arr)=>{
             let num = value.food.length-2;
             more.push({"name":"展开更多商品"+num+"个","height":"170px"});
@@ -353,7 +361,8 @@ Page({
             intro_food: intro_food,
             search_food: search_food,
             more: more,
-            more_num: more_num
+            more_num: more_num,
+            // winHeight: winHeight
         })
     },
     goods_fade (e) {
@@ -374,5 +383,51 @@ Page({
         this.setData({
             more: more
         })
+    },
+    // scrollDown (e) {
+    //     console.log(e);
+    // },
+    toLower (e) {
+        let times = this.data.times;
+        if(this.data.times > 3){
+            this.setData({
+                meg: "亲，没有再多的数据了"
+            })
+            return false;
+        }
+        if(this.data.state == true){
+            return false;
+        }
+        this.setData({
+            state: true,
+            meg: "正在加载中..."
+        })
+        let search_food = this.data.search_food;
+        let search_food1 = Mock.mock({
+            "type": [
+                {"name":"神户料理.陆羽茶居","average":4.7,"fare":20,"fare1":5,"distance":'2.00km',"time":38,"food":[{"name":"酱烧玻璃虾寿司","num":210,"good":"92%","prize":"7.2","img":"../../../images/good.jpeg"},{"name":"鳗鱼寿司","num":211,"good":"92%","prize":"7.2","img":"../../../images/fruit.jpeg"},{"name":"北极贝寿司","num":212,"good":"92%","prize":"7.2","img":"../../../images/breakfast.jpeg"},{"name":"三文鱼寿司","num":213,"good":"92%","prize":"7.2","img":"../../../images/cake.jpeg"},{"name":"海草寿司","num":213,"good":"92%","prize":"7.2","img":"../../../images/humbeger.jpeg"},{"name":"左口寿司","num":214,"good":"92%","prize":"7.2","img":"../../../images/drink.jpeg"}],"img":"../../../images/m2.png"},
+                {"name":"宫崎寿司","average":4.7,"fare":20,"fare1":5,"distance":'2.00km',"time":38,"food":[{"name":"酱烧玻璃虾寿司","num":210,"good":"92%","prize":"7.2","img":"../../../images/good.jpeg"},{"name":"鳗鱼寿司","num":211,"good":"92%","prize":"7.2","img":"../../../images/fruit.jpeg"},{"name":"北极贝寿司","num":212,"good":"92%","prize":"7.2","img":"../../../images/breakfast.jpeg"},{"name":"三文鱼寿司","num":213,"good":"92%","prize":"7.2","img":"../../../images/cake.jpeg"},{"name":"海草寿司","num":213,"good":"92%","prize":"7.2","img":"../../../images/humbeger.jpeg"}],"img":"../../../images/m3.jpeg"},
+                {"name":"藤原和寿司","average":4.7,"fare":20,"fare1":5,"distance":'2.00km',"time":38,"food":[{"name":"酱烧玻璃虾寿司","num":210,"good":"92%","prize":"7.2","img":"../../../images/good.jpeg"},{"name":"鳗鱼寿司","num":211,"good":"92%","prize":"7.2","img":"../../../images/fruit.jpeg"},{"name":"北极贝寿司","num":212,"good":"92%","prize":"7.2","img":"../../../images/breakfast.jpeg"},{"name":"三文鱼寿司","num":213,"good":"92%","prize":"7.2","img":"../../../images/cake.jpeg"}],"img":"../../../images/m5.jpeg"},
+            ]
+        })
+        search_food.type = search_food.type.concat(search_food1.type);
+        console.log(search_food)
+        let more = [];
+        let more_num = [];
+        search_food.type.forEach((value,index,arr)=>{
+            let num = value.food.length-2;
+            more.push({"name":"展开更多商品"+num+"个","height":"170px"});
+            more_num.push(num);
+        })
+        setTimeout(()=>{
+            this.setData({
+                search_food: search_food,
+                meg: "",
+                more: more,
+                more_num: more_num,
+                state: false,
+                times: times + 1
+            })
+        },1000)
     }
 })

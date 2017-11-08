@@ -112,8 +112,9 @@ Page({
         })
     },
     clickType (e) {
+        // console.log(e)
         wx.redirectTo({
-            url: "../menu/tabMenu/tabMenu?id="+ e.currentTarget.id
+            url: "../menu/makeMenu/makeMenu?id="+ e.currentTarget.id
         })
     },
     clickWidth (e) {

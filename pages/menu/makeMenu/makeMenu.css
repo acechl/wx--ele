@@ -328,6 +328,8 @@
   padding-top: 70px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
+  background-color: #fff;
+  z-index: 11;
 }
 .makeMenu .filtrate scroll-view {
   width: 100%;
@@ -428,4 +430,11 @@
 }
 .makeMenu .food_intro .single .more text {
   margin-left: 5px;
+}
+.makeMenu .loading {
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  font-size: 28rpx;
 }
