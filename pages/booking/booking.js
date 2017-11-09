@@ -7,7 +7,11 @@ Page({
         path: "",
         id: "",
         look_activity: false,
-        winHeight: 0
+        winHeight: 0,
+        current: 0,
+        goods: {},
+        selected: [],
+        sonId: ""
     },
     onLoad (options) {
         this.setData({
@@ -36,16 +40,34 @@ Page({
                 "average":4.5
             }]
         })
+        let goods = Mock.mock({
+            "goods": [
+                {"name":"热销","ad":"大家喜欢吃，才叫真好吃","goods":[{"name":"豉油皇三丝炒面","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"湾仔艇仔粥","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"金牌虾饺王","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}
+                ]},
+                {"name":"优惠","ad":"大家喜欢吃，才叫真好吃","goods":[{"name":"豉油皇三丝炒面(鸡蛋、粉丝、火腿肠、牛肉条、胡萝卜、豆芽)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"湾仔艇仔粥","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"金牌虾饺王","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"肠如意","ad":"大家喜欢吃，才叫真好吃","goods":[{"name":"豉油皇三丝炒面","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"湾仔艇仔粥","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"金牌虾饺王","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"齿留香","ad":"大家喜欢吃，才叫真好吃","goods":[{"name":"豉油皇三丝炒面","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"湾仔艇仔粥","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"金牌虾饺王","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"粥好运","ad":"大家喜欢吃，才叫真好吃","goods":[{"name":"豉油皇三丝炒面","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"湾仔艇仔粥","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"金牌虾饺王","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"甜蜜蜜","ad":"大家喜欢吃，才叫真好吃","goods":[{"name":"豉油皇三丝炒面","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"湾仔艇仔粥","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"金牌虾饺王","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"包都德","ad":"大家喜欢吃，才叫真好吃","goods":[{"name":"豉油皇三丝炒面","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"湾仔艇仔粥","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"金牌虾饺王","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"焗焗赢","ad":"大家喜欢吃，才叫真好吃","goods":[{"name":"豉油皇三丝炒面","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"湾仔艇仔粥","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"金牌虾饺王","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+            ]
+        })
+        let selected = []
+        goods.goods.forEach((value,index,arr)=>{
+            selected.push(false);
+        })
+        selected[0] = true;
         this.setData({
             shop: shop.detail,
-            winHeight: winHeight
+            winHeight: winHeight,
+            goods: goods,
+            selected: selected
         })
     },
     changeTab (e) {
-        console.log(e)
     },
     goBack () {
-        console.log("nini")
         if(this.data.path == "index") {
             wx.switchTab({
                 url: "../index/index"
@@ -69,6 +91,37 @@ Page({
     closeActivity () {
         this.setData({
             look_activity: false
+        })
+    },
+    changeTab (e) {
+        this.setData({
+            current: e.detail.current
+        })
+    },
+    clickTab (e) {
+        this.setData({
+            current: e.currentTarget.dataset.current
+        })
+    },
+    clickDis () {
+
+    },
+    clickPlus () {
+
+    },
+    clickName (e) {
+        console.log(e.currentTarget.dataset.id)
+        let selected = this.data.selected;
+        selected.forEach((value,index,arr)=>{
+            if(e.currentTarget.dataset.index == index) {
+                selected[index] = true;
+            }else {
+                selected[index] = false;
+            }
+        })
+        this.setData({
+            selected: selected,
+            sonId: e.currentTarget.dataset.id
         })
     }
 })

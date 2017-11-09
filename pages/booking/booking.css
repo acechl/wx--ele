@@ -185,3 +185,185 @@
   color: #ddd;
   border: 1px solid #ddd;
 }
+.booking .food_detail .tab {
+  border-bottom: 1px solid #eee;
+}
+.booking .food_detail .tab view {
+  width: 33.33%;
+  float: left;
+  text-align: center;
+  color: #666;
+  border-bottom: 3px solid transparent;
+}
+.booking .food_detail .tab view text {
+  height: 30px;
+  line-height: 30px;
+}
+.booking .food_detail .tab .selected {
+  color: #2395ff;
+}
+.booking .food_detail .tab .selected text {
+  display: inline-block;
+  border-bottom: 3px solid #2395ff;
+}
+.booking .food_detail .goods {
+  width: 100%;
+}
+.booking .food_detail .goods scroll-view:nth-child(2) {
+  float: left;
+  width: 75%;
+}
+.booking .food_detail .goods .goods_left {
+  float: left;
+  width: 25%;
+}
+.booking .food_detail .goods .goods_left view {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 30rpx;
+  border-bottom: 1px solid #e8e8e8;
+  color: #666;
+  background-color: #f8f8f8;
+}
+.booking .food_detail .goods .goods_left .selected {
+  background-color: #fff;
+}
+.booking .food_detail .goods .goods_right {
+  float: left;
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.booking .food_detail .goods .goods_right .singles .name {
+  width: 100%;
+  font-size: 32rpx;
+  color: #666;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 600;
+}
+.booking .food_detail .goods .goods_right .singles .name text {
+  color: #999;
+  font-size: 24rpx;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail {
+  position: relative;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail image {
+  width: 65px;
+  height: 65px;
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content {
+  padding-left: 75px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 65px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .title {
+  color: #666;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .nums {
+  color: #999;
+  font-size: 22rpx;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .discount {
+  margin: 5px 0;
+  font-size: 20rpx;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .discount text {
+  display: inline-block;
+  line-height: 16px;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .discount .dis {
+  height: 16px;
+  box-sizing: border-box;
+  background-image: linear-gradient(90deg, #ff7416, #ff3c15 98%);
+  color: #fff;
+  padding: 1px 2px;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .discount .act {
+  height: 16px;
+  border: 1px solid #ff3c15;
+  color: #ff3c15;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .discount .last {
+  margin-left: 3px;
+  height: 16px;
+  background-color: rgba(255, 76, 13, 0.15);
+  color: #ff4c0d;
+  vertical-align: top;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .prize_quality {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 75px);
+  box-sizing: border-box;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .prize_quality .prize {
+  float: left;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .prize_quality .prize .newPrize {
+  color: #f60;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .prize_quality .prize .oldPrize {
+  text-decoration: line-through;
+  color: #666;
+  vertical-align: top;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .prize_quality .quality {
+  font-size: 28rpx;
+  margin-right: 10px;
+  float: right;
+  line-height: 16px;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .prize_quality .quality text {
+  display: inline-block;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .prize_quality .quality .dis {
+  background-color: #fff;
+  color: #333;
+  border-radius: 50%;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  font-size: 34rpx;
+  border: 1px solid #333;
+  box-sizing: border-box;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .prize_quality .quality .nums {
+  color: #333;
+  height: 16px;
+}
+.booking .food_detail .goods .goods_right .singles .goods_detail .goods_content .prize_quality .quality .plus {
+  background-color: #2395ff;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  font-size: 34rpx;
+  box-sizing: border-box;
+}
+.booking .car {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: rgba(61, 61, 63, 0.9);
+  height: 50px;
+}

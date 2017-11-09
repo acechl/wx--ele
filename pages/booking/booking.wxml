@@ -34,37 +34,73 @@
         </view>
     </view>
     <view class="food_detail">
-        <view class="tab">
-            <view>商品</view>
-            <view>评价</view>
-            <view>店铺</view>
+        <view class="tab clearfix">
+            <view class="{{current == 0?'selected':''}}" data-current="0" bindtap="clickTab"><text>商品</text></view>
+            <view class="{{current == 1?'selected':''}}" data-current="1" bindtap="clickTab"><text>评价</text></view>
+            <view class="{{current == 2?'selected':''}}" data-current="2" bindtap="clickTab"><text>店铺</text></view>
         </view>
-        <swiper>
-            <swiper-item current="0" bindchange="changeTab">
-                <view>商品</view>
+        <swiper  bindchange="changeTab" current="{{current}}" style="height:{{winHeight-210}}px">
+            <swiper-item>
+                <view class="goods clearfix">
+                    <view class="goods_left" style="height:{{winHeight-210}}px;overflow:auto">
+                        <view wx:for="{{goods.goods}}" wx:for-index="idx" data-index="{{idx}}" class="{{selected[idx]?'selected':''}}" bindtap="clickName" data-id="{{item.name}}">{{item.name}}</view>
+                    </view>
+                    <scroll-view scroll-y="true" style="height:{{winHeight-210}}px" scroll-into-view="{{sonId}}">
+                        <view class="goods_right">
+                            <view class="singles" wx:for="{{goods.goods}}" id="{{item.name}}">
+                                <view class="name">{{item.name}}<text>{{item.ad}}</text></view>
+                                <view class="goods_detail" wx:for="{{item.goods}}" wx:for-item="items">
+                                    <image src="{{items.img}}"/>
+                                    <view class="goods_content">
+                                        <view class="title">{{items.name}}</view>
+                                        <view class="nums">月售{{items.num}}份 好评率{{items.good}}</view>
+                                        <view class="discount" wx:if="{{items.discount || items.d_detail || items.last}}">
+                                            <text wx:if="{{items.discount}}" class="dis">{{items.discount}}折</text>
+                                            <text wx:if="{{items.d_detail}}" class="act">{{items.d_detail}}</text>
+                                            <text wx:if="{{items.last}}" class="last">剩余{{items.last}}份</text>
+                                        </view>
+                                        <view class="prize_quality clearfix">
+                                            <view class="prize">
+                                                <text class="newPrize">￥{{items.newPrize}}</text>
+                                                <text wx:if="{{items.oldPrize}}" class="oldPrize">￥{{items.oldPrize}}</text>
+                                            </view>
+                                            <view class="quality">
+                                                <text class="dis" bindtap="clickDis">-</text>
+                                                <text class="nums"></text>
+                                                <text class="plus" bindtap="clickPlus">+</text>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                    </view>
+                    </scroll-view>
+                </view>
             </swiper-item>
-            <swiper-item current="1" bindchange="changeTab">
-                <view>评价</view>
+            <swiper-item>
+                <view class="comment">
+
+                </view>
             </swiper-item>
-            <swiper-item current="2" bindchange="changeTab">
-                <view>店铺</view>
+            <swiper-item>
+                <view class="shop">
+                
+                </view>
             </swiper-item>
         </swiper>
     </view>
     <view class="activity">
         <view>{{shop.discount}}</view>
     </view>
-    <view class="car">
+    <view class="car" wx:for="{{shop}}">
         <view class="cicle">
             <view class="b_cicle"></view>
             <view class="num"></view>
         </view>
         <view>
             <view>￥{{booking}}</view>
-            <view>配送费￥{{shop.fare}}</view>
+            <view>配送费￥{{item.fare}}</view>
         </view>
         <view>{{least}}</view>
     </view>
-
-    
 </view>
