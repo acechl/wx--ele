@@ -204,5 +204,11 @@ Page({
         wx.redirectTo({
             url: "../menu/tabMenu/tabMenu?title="+e.currentTarget.dataset.title
         })
+    },
+    bookinggoods (e) {
+        wx.redirectTo({
+            url: "../booking/booking?title="+e.currentTarget.dataset
+            .title+"&path=index"
+        })
     }
  })

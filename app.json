@@ -6,7 +6,9 @@
     "pages/found/found",
     "pages/address/setAddress/setAddress",
     "pages/menu/makeMenu/makeMenu",
-    "pages/menu/tabMenu/tabMenu"
+    "pages/menu/tabMenu/tabMenu",
+    "pages/booking/booking",
+    "pages/car/shoppingCar/shoppingCar"
   ],
   "window":{
     "backgroundTextStyle":"light",

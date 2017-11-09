@@ -1,5 +1,5 @@
 <template name="activity">
-     <view wx:for="{{shop_intro.type}}" class="single" wx:for-index="idx">
+     <view wx:for="{{shop_intro.type}}" class="single" wx:for-index="idx" bindtap="bookinggoods" data-title="{{item.names}}">
             <image src="{{item.img}}"></image>
             <view class="content">
                 <view class="title clearfix">

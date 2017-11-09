@@ -1,0 +1,70 @@
+<view class="booking" style="{{look_activity?'overflow:hidden;height:'+winHeight+'px':''}}">
+    <view class="shop_detail"  wx:for="{{shop}}">
+        <view class="back clearfix">
+            <view bindtap="goBack">{{"<"}}</view>
+            <view bindtap="goCar">购物车</view>
+        </view>
+        <view class="detail">
+            <image src="{{item.img}}"/>
+            <view class="content">
+                <view class="title">{{item.title}}</view>
+                <view><text wx:if="{{item.send == 1}}">蜂鸟专送 /</text> {{item.time}}分钟送达 / 配送费￥{{item.fare}}</view>
+                <view class="tips">{{item.tips}}</view>
+            </view>
+            <view class="clearfix">
+                <view class="activity"><text style="background-color:{{item.activity[0].color}}">{{item.activity[0].name}}</text>{{item.activity[0].detail}}</view>
+                <view class="number" wx:if="{{item.activity.length>1}}" bindtap="moreActivity">{{item.activity.length}}活动<text class="arrow_left"></text></view>
+            </view>
+        </view>
+         <view class="bg_black" wx:if="{{look_activity}}" style="height:{{winHeight}}px">
+            <view class="title">{{item.title}}</view>
+            <import src="../../template/star/star.wxml"/>
+            <template is="star" data="{{star:item.average}}"></template>
+            <view class="discount">
+                <view>优惠信息</view>
+                <view>
+                    <view wx:for="{{item.activity}}" wx:for-item="items"><text style="background-color:{{items.color}}">{{items.name}}</text>{{items.detail}}</view>
+                </view>
+            </view>
+            <view class="tip">
+                <view>商家公告</view>
+                <view>{{item.tips}}</view>
+            </view>
+            <view class="close" bindtap="closeActivity">x</view>
+        </view>
+    </view>
+    <view class="food_detail">
+        <view class="tab">
+            <view>商品</view>
+            <view>评价</view>
+            <view>店铺</view>
+        </view>
+        <swiper>
+            <swiper-item current="0" bindchange="changeTab">
+                <view>商品</view>
+            </swiper-item>
+            <swiper-item current="1" bindchange="changeTab">
+                <view>评价</view>
+            </swiper-item>
+            <swiper-item current="2" bindchange="changeTab">
+                <view>店铺</view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="activity">
+        <view>{{shop.discount}}</view>
+    </view>
+    <view class="car">
+        <view class="cicle">
+            <view class="b_cicle"></view>
+            <view class="num"></view>
+        </view>
+        <view>
+            <view>￥{{booking}}</view>
+            <view>配送费￥{{shop.fare}}</view>
+        </view>
+        <view>{{least}}</view>
+    </view>
+
+    
+</view>

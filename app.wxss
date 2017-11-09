@@ -29,3 +29,12 @@ page {
   left: 0;
   z-index: 11;
 }
+.arrow_left {
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  border-left: 4px solid #fff;
+  border-right: 4px solid transparent;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}

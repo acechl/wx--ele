@@ -15,6 +15,7 @@
                 <template is="activity" data="{{shop_intro:shop_intro,flag:flag}}"></template>
             </view>
         </view>
+        <view class="loading" wx:if="{{meg!=''}}">{{meg}}</view>
     </scroll-view>
-    <view class="loading" wx:if="{{meg!=''}}">{{meg}}</view>
+    
 </view>

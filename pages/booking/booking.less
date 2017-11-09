@@ -1,0 +1,173 @@
+@import "../../common.less";
+@import "../../template/star/star.less";
+.booking {
+    font-size: 22rpx;
+    .shop_detail {
+        .p10();
+        padding-bottom: 10px;
+        background-image: linear-gradient(90deg, #0af, #0085ff);
+        .back {
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            view:first-child {
+                .fl();
+                font-family: Consolas;
+                font-size: 38rpx;
+            }
+            view:last-child {
+                .fr();
+                font-size: 30rpx;
+            }
+        }
+        .detail {
+            position: relative;
+            image {
+                width: 60px;
+                height: 60px;
+                position: absolute;
+                left: 0;
+            }
+            .content {
+                padding-left: 70px;
+                width: 100%;
+                box-sizing: border-box;
+                color: #fff;
+                display: flex;
+                flex-wrap: wrap;
+                .title {
+                    font-size: 28rpx;
+                    width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-weight: 500;
+                }
+                .tips {
+                    width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                view:nth-child(2){
+                    height: 30px;
+                    line-height: 30px;
+                }
+            }
+            >view:last-child {
+                color: #fff;
+                padding-top: 10px;
+                .activity {
+                    .fl();
+                    text {
+                        color: #fff;
+                        margin-right: 10px;
+                    }
+                }
+                .number {
+                    .fr();
+                    text {
+                        margin-left:3px;
+                    }
+                }
+            }
+        }
+        .bg_black {
+            padding: 50px 20px 0 20px;
+            box-sizing: border-box;
+            position: fixed;
+            width: 100%;
+            z-index: 11;
+            top: 0;
+            left: 0;
+            background-color: #262626;
+            color: #fff;
+            text-align: center;
+            .title {
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 44rpx;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+            .star {
+                view {
+                    width: 30px !important;
+                    height: 30px !important;
+                }
+            }
+            .discount {
+                position: relative;
+                margin-top: 30px;
+                padding-top: 30px;
+                padding-bottom: 40px;
+                border-top: 1px solid #ddd;
+                >view:first-child {
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%);
+                    padding: 3px 5px;
+                    border-radius: 10px;
+                    height: 20px;
+                    line-height: 20px;
+                    border: 1px solid #ddd;
+                    z-index: 2;
+                    font-size: 28rpx;
+                    top: -14px;
+                    background-color: #262626;
+                }
+                >view:last-child {
+                    view {
+                        height: 20px;
+                        line-height: 20px;
+                        text-align: left;
+                        margin-bottom: 5px;
+                        text {
+                            margin-right: 5px;
+                            padding: 2px;
+                            border-radius: 1px;
+                        }
+                    }
+                }
+            }
+            .tip {
+                position: relative;
+                padding-top: 30px;
+                border-top: 1px solid #ddd;
+                >view:first-child{
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%);
+                    padding: 3px 5px;
+                    border-radius: 10px;
+                    height: 20px;
+                    line-height: 20px;
+                    top: -14px;
+                    border: 1px solid #ddd;
+                    z-index: 2;
+                    font-size: 28rpx;
+                    background-color: #262626;
+                }   
+                >view:last-child {
+                   font-size: 28rpx;
+                   text-align: left;
+                }             
+            }
+            .close {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translate(-50%);
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                text-align: center;
+                font-size: 60rpx;
+                color: #ddd;
+                border: 1px solid #ddd;
+            }
+        }
+    }
+}

@@ -240,5 +240,14 @@ Page({
     },
     scrollDown (e) {
         // console.log(e)
+    },
+    bookinggoods (e) {
+        wx.redirectTo({
+            url: "../../booking/booking?title="+e.currentTarget.dataset
+            .title+"&path=tabMenu&id="+this.data.title
+        })
+    },
+    moreActivity () {
+        
     }
 })

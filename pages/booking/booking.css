@@ -1,0 +1,187 @@
+.mb10 {
+  margin-bottom: 10px;
+}
+.star {
+  display: inline-block;
+}
+.star view {
+  float: left;
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 3px;
+}
+.star .full {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAfhJREFUOBGlVD1LHFEUPXfWrzGJO2uhaIQ0iljESgKSpAjBwpXVKikEl6TzD6TwJ4gWaQMBS8WQgCRZ61QpglUgRbQUbMR1XfwodvbmvE1mdt/ssDPBC493733nnrkf7w2QQrSU29D9wY8poJAkkG6hD8O5E+IGgJsHkr8+7hTjdDpsnA0PLkHE4yK2r5iETyYUfdUkkRa96W3VOhLqXv8oFHNhgGCC/Xwc2jFKR0J0966w1IwVp/LasiNGOBTdxV24bhbqenCQRUY9qLzl2CasGEUVdbyA1M5R1wrq/gUqVxUp4tLghCX85D7VlonFksJQ9Un3w5S8c2sy8z3TGtGDRsla8op0vKe3O0UuMRBVDm9N8uX1Zg/3s8+hmU/sGS/wf8kN0UWZP/tgokJCY+jX3ENmWqJ3zNiJonoKXxalcPY9wFqExqmf3fvIuL+SM2WZNX9SCheHAZnZ2++h9FyxufdaQfG6CBznTvQshtDhSyA4jQieRmExhO2gaFBoi5OK8EkYECiqX9jdd1wauP7tbVgrw8a/TzETBpkp1nWZ96sg8+VV8j0j6VF4Dozo3sB4ix0ZypD3iO3r+QvQbfi1KVkobwcBkj//hmp5msSbXHxqlC67bCtDDr2fN/43wYvMaFkK1dOALNjlJa6Z8RuIP0vfAZfVhj/iqoy46fpKwgAAAABJRU5ErkJggg==");
+  background-size: 100%;
+}
+.star .empty {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAeRJREFUOBGtlDsvBFEUx3d2djfiMbTsQ0NEwTaiQSGiRKWREDofgMJHEAqdSPSE0BC9SiEqWQWSzT4SzSbrsR7Fzo7fEXfNg9klbjI5j/s/vzn3MRMI1DFyudxaPp8/qEMa0GqJ0ul0QzgcvtM0zbAsqzMWi+X9aoJ+kzIXiUSmgLXhinZOcn6jJpDieRvA7tvSX64vMJvNdiAdV3I67c5kMkMq/s76AgHMUqTbC0Oh0II9dvvVQ0mlUs2GYbRWKpU2ij4swA3pylX0ZJrmNPn7crn8oOv6Y7FYfEgmk8+i07gOl0z24js6cUHqCU1uwbksefcfYPJCHeDFx5LpUq7DNp2GZeYPw2KrVuLx+Gp1D4GOATwEZvwGSFdv6Oe48PtSVwVKwCfWB/SEJyZxHaMAcBLYmdI6gJIEGg0Gg1e4tTqVZfawzBsFE+u5h4heyLfYRT/4LERrcs95gNwr+RI8nbsLJWa5I+68B8hbPSJ3kYq/03qAvHVYFShL7phni9hSuU/r0TqA8u9DOGArKvCZzXCKEzyL7O8o4Fs1T4ftHGKXisU6gOzfIKLIp2CnVCr1JhKJHVXAiZ4C7Ae8Ts6UPDfCsUUhJRYLrJGCa+xSNBo9ss8pH+gr/jK/tj0a2ETv2IZ35FSkS7HbzakAAAAASUVORK5CYII=");
+  background-size: 100%;
+}
+.booking {
+  font-size: 22rpx;
+}
+.booking .shop_detail {
+  padding: 0 10px;
+  padding-bottom: 10px;
+  background-image: linear-gradient(90deg, #0af, #0085ff);
+}
+.booking .shop_detail .back {
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+}
+.booking .shop_detail .back view:first-child {
+  float: left;
+  font-family: Consolas;
+  font-size: 38rpx;
+}
+.booking .shop_detail .back view:last-child {
+  float: right;
+  font-size: 30rpx;
+}
+.booking .shop_detail .detail {
+  position: relative;
+}
+.booking .shop_detail .detail image {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 0;
+}
+.booking .shop_detail .detail .content {
+  padding-left: 70px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+.booking .shop_detail .detail .content .title {
+  font-size: 28rpx;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.booking .shop_detail .detail .content .tips {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.booking .shop_detail .detail .content view:nth-child(2) {
+  height: 30px;
+  line-height: 30px;
+}
+.booking .shop_detail .detail > view:last-child {
+  color: #fff;
+  padding-top: 10px;
+}
+.booking .shop_detail .detail > view:last-child .activity {
+  float: left;
+}
+.booking .shop_detail .detail > view:last-child .activity text {
+  color: #fff;
+  margin-right: 10px;
+}
+.booking .shop_detail .detail > view:last-child .number {
+  float: right;
+}
+.booking .shop_detail .detail > view:last-child .number text {
+  margin-left: 3px;
+}
+.booking .shop_detail .bg_black {
+  padding: 50px 20px 0 20px;
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  background-color: #262626;
+  color: #fff;
+  text-align: center;
+}
+.booking .shop_detail .bg_black .title {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 44rpx;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.booking .shop_detail .bg_black .star view {
+  width: 30px !important;
+  height: 30px !important;
+}
+.booking .shop_detail .bg_black .discount {
+  position: relative;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  border-top: 1px solid #ddd;
+}
+.booking .shop_detail .bg_black .discount > view:first-child {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 3px 5px;
+  border-radius: 10px;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  z-index: 2;
+  font-size: 28rpx;
+  top: -14px;
+  background-color: #262626;
+}
+.booking .shop_detail .bg_black .discount > view:last-child view {
+  height: 20px;
+  line-height: 20px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+.booking .shop_detail .bg_black .discount > view:last-child view text {
+  margin-right: 5px;
+  padding: 2px;
+  border-radius: 1px;
+}
+.booking .shop_detail .bg_black .tip {
+  position: relative;
+  padding-top: 30px;
+  border-top: 1px solid #ddd;
+}
+.booking .shop_detail .bg_black .tip > view:first-child {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 3px 5px;
+  border-radius: 10px;
+  height: 20px;
+  line-height: 20px;
+  top: -14px;
+  border: 1px solid #ddd;
+  z-index: 2;
+  font-size: 28rpx;
+  background-color: #262626;
+}
+.booking .shop_detail .bg_black .tip > view:last-child {
+  font-size: 28rpx;
+  text-align: left;
+}
+.booking .shop_detail .bg_black .close {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 60rpx;
+  color: #ddd;
+  border: 1px solid #ddd;
+}
