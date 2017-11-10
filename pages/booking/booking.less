@@ -1,5 +1,6 @@
 @import "../../common.less";
 @import "../../template/star/star.less";
+@import "../../template/toast/toast.less";
 .booking {
     font-size: 22rpx;
     .shop_detail {
@@ -201,6 +202,7 @@
             .goods_left {
                 .fl();
                 width: 25%;
+                background-color: #f8f8f8;
                 view {
                     height: 40px;
                     line-height: 40px;
@@ -208,7 +210,6 @@
                     font-size: 30rpx;
                     border-bottom: 1px solid #e8e8e8;
                     color: #666;
-                    background-color: #f8f8f8;
                 }
                 .selected {
                     background-color: #fff;
@@ -230,6 +231,7 @@
                         text {
                             color: #999;
                             font-size: 24rpx;
+                            margin-left: 5px;
                         }
                     }
                     .goods_detail {
@@ -321,6 +323,7 @@
                                         display: inline-block;
                                         width: 16px;
                                         height: 16px;
+                                        line-height: 11px;
                                         text-align: center;
                                         font-size: 34rpx;
                                         border: 1px solid #333;
@@ -329,6 +332,8 @@
                                     .nums {
                                         color: #333;
                                         height: 16px;
+                                        margin: 0 5px;
+                                        line-height: 16px;
                                     }
                                     .plus {
                                         background-color: #2395ff;
@@ -337,6 +342,7 @@
                                         display: inline-block;
                                         width: 16px;
                                         height: 16px;
+                                        line-height: 14px;
                                         text-align: center;
                                         font-size: 34rpx;
                                         box-sizing: border-box;
@@ -349,11 +355,61 @@
             }
         }
     }
+    .tips {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
     .car {
         width: 100%;
         position: fixed;
-        bottom: 0;
+        bottom: 14px;
         background-color: rgba(61,61,63,.9);
-        height: 50px;
+        height: 60px;
+        position: relative;
+        .cicle {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            .b_cicle {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%; 
+             }
+             .full {
+                 background-color: #3190e8;
+             }
+             .empty {
+                 background-image: radial-gradient(circle,#363636 .626667rem,#444 0); 
+             }
+        }
+        .detail {
+            margin-top: 10px;
+            margin-left: 100px;
+            view:first-child {
+                color: #fff;
+                font-size: 36rpx;
+            }
+            view:last-child {
+                color: #ddd;
+                font-size: 28rpx;
+            }
+        }
+        .least {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #535356;
+            width: 100px;
+            height: 60px;
+            color: #fff;
+            font-size: 40rpx;
+            font-weight: 600;
+            line-height: 60px;
+            .goPay {
+                background-color: #4cd964;
+            }
+        }
     }
 }

@@ -12,7 +12,9 @@ App({
     shop_attr: {},
     consume: {},
     rank_type: {},
-    activity_type: {}
+    activity_type: {},
+    prize: "",
+    shopCar: []
   },
   onLaunch () {
     //调用API从本地缓存中获取数据
