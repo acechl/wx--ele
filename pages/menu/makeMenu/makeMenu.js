@@ -201,7 +201,6 @@ Page({
         })
     },
    goBack () {
-       console.log("nini")
         wx.switchTab({
             url: "../../index/index"
         })
@@ -324,7 +323,6 @@ Page({
         })
     },
     goods_fade (e) {
-        console.log(e);
         let more = this.data.more;
         let more_num = this.data.more_num;
         more.forEach((value,index,arr)=>{

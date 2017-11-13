@@ -34,7 +34,6 @@ Page({
         let winHeight = 0;
         wx.getSystemInfo({
             success (res) {
-                console.log(res);
                 winHeight = res.windowHeight
             }
         })
@@ -82,7 +81,6 @@ Page({
             selected: selected,
             shop_intro: shop_intro
         });
-        console.log(shop_intro)
     },
     goBack () {
         wx.switchTab({
@@ -131,9 +129,6 @@ Page({
         })
     },
     itemTap (e) {
-        console.log("nini");
-        console.log(e.currentTarget.dataset.attr);
-        console.log(this.data.selected)
         let choosed = this.data.selected;
         if(e.currentTarget.dataset.attr != "shop_attr"){//当为单选时
             if(choosed[e.currentTarget.dataset.attr].indexOf(e.currentTarget.dataset.id) != -1){//存在
@@ -239,7 +234,6 @@ Page({
         },500)
     },
     scrollDown (e) {
-        // console.log(e)
     },
     bookinggoods (e) {
         wx.redirectTo({

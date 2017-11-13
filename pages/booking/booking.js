@@ -17,7 +17,7 @@ Page({
         prize: 0,
         qua: 0,
         booking: 0,
-        shopCar: app.globalData.shopCar
+        shopCar: app.globalData.shopCar,
         
     },
     onLoad (options) {
@@ -73,7 +73,6 @@ Page({
             })
         })
         selected[0] = true;
-        console.log(shoppingCar)
         this.setData({
             shop: shop.detail,
             winHeight: winHeight,
@@ -123,22 +122,40 @@ Page({
     clickDis (e) {//减菜单
         let title = e.currentTarget.dataset.title;
         let id = e.currentTarget.dataset.id;
-        let oldPrize = e.currentTarget.dataset.oldPrize;
+        let oldPrize = e.currentTarget.dataset.oldprize;
         let shoppingCar = this.data.shoppingCar;
+        let shopCar = app.globalData.shopCar;
+        let menu = {}
         for(let key in shoppingCar){
             if(key == id){
                 shoppingCar[key].forEach((value,index,arr)=>{
                     if(value.name == title){
                         if(value.num > 1){
-                            value.prize = value.prize-oldPrize;
+                            value.prize = Number(value.prize) - oldPrize;
                         }else {
                             value.prize = 0
                         }
                         value.num --;
+                        menu = {"name":value.name,"num":value.num,"prize":value.prize};
                     }
                 })
             }
         }
+        shopCar.forEach((value,index,arr)=>{//value代表的是每个商家
+            if(value.brand == this.data.title){//当找到相同的商店时
+                value.menu.forEach((value1,index1,arr1)=>{//value代表的是每个商品
+                    if(value1.name == menu.name){//当找到相同的商品时
+                        arr1.splice(index1,1)
+                        if(menu.num != 0){//当选择的商品的数量不为0 时
+                            arr1.push(menu)
+                        }   
+                    }
+                })
+            }
+            if(value.menu.length == 0) {
+                arr.splice(index,1)
+            }
+        })
         this.setData({
             shoppingCar: shoppingCar 
         })
@@ -150,19 +167,21 @@ Page({
         let newPrize = e.currentTarget.dataset.newprize;
         let oldPrize = e.currentTarget.dataset.oldprize;
         let shoppingCar = this.data.shoppingCar;
-        let menu = [];
-        let shopCar = this.data.shopCar;
+        let menu = {};
+        let shopCar = app.globalData.shopCar;
         let flag = false;
         for(let key in shoppingCar){
             if(key == id){
                 shoppingCar[key].forEach((value,index,arr)=>{
                     if(value.name == title){
                         if(oldPrize){//当有两种价格
-                            if(value.num == 1 ){//当已经买了第一份了
+                            if(value.num >= 1 ){//当已经买了第一份了
                                 value.prize = Number(value.prize) + Number(oldPrize);
-                                this.setData({
-                                    message: "该美食一份优惠,超过按原价计算喔"
-                                })
+                                if(value.num == 1){
+                                    this.setData({
+                                        message: "该美食一份优惠,超过按原价计算喔"
+                                    })
+                                }
                             }else {//这一份为第一份
                                 value.prize =  Number(value.prize) + Number(newPrize);
                             }
@@ -170,31 +189,30 @@ Page({
                             value.prize = Number(value.prize) + Number(newPrize);
                         }
                         value.num ++;
-                        menu = [{"name":title,"num":value.num,"prize":value.prize}];
+                        menu = {"name":title,"num":value.num,"prize":value.prize};
                     }
                 })
             }
         }
         if(shopCar.length == 0){
-            shopCar.push({"brand":this.data.title,"menu":menu})
+            shopCar.push({"brand":this.data.title,"menu":[menu]})
         }else {
-            shopCar.forEach((value,index,arr)=>{
+            shopCar.forEach((value,index,arr)=>{//arr 代表的是shopCar
                 if(value.brand == this.data.title){//存在这个商店
-                    value.menu.forEach((value1,index1,arr1)=>{
+                    flag = true;
+                    value.menu.forEach((value1,index1,arr1)=>{ //arr1代表的是value.menu
                         if(value1.name == menu.name){//存在这个商品
-                            console.log("cunzai")
-                            value.menu.splice(index,1);
-                            value,menu.push(menu);
-                        }else {//不存在这个商店
-                            value.menu.push(menu);
+                            arr1.splice(index1,1);
                         }
                     })
-                }else{//不存在这家商店
-                    arr.push({"brand":this.data.title,"menu":menu})
+                        value.menu.push(menu);
                 }
             })
+            if(flag == false) {
+                shopCar.push({"brand":this.data.title,"menu":[menu]})
+            }
         }
-        console.log(shopCar);
+        app.globalData.shopCar = shopCar;
         this.setData({
             shoppingCar: shoppingCar,
         })

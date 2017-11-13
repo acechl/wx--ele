@@ -55,7 +55,6 @@ App({
     }
   },
   onShow () {
-    console.log("nini")
     let classify_left = Mock.mock({
       "type": [
           {"name":"全部商品","num":"9876"},

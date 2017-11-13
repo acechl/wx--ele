@@ -199,7 +199,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // 模板的根
 	            templateRoot: context.templateRoot || context.templateCurrentContext || template
 	        }
-	        // console.log('path:', context.path.join('.'), template)
+	        // console.log('path:', context.path.join('.'), template
 
 	    var rule = Parser.parse(name)
 	    var type = Util.type(template)

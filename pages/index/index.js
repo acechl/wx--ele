@@ -79,7 +79,6 @@ Page({
         this.changeLength(shop_intro.type);
         wx.getSystemInfo({
             success (res) {
-                console.log(res.windowHeight)
                 that.setData({
                     winHeight: res.windowHeight
                 })
@@ -112,7 +111,6 @@ Page({
         })
     },
     clickType (e) {
-        // console.log(e)
         wx.redirectTo({
             url: "../menu/makeMenu/makeMenu?id="+ e.currentTarget.id
         })
