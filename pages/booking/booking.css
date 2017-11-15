@@ -403,6 +403,18 @@
 .booking .car .cicle .empty {
   background-image: radial-gradient(circle, #363636 0.626667rem, #444 0);
 }
+.booking .car .cicle .num {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-image: linear-gradient(-90deg, #ff7416, #ff3c15 98%);
+  border-radius: 50%;
+  line-height: 14px;
+  text-align: center;
+  color: #fff;
+  right: -5px;
+  top: -5px;
+}
 .booking .car .detail {
   margin-top: 10px;
   margin-left: 100px;
@@ -429,4 +441,5 @@
 }
 .booking .car .least .goPay {
   background-color: #4cd964;
+  text-align: center;
 }

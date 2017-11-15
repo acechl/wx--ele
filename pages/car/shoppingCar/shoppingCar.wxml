@@ -1,0 +1,17 @@
+<view class="shoppingCar">
+    <import  src="../../../template/header/header.wxml" />
+    <template is="header" data="{{title:'确定订单'}}"></template>
+    <view class="address">
+        
+    </view>
+    <view class="time">
+    
+    </view>
+    <view class="booking">
+    
+    </view>
+    <view class="detail">
+    
+    </view>
+    <view class="goPay"></view>
+</view>

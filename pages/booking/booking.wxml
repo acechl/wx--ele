@@ -65,9 +65,9 @@
                                                 <text wx:if="{{items.oldPrize}}" class="oldPrize">￥{{items.oldPrize}}</text>
                                             </view>
                                             <view class="quality">
-                                                <text class="dis" bindtap="clickDis" wx:if="{{shoppingCar[item.id][idx].num != 0}}" data-title="{{items.name}}" data-id="{{item.id}}" data-oldPrize="{{items.oldPrize}}">-</text>
+                                                <text class="dis" bindtap="clickDis" wx:if="{{shoppingCar[item.id][idx].num != 0}}" data-title="{{items.name}}" data-id="{{item.id}}" data-newPrize="{{items.newPrize}}" data-oldPrize="{{items.oldPrize}}">-</text>
                                                 <text class="nums" wx:if="{{shoppingCar[item.id][idx].num != 0}}" data-id="{{item.id}}">{{shoppingCar[item.id][idx].num}}</text>
-                                                <text class="plus" bindtap="clickPlus" data-title="{{items.name}}" data-newPrize="{{items.newPrize}}" data-oldPrize="{{items.oldPrize}}" data-id="{{item.id}}">+</text>
+                                                <text class="plus" bindtap="clickPlus" data-title="{{items.name}}" data-newPrize="{{items.newPrize}}" data-oldPrize="{{items.oldPrize}}" data-id="{{item.id}}" data-least="{{item.least}}">+</text>
                                             </view>
                                         </view>
 
@@ -99,16 +99,16 @@
     </view>
     <view class="car" wx:for="{{shop}}">
         <view class="cicle">
-            <view class="{{qua == 0?'empty':'full'}} b_cicle"></view>
-            <view class="num" wx:if="{{qua != 0}}">{{qua}}</view>
+            <view class="{{booking == 0?'empty':'full'}} b_cicle"></view>
+            <view class="num" wx:if="{{booking != 0}}">{{booking}}</view>
         </view>
         <view class="detail">
-            <view>￥{{booking}}</view>
-            <view>配送费￥{{item.fare}}</view>
+            <view>￥{{allPrize}}</view>
+            <view>配送费<text wx:if="{{allPrize<item.least}}">￥{{item.fare}}</text><text wx:if="{{allPrize >= item.least}}">￥0</text></view>
         </view>
         <view class="least">
-            <view wx:if="{{qua == 0}}">￥{{item.least}}起送</view>
-            <view wx:if="{{qua != 0}}" class="goPay">结算</view>
+            <view wx:if="{{booking == 0}}">￥{{item.least}}起送</view>
+            <view wx:if="{{booking != 0}}" class="goPay" bindtap="shoppingCar">结算</view>
         </view>
     </view>
 </view>
