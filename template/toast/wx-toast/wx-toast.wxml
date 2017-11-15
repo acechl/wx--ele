@@ -1,0 +1,3 @@
+<template name="wx-toast">
+    <view class="wx-toast">{{message}}</view>
+</template>

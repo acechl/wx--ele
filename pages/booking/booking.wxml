@@ -1,4 +1,4 @@
-<view class="booking" style="{{look_activity?'overflow:hidden;height:'+winHeight+'px':''}}">
+<view class="booking" style="{{look_activity?'overflow:hidden;height:'+winHeight+'px':'height:'+winHeight+'px'}}">
     <view class="shop_detail"  wx:for="{{shop}}">
         <view class="back clearfix">
             <view bindtap="goBack">{{"<"}}</view>
@@ -39,13 +39,13 @@
             <view class="{{current == 1?'selected':''}}" data-current="1" bindtap="clickTab"><text>评价</text></view>
             <view class="{{current == 2?'selected':''}}" data-current="2" bindtap="clickTab"><text>店铺</text></view>
         </view>
-        <swiper  bindchange="changeTab" current="{{current}}" style="height:{{winHeight-210}}px">
+        <swiper  bindchange="changeTab" current="{{current}}" style="height:{{winHeight-200}}px">
             <swiper-item>
                 <view class="goods clearfix">
-                    <view class="goods_left" style="height:{{winHeight-210}}px;overflow:auto">
+                    <view class="goods_left" style="height:{{winHeight-200}}px;overflow:auto">
                         <view wx:for="{{goods.goods}}" wx:for-index="idx" data-index="{{idx}}" class="{{selected[idx]?'selected':''}}" bindtap="clickName" data-id="{{item.id}}">{{item.name}}</view>
                     </view>
-                    <scroll-view scroll-y="true" style="height:{{winHeight-210}}px" scroll-into-view="{{sonId}}">
+                    <scroll-view scroll-y="true" style="height:{{winHeight-200}}px" scroll-into-view="{{sonId}}">
                         <view class="goods_right">
                             <view class="singles" wx:for="{{goods.goods}}" id="{{item.id}}">
                                 <view class="name">{{item.name}}<text>{{item.ad}}</text></view>

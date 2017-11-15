@@ -28,6 +28,7 @@
 }
 .booking {
   font-size: 22rpx;
+  overflow: hidden;
 }
 .booking .shop_detail {
   padding: 0 10px;
@@ -384,7 +385,7 @@
   position: fixed;
   bottom: 14px;
   background-color: rgba(61, 61, 63, 0.9);
-  height: 60px;
+  height: 50px;
   position: relative;
 }
 .booking .car .cicle {
@@ -394,7 +395,7 @@
 }
 .booking .car .cicle .b_cicle {
   width: 40px;
-  height: 40px;
+  height: 50px;
   border-radius: 50%;
 }
 .booking .car .cicle .full {
@@ -433,13 +434,14 @@
   right: 0;
   background-color: #535356;
   width: 100px;
-  height: 60px;
+  height: 50px;
   color: #fff;
   font-size: 40rpx;
   font-weight: 600;
-  line-height: 60px;
+  line-height: 40px;
 }
 .booking .car .least .goPay {
   background-color: #4cd964;
   text-align: center;
+  line-height: 50px;
 }
