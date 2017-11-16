@@ -10,7 +10,8 @@
     "pages/booking/booking",
     "pages/car/shoppingCar/shoppingCar",
     "pages/login/login/login",
-    "pages/login/register/register"
+    "pages/login/register/register",
+    "pages/car/remark/remark"
   ],
   "window":{
     "backgroundTextStyle":"light",

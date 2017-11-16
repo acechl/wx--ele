@@ -1,7 +1,10 @@
-<view class="shoppingCar" style="height: {{winHeight}}px">
-    <import  src="../../../template/header/header.wxml" />
-    <template is="header" data="{{title:'确定订单'}}"></template>
-    <view class="tips" wx:if="{{show}}">
+<view class="shoppingCar" style="height: 100%">
+    <view class="carHeader" style="position: fixed;top:0;width: 100%;left:0;z-index:3;">
+        <import  src="../../../template/header/header.wxml" />
+        <template is="header" data="{{title:'确定订单'}}"></template>
+    </view>
+    <view class="middle">
+        <view class="tips" wx:if="{{show}}">
         <import src="../../../template/toast/wx-toast/wx-toast.wxml"/>
         <template is="wx-toast" data="{{message: tips}}"></template>
     </view>
@@ -29,18 +32,20 @@
                     <checkbox value="{{item.brand}}"/>
                 </checkbox-group>
                 <view class="content">
-                    <view wx:for="{{item.menu}}" wx:for-item="items" class="first clearfix">
-                        <view>{{items.name}}</view>
-                        <view>
-                            <text>x{{items.num}}</text>
-                            <text>￥{{items.prize}}</text>
+                    <view class="menu">
+                        <view wx:for="{{item.menu}}" wx:for-item="items" class="first clearfix">
+                            <view>{{items.name}}</view>
+                            <view>
+                                <text>x{{items.num}}</text>
+                                <text>￥{{items.prize}}</text>
+                            </view>
                         </view>
                     </view>
-                    <view class="least">
+                    <view class="least clearfix">
                         <view>配送费</view>
                         <view>￥{{item.fare}}</view>
                     </view>
-                    <view class="all">
+                    <view class="all clearfix">
                         <view>总计</view>
                         <view>小计￥{{allPrize[idx]}}</view>
                     </view>
@@ -48,15 +53,16 @@
             </view>
         </view>
     </view>
-    <view class="detail">
+    <view class="detail clearfix">
         <view class="pay">在线支付</view>
         <view class="taste">
             <view>口味偏好</view>
-            <view>{{">"}}</view>
+            <view bindtap="selectTaste">{{">"}}</view>
         </view>
     </view>
+    </view>
     <view class="goPay clearfix">
-        <view>待支付￥{{}}</view>
+        <view>待支付￥{{all}}</view>
         <view bindtap="goPay">去支付</view>
     </view>
 </view>

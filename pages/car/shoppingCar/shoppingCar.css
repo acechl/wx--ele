@@ -86,15 +86,15 @@
 .shoppingCar .time .picker view {
   line-height: 40px;
 }
-.shoppingCar .booking {
-  background-color: #fff;
-}
 .shoppingCar .booking .single {
+  background-color: #fff;
   padding: 0 10px;
-  padding-top: 10px;
+  padding-top: 20px;
   position: relative;
   border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
   box-sizing: border-box;
+  margin-top: 10px;
 }
 .shoppingCar .booking .single .title {
   position: relative;
@@ -115,6 +115,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 30rpx;
+  font-weight: 600;
 }
 .shoppingCar .booking .single .bottom {
   position: relative;
@@ -122,12 +124,20 @@
 .shoppingCar .booking .single .bottom checkbox-group {
   position: absolute;
   left: 10px;
-  top: 20px;
+  top: 27px;
 }
 .shoppingCar .booking .single .bottom .content {
-  padding-left: 40px;
+  padding-left: 50px;
   width: 100%;
+  font-size: 30rpx;
   box-sizing: border-box;
+}
+.shoppingCar .booking .single .bottom .content .menu {
+  border-bottom: 1px solid #ddd;
+}
+.shoppingCar .booking .single .bottom .content .first {
+  height: 70px;
+  line-height: 70px;
 }
 .shoppingCar .booking .single .bottom .content .first view:first-child {
   float: left;
@@ -135,15 +145,81 @@
 .shoppingCar .booking .single .bottom .content .first view:last-child {
   float: right;
 }
+.shoppingCar .booking .single .bottom .content .first view:last-child text:first-child {
+  margin-right: 20rpx;
+}
+.shoppingCar .booking .single .bottom .content .least {
+  height: 40px;
+  line-height: 40px;
+}
 .shoppingCar .booking .single .bottom .content .least view:first-child {
   float: left;
 }
 .shoppingCar .booking .single .bottom .content .least view:last-child {
   float: right;
 }
+.shoppingCar .booking .single .bottom .content .all {
+  height: 40px;
+  line-height: 40px;
+}
 .shoppingCar .booking .single .bottom .content .all view:first-child {
   float: left;
 }
 .shoppingCar .booking .single .bottom .content .all view:last-child {
   float: right;
+}
+.shoppingCar .detail {
+  padding: 0 10px;
+  background-color: #fff;
+}
+.shoppingCar .detail .pay {
+  height: 40px;
+  line-height: 40px;
+  font-size: 35rpx;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+}
+.shoppingCar .detail .taste {
+  height: 40px;
+  line-height: 40px;
+}
+.shoppingCar .detail .taste view:first-child {
+  float: left;
+  font-size: 35rpx;
+  font-weight: 600;
+}
+.shoppingCar .detail .taste view:last-child {
+  float: right;
+  color: #999;
+  font-family: Consolas;
+  width: 100px;
+  text-align: right;
+  font-size: 40rpx;
+}
+.shoppingCar .middle {
+  padding-bottom: 60px;
+  padding-top: 50px;
+}
+.shoppingCar .goPay {
+  position: fixed;
+  padding: 0 10px;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.shoppingCar .goPay view:first-child {
+  float: left;
+  color: #fff;
+  font-size: 40rpx;
+}
+.shoppingCar .goPay view:last-child {
+  float: right;
+  background-color: #00d762;
+  color: #fff;
+  text-align: center;
+  width: 100px;
+  font-size: 30rpx;
 }

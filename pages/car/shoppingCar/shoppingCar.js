@@ -12,7 +12,7 @@ Page({
         show: false,
         tips: "",
         path: "",
-        winHeight: 0
+        winHeight: 0,
     },
     onLoad (options) {
         this.setData({
@@ -62,6 +62,7 @@ Page({
                 selected: selected
             })
         }
+        console.log(selected)
     },
     goPay () {
         let selected = this.data.selected;
@@ -118,6 +119,11 @@ Page({
     timeChange (e) {
         this.setData({
             index: e.detail.value
+        })
+    },
+    selectTaste () {
+        wx.navigateTo({
+            url: "../../car/remark/remark"
         })
     }
 })

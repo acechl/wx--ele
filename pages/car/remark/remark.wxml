@@ -1,0 +1,21 @@
+<view class="remark">
+    <view class="remarkHeader">
+        <import src="../../../template/header/header.wxml"/>
+        <template is="header" data="{{title:'订单备注'}}"></template>
+    </view>
+    <view class="firstRemark">
+        <view class="title">快速备注</view>
+        <view class="content clearfix">
+            <view wx:for="{{list}}" wx:for-index="index" class="clearfix">
+                <view wx:for="{{item.type}}" wx:for-index="idx" wx:for-item="items" class="list {{idx == 0?first:''}} {{idx == items.length?'last':''}}">
+                    {{items}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="otherRemark">
+        <view class="title">其他备注</view>
+        <textarea placeholder="请输入备注内容(可不填)" />
+    </view>
+    <button type="default" size="defaultSize" bindtap="defaultTap" hover-class="defaultTap">确定</button>
+</view>

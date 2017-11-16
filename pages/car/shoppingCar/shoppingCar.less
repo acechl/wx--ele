@@ -56,13 +56,15 @@
             
     }
     .booking {
-        .bg-f();
         .single {
+            .bg-f();
             .p10();
-            padding-top: 10px;
+            padding-top: 20px;
             position: relative;
             border-bottom: 1px solid #ddd;
+            .m10();
             .bs();
+            margin-top: 10px;
             .title {
                 position: relative;
                 .m10();
@@ -81,6 +83,8 @@
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    font-size: 30rpx;
+                    font-weight: 600;
                 }
             }
             .bottom {
@@ -88,21 +92,32 @@
                 checkbox-group {
                     position: absolute;
                     left: 10px;
-                    top: 20px;
+                    top: 27px;
                 }
                 .content {
-                    padding-left: 40px;
+                    padding-left: 50px;
                     width: 100%;
+                    font-size: 30rpx;
                     .bs();
+                    .menu {
+                        border-bottom: 1px solid #ddd;
+                    }
                     .first {
+                        height: 70px;
+                        line-height: 70px;
                         view:first-child {
                             .fl();
                         }
                         view:last-child {
                             .fr();
+                            text:first-child {
+                                margin-right: 20rpx;
+                            }
                         }
                     }
                     .least {
+                        height: 40px;
+                        line-height: 40px;
                         view:first-child {
                             .fl();
                         }
@@ -111,6 +126,8 @@
                         }
                     }
                     .all {
+                        height: 40px;
+                        line-height: 40px;
                         view:first-child {
                             .fl();
                         }
@@ -123,9 +140,58 @@
         }
     }
     .detail {
-
+        .p10();
+        .bg-f();
+        .pay {
+            height: 40px;
+            line-height: 40px;
+            font-size: 35rpx;
+            font-weight: 600;
+            border-bottom: 1px solid #ddd;
+        }
+        .taste {
+            height: 40px;
+            line-height: 40px;
+            view:first-child {
+                .fl();
+                font-size: 35rpx;
+                font-weight: 600;
+            }
+            view:last-child {
+                .fr();
+                color: #999;
+                font-family: Consolas;
+                width: 100px;
+                text-align: right;
+                font-size: 40rpx;
+            }
+        }
+    }
+    .middle {
+        padding-bottom: 60px;
+        padding-top: 50px;
     }
     .goPay {
-
+        position: fixed;
+        .p10();
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        left: 0;
+        background-color: rgba(0,0,0,0.7);
+        view:first-child {
+            .fl();
+            color: #fff;
+            font-size: 40rpx;
+        }
+        view:last-child {
+            .fr();
+            background-color: #00d762;
+            color: #fff;
+            text-align: center;
+            width: 100px;
+            font-size: 30rpx; 
+        }
     }
 }

@@ -1,0 +1,98 @@
+.mb10 {
+  margin-bottom: 10px;
+}
+.header {
+  width: 100%;
+  background-image: linear-gradient(90deg, #0af, #0085ff);
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  padding: 0 40px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.header .goBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  padding-left: 10px;
+  font-family: Consolas;
+  font-size: 46rpx;
+}
+.header .space {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+}
+.remark {
+  background-color: #f0f0f0;
+}
+.remark .remarkHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+.remark .title {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.remark .firstRemark {
+  background-color: #fff;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  padding-top: 60px;
+}
+.remark .firstRemark view {
+  color: #666;
+  font-size: 28rpx;
+}
+.remark .firstRemark .content > view {
+  float: left;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+.remark .firstRemark .content .list {
+  border: 1px solid #ccc;
+  padding: 3px 5px;
+}
+.remark .firstRemark .content .first {
+  border-radius: 5px 0 0 5px;
+}
+.remark .firstRemark .content .last {
+  border-radius: 0 5px 5px 0;
+}
+.remark .otherRemark {
+  background-color: #fff;
+  padding: 0 10px;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
+.remark .otherRemark textareat {
+  color: #666;
+  padding: 10px;
+  font-size: 30rpx;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+}
+.remark button {
+  width: 100%;
+  background-color: #4cd964;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
