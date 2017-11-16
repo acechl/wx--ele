@@ -67,7 +67,7 @@
                                             <view class="quality">
                                                 <text class="dis" bindtap="clickDis" wx:if="{{shoppingCar[item.id][idx].num != 0}}" data-title="{{items.name}}" data-id="{{item.id}}" data-newPrize="{{items.newPrize}}" data-oldPrize="{{items.oldPrize}}">-</text>
                                                 <text class="nums" wx:if="{{shoppingCar[item.id][idx].num != 0}}" data-id="{{item.id}}">{{shoppingCar[item.id][idx].num}}</text>
-                                                <text class="plus" bindtap="clickPlus" data-title="{{items.name}}" data-newPrize="{{items.newPrize}}" data-oldPrize="{{items.oldPrize}}" data-id="{{item.id}}" data-least="{{item.least}}">+</text>
+                                                <text class="plus" bindtap="clickPlus" data-title="{{items.name}}" data-newPrize="{{items.newPrize}}" data-oldPrize="{{items.oldPrize}}" data-id="{{item.id}}" data-least="{{item.least}}" data-fare="{{item.fare}}">+</text>
                                             </view>
                                         </view>
 

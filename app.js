@@ -14,7 +14,9 @@ App({
     rank_type: {},
     activity_type: {},
     prize: "",
-    shopCar: []
+    shopCar: [],
+    password: "acehuangchl123",
+    verificate: "911214"
   },
   onLaunch () {
     //调用API从本地缓存中获取数据

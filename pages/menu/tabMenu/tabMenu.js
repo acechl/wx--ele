@@ -236,7 +236,7 @@ Page({
     scrollDown (e) {
     },
     bookinggoods (e) {
-        wx.redirectTo({
+        wx.navigateTo({
             url: "../../booking/booking?title="+e.currentTarget.dataset
             .title+"&path=tabMenu&id="+this.data.title
         })

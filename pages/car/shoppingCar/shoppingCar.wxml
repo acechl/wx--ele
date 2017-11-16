@@ -1,17 +1,62 @@
-<view class="shoppingCar">
+<view class="shoppingCar" style="height: {{winHeight}}px">
     <import  src="../../../template/header/header.wxml" />
     <template is="header" data="{{title:'确定订单'}}"></template>
-    <view class="address">
-        
+    <view class="tips" wx:if="{{show}}">
+        <import src="../../../template/toast/wx-toast/wx-toast.wxml"/>
+        <template is="wx-toast" data="{{message: tips}}"></template>
     </view>
-    <view class="time">
-    
+    <view class="address clearfix">
+        <view>请添加一个收获地址</view>
+        <view bindtap="selectAddress">{{">"}}</view>
+        <view class="bg-i"></view>
+    </view>
+    <view class="time clearfix">
+        <view>送到时间</view>
+        <view class="picker">
+            <picker bindchange="timeChange" range="{{timeArray}}" value="{{index}}" mode="selector">
+                <view>{{timeArray[index]}}</view>
+            </picker>
+        </view>
     </view>
     <view class="booking">
-    
+        <view wx:for="{{shopCar}}" wx:for-index="idx" class="single clearfix" >
+            <view class="title">
+                <view class="line"></view>
+                <view class="contents">{{item.brand}}</view>
+            </view>
+            <view class="bottom">
+                <checkbox-group class="checkbox-group" bindchange="checkboxChange" data-pay="{{allPrize[idx]}}" data-brand="{{item.brand}}" data-selected="{{idx}}">
+                    <checkbox value="{{item.brand}}"/>
+                </checkbox-group>
+                <view class="content">
+                    <view wx:for="{{item.menu}}" wx:for-item="items" class="first clearfix">
+                        <view>{{items.name}}</view>
+                        <view>
+                            <text>x{{items.num}}</text>
+                            <text>￥{{items.prize}}</text>
+                        </view>
+                    </view>
+                    <view class="least">
+                        <view>配送费</view>
+                        <view>￥{{item.fare}}</view>
+                    </view>
+                    <view class="all">
+                        <view>总计</view>
+                        <view>小计￥{{allPrize[idx]}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
     </view>
     <view class="detail">
-    
+        <view class="pay">在线支付</view>
+        <view class="taste">
+            <view>口味偏好</view>
+            <view>{{">"}}</view>
+        </view>
     </view>
-    <view class="goPay"></view>
+    <view class="goPay clearfix">
+        <view>待支付￥{{}}</view>
+        <view bindtap="goPay">去支付</view>
+    </view>
 </view>

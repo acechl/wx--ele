@@ -19,7 +19,8 @@ Page({
         booking: 0,
         shopCar: [],
         booking: 0,
-        allPrize: 0
+        allPrize: 0,
+        user: ""
     },
     onLoad (options) {
         this.setData({
@@ -30,13 +31,8 @@ Page({
     },
     onShow () {
         let winHeight = 0;
-        let shopCar = [];
-        wx.getStorage({
-            key: 'shopCar',
-            success: function(res) {
-                shopCar = res.data || []
-            } 
-          })
+        let user =  wx.getStorageSync('user');
+        let shopCar = wx.getStorageSync('shopCar') || [];
         wx.getSystemInfo({
             success (res) {
                 winHeight =  res.windowHeight
@@ -58,15 +54,15 @@ Page({
         })
         let goods = Mock.mock({
             "goods": [
-                {"name":"热销","id":"goods1","ad":"大家喜欢吃，才叫真好吃","least":20,"goods":[{"name":"豉油皇三丝炒面","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"湾仔艇仔粥","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"金牌虾饺王","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}
+                {"name":"热销","id":"goods1","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"豉油皇三丝炒面","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"湾仔艇仔粥","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"金牌虾饺王","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}
                 ]},
-                {"name":"优惠","id":"goods2","ad":"大家喜欢吃，才叫真好吃","least":20,"goods":[{"name":"豉油皇三丝炒面(鸡蛋、粉丝、火腿肠、牛肉条、胡萝卜、豆芽)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲍汁排骨饭套餐","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"葱香鸡饭套餐","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
-                {"name":"肠如意","id":"goods3","ad":"大家喜欢吃，才叫真好吃","least":20,"goods":[{"name":"白玉牛腩饭套餐【微辣】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲍汁排骨饭【招牌】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"黑椒肥牛饭套餐","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
-                {"name":"齿留香","id":"goods4","ad":"大家喜欢吃，才叫真好吃","least":20,"goods":[{"name":"鲍汁排骨饭饮料套餐","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"酱爆肉饭套餐【辣】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"泰国香米饭","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
-                {"name":"粥好运","id":"goods5","ad":"大家喜欢吃，才叫真好吃","least":20,"goods":[{"name":"至尊肥牛饭套餐","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲜榨金桔汁【特惠价】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"特惠餐(酱爆肉饭+金桔汁+凤爪)","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
-                {"name":"甜蜜蜜","id":"goods6","ad":"大家喜欢吃，才叫真好吃","least":20,"goods":[{"name":"特惠餐(葱香鸡饭+金桔汁)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"特惠餐(卤肉饭+金桔汁)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"超值双人套餐","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
-                {"name":"包都德","id":"goods7","ad":"大家喜欢吃，才叫真好吃","least":20,"goods":[{"name":"鲍汁排骨豪华套餐(凤爪)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲍汁排骨豪华套餐(豆腐)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"黑椒肥牛豪华套餐(凤爪)","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
-                {"name":"焗焗赢","id":"goods8","ad":"大家喜欢吃，才叫真好吃","least":20,"goods":[{"name":"黑椒肥牛豪华套餐(豆腐)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲍汁排骨饭套餐【招牌】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"黑椒肥牛饭套餐","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"优惠","id":"goods2","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"豉油皇三丝炒面(鸡蛋、粉丝、火腿肠、牛肉条、胡萝卜、豆芽)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲍汁排骨饭套餐","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"葱香鸡饭套餐","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"肠如意","id":"goods3","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"白玉牛腩饭套餐【微辣】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲍汁排骨饭【招牌】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"黑椒肥牛饭套餐","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"齿留香","id":"goods4","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"鲍汁排骨饭饮料套餐","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"酱爆肉饭套餐【辣】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"泰国香米饭","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"粥好运","id":"goods5","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"至尊肥牛饭套餐","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲜榨金桔汁【特惠价】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"特惠餐(酱爆肉饭+金桔汁+凤爪)","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"甜蜜蜜","id":"goods6","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"特惠餐(葱香鸡饭+金桔汁)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"特惠餐(卤肉饭+金桔汁)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"超值双人套餐","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"包都德","id":"goods7","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"鲍汁排骨豪华套餐(凤爪)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲍汁排骨豪华套餐(豆腐)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"黑椒肥牛豪华套餐(凤爪)","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+                {"name":"焗焗赢","id":"goods8","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"黑椒肥牛豪华套餐(豆腐)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲍汁排骨饭套餐【招牌】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"黑椒肥牛饭套餐","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
             ]
         })
         let selected = [];
@@ -87,7 +83,8 @@ Page({
             goods: goods,
             selected: selected,
             shoppingCar: shoppingCar,
-            shopCar: shopCar
+            shopCar: shopCar,
+            user: user
         })
     },
     changeTab (e) {
@@ -98,13 +95,13 @@ Page({
                 url: "../index/index"
             }) 
         }else {
-            wx.redirectTo({
+            wx.navigateTo({
                 url: "../menu/tabMenu/tabMenu?title="+this.data.id
             })
         }
     },
     goCar () {
-        wx.redirectTo({
+        wx.navigateTo({
             url: "../car/shoppingCar/shoppingCar"
         })
     },
@@ -134,7 +131,7 @@ Page({
         let oldPrize = e.currentTarget.dataset.oldprize;
         let newPrize = e.currentTarget.dataset.newprize;
         let shoppingCar = this.data.shoppingCar;
-        let shopCar = app.globalData.shopCar;
+        let shopCar = this.data.shopCar;
         let menu = {};
         let booking = this.data.booking;
         let allPrize = this.data.allPrize;
@@ -197,12 +194,12 @@ Page({
         let oldPrize = e.currentTarget.dataset.oldprize;
         let shoppingCar = this.data.shoppingCar;
         let menu = {};
-        let shopCar = app.globalData.shopCar;
+        let shopCar = this.data.shopCar;
         let flag = false;
         let booking = this.data.booking;
         let allPrize = this.data.allPrize;
         let least = e.currentTarget.dataset.least;
-        console.log(least);
+        let fare = e.currentTarget.dataset.fare;
         for(let key in shoppingCar){
             if(key == id){
                 shoppingCar[key].forEach((value,index,arr)=>{
@@ -240,7 +237,7 @@ Page({
             }
         }
         if(shopCar.length == 0){
-            shopCar.push({"brand":this.data.title,"menu":[menu],"least":least})
+            shopCar.push({"brand":this.data.title,"menu":[menu],"least":least,"fare":fare})
         }else {
             shopCar.forEach((value,index,arr)=>{//arr 代表的是shopCar
                 if(value.brand == this.data.title){//存在这个商店
@@ -254,7 +251,7 @@ Page({
                 }
             })
             if(flag == false) {
-                shopCar.push({"brand":this.data.title,"menu":[menu],"least":least})
+                shopCar.push({"brand":this.data.title,"menu":[menu],"least":least,"fare":fare})
             }
         }
         app.globalData.shopCar = shopCar;
@@ -288,20 +285,12 @@ Page({
             key:"shopCar",
             data: that.data.shopCar
           })
-        let user = "";
-        wx.getStorage({
-            key: 'user',
-            success: function(res) {
-                user = res.data;
-            } 
-        })
-        console.log(user)
-        if(!user){//没有登录或者注册
-            wx.redirectTo({
-                url: "../login/login/login"
+        if(!this.data.user){//没有登录或者注册
+            wx.navigateTo({
+                url: "../login/login/login?path=shoppingCar"
             })
         }else {
-            wx.redirectTo({
+            wx.navigateTo({
                 url: "../car/shoppingCar/shoppingCar"
             })
         }

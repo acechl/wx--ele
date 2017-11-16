@@ -101,17 +101,17 @@ Page({
 
     },
     clickAddress () {
-        wx.redirectTo({
+        wx.navigateTo({
             url: "../address/setAddress/setAddress"
         })
     },
     clickMenu () {
-        wx.redirectTo({
+        wx.navigateTo({
             url: "../menu/makeMenu/makeMenu"
         })
     },
     clickType (e) {
-        wx.redirectTo({
+        wx.navigateTo({
             url: "../menu/makeMenu/makeMenu?id="+ e.currentTarget.id
         })
     },
@@ -199,12 +199,12 @@ Page({
         })
     },
     clickFood (e) {
-        wx.redirectTo({
+        wx.navigateTo({
             url: "../menu/tabMenu/tabMenu?title="+e.currentTarget.dataset.title
         })
     },
     bookinggoods (e) {
-        wx.redirectTo({
+        wx.navigateTo({
             url: "../booking/booking?title="+e.currentTarget.dataset
             .title+"&path=index"
         })
