@@ -11,3 +11,80 @@
   line-height: 40px;
   border-radius: 20px;
 }
+.login {
+  padding: 0 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.login .type {
+  margin-bottom: 40rpx;
+}
+.login .type view {
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+}
+.login .type view text {
+  padding-bottom: 10rpx;
+  border-bottom: 2px solid transparent;
+}
+.login .type view .active {
+  color: #2395ff;
+  border-bottom: 2px solid #2395ff;
+}
+.login .detail input {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding-left: 20rpx;
+  border-radius: 10rpx;
+  color: #333;
+  height: 80rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.login .detail .verificate .phone view {
+  position: absolute;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 180rpx;
+  right: 0;
+  top: 0;
+  text-align: center;
+  color: #ccc;
+}
+.login .detail .verificate .verification {
+  margin: 40rpx 0 30rpx 0;
+}
+.login .detail .verificate .tip {
+  color: #999;
+  font-size: 28rpx;
+  margin-bottom: 60rpx;
+}
+.login .detail .verificate button {
+  width: 100%;
+  height: 80rpx;
+  color: #fff;
+  background-color: #4cd96f;
+}
+.login .detail .password .pw {
+  position: relative;
+  margin: 40rpx 0 30rpx 0;
+  width: 100%;
+}
+.login .detail .password .pw .switch {
+  height: 80rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200rpx;
+}
+.login .detail .password .pw .switch switch {
+  height: 50rpx;
+  top: 13rpx;
+}
+.login .detail .password button {
+  color: #fff;
+  background-color: #4cd96f;
+}

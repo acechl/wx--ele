@@ -217,6 +217,7 @@
 }
 .booking .food_detail .goods {
   width: 100%;
+  padding-bottom: 60px;
 }
 .booking .food_detail .goods scroll-view:nth-child(2) {
   float: left;
@@ -383,7 +384,7 @@
 .booking .car {
   width: 100%;
   position: fixed;
-  bottom: 14px;
+  bottom: -12rpx;
   background-color: rgba(61, 61, 63, 0.9);
   height: 50px;
   position: relative;

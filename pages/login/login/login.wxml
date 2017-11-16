@@ -3,33 +3,32 @@
         <import src="../../../template/toast/wx-toast/wx-toast.wxml"/>
         <template is="wx-toast" data="{{message: tips}}"></template>
     </view>
-    <view>
-        <image src="" />
+    <view class="type clearfix">
+        <view data-current = "0" bindtap="typeTap"><text class="{{current==0?'active':''}}">短信登录</text></view>
+        <view data-current = "1" bindtap="typeTap"><text class="{{current==1?'active':''}}">密码登录</text></view>
     </view>
-    <view>
-        <view data-current = "0" bindtap="typeTap">短信登录</view>
-        <view data-current = "1" bindtap="typeTap">密码登录</view>
-    </view>
-    <view>
-        <swiper bindchange="swiperChange" current="{{current}}">
-            <swiper-item>
-                <view>
+    <view class="detail">
+        <swiper bindchange="swiperChange" current="{{current}}" style="height:{{winHeight}}px">
+            <swiper-item class="verificate">
+                <view class="phone">
                     <input type="" placeholder="手机号" value="{{phoneValue}}"/>
-                    <text>获取验证码</text>
+                    <view>获取验证码</view>
                 </view>
-                <view>
-                    <input type="text" placeholder="验证码" value="{{verificationValue}}">
+                <view class="verification">
+                    <input type="text" placeholder="验证码" value="{{verificationValue}}"/>
                 </view>
-                <view>温馨提示:未注册饿了么账号的手机号，登录时将自动注册,且代表您已同意《用户服务协议》</view>
+                <view class="tip">温馨提示:未注册饿了么账号的手机号，登录时将自动注册,且代表您已同意《用户服务协议》</view>
                 <button size="default" bindtap="verificationTap" hover-class="other-button-hover">登录</button>
             </swiper-item>
-            <swiper-item>
-                <view>
-                    <input type="text" placeholder="手机/邮箱/用户名" value="{{phoneValue}}">
+            <swiper-item class="password">
+                <view class="phone">
+                    <input type="text" placeholder="手机/邮箱/用户名" value="{{phoneValue}}"/>
                 </view>
-                <view>
-                    <input type="text" placeholder="密码" value="{{passwordValue}}">
-                    <switch checked="false" bindchange="switchChange"/>
+                <view class="pw">
+                    <input type="text" placeholder="密码" value="{{passwordValue}}"/>
+                    <view class="switch">
+                        <switch checked="{{checked}}" bindchange="switchChange"/>
+                    </view>
                 </view>
                 <button size="default" bindtap="passwordTap" hover-class="other-button-hover">登录</button>
             </swiper-item>

@@ -6,13 +6,22 @@ Page({
         passwordValue: "",
         verificationValue: "",
         tips: "",
-        show: false
+        show: false,
+        winHeight: 0,
+        checked: true
     },
     onLoad () {
 
     },
     onShow () {
-
+        let that = this;
+        wx.getSystemInfo({
+            success (res) {
+                that.setData({
+                    winHeight: res.windowHeight
+                })
+            }
+        })
     },
     switchChange () {
         
@@ -54,6 +63,12 @@ Page({
     typeTap (e) {
         this.setData({
             current: e.currentTarget.dataset.current
+        })
+    },
+    switchChange (e) {
+        let checked = this.data.checked;
+        this.setData({
+            checked: !checked
         })
     }
 })

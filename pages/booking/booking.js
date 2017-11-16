@@ -288,8 +288,22 @@ Page({
             key:"shopCar",
             data: that.data.shopCar
           })
-        wx.redirectTo({
-            url: "../car/shoppingCar/shoppingCar"
+        let user = "";
+        wx.getStorage({
+            key: 'user',
+            success: function(res) {
+                user = res.data;
+            } 
         })
+        console.log(user)
+        if(!user){//没有登录或者注册
+            wx.redirectTo({
+                url: "../login/login/login"
+            })
+        }else {
+            wx.redirectTo({
+                url: "../car/shoppingCar/shoppingCar"
+            })
+        }
     }
 })
