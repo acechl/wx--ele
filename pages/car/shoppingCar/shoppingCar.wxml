@@ -29,7 +29,7 @@
             </view>
             <view class="bottom">
                 <checkbox-group class="checkbox-group" bindchange="checkboxChange" data-pay="{{allPrize[idx]}}" data-brand="{{item.brand}}" data-selected="{{idx}}">
-                    <checkbox value="{{item.brand}}"/>
+                    <checkbox value="{{item.brand}}" checked="{{checked[idx]}}"/>
                 </checkbox-group>
                 <view class="content">
                     <view class="menu">
@@ -56,7 +56,8 @@
     <view class="detail clearfix">
         <view class="pay">在线支付</view>
         <view class="taste">
-            <view>口味偏好</view>
+            <view wx:if="{{!remark}}">口味偏好</view>
+            <view wx:if="{{remark}}" class="remark">{{remark}}</view>
             <view bindtap="selectTaste">{{">"}}</view>
         </view>
     </view>

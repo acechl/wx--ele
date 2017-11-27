@@ -53,6 +53,10 @@
   padding-bottom: 20px;
   padding-top: 60px;
 }
+.remark .firstRemark .title {
+  height: 30px;
+  line-height: 30px;
+}
 .remark .firstRemark view {
   color: #666;
   font-size: 28rpx;
@@ -60,18 +64,24 @@
 .remark .firstRemark .content > view {
   float: left;
   margin-bottom: 10px;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 .remark .firstRemark .content .list {
   border: 1px solid #ccc;
-  padding: 3px 5px;
+  padding: 3px 8px;
   float: left;
+  margin-left: -1px;
+  margin-bottom: 5px;
 }
 .remark .firstRemark .content .first {
   border-radius: 5px 0 0 5px;
 }
 .remark .firstRemark .content .last {
   border-radius: 0 5px 5px 0;
+}
+.remark .firstRemark .content .selected {
+  background-color: #3190e8;
+  color: #fff;
 }
 .remark .otherRemark {
   background-color: #fff;

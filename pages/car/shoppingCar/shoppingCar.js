@@ -13,16 +13,22 @@ Page({
         tips: "",
         path: "",
         winHeight: 0,
+        remark: app.globalData.remark,
+        menu: []
     },
     onLoad (options) {
+        let menu = JSON.parse(options.remark || "[]");
         this.setData({
-            path: options.path
+            path: options.path,
+            menu: menu,
+            selected: menu
         })
     },
     onShow () {
         let allPrize = [];
         let shopCar = wx.getStorageSync("shopCar") || [];
         let that = this;
+        let checked = [];
         wx.getSystemInfo({
             success (res) {
                 that.setData({
@@ -36,13 +42,21 @@ Page({
                 all = all + value1.prize;
             })
             allPrize[index] = all; 
+            if(this.data.menu.indexOf(index) != -1){
+                checked[index] = true;
+            }else {
+                checked[index] = false;
+            }
         })
         let timeArray = ["尽快送达|预计14:14","12:15","12:30","12:45","13:00","13:15","13:30","13:45","14:00","14:15","14:30","14:45","15:00","15:15","15:30","15:45","16:00"];
         this.setData({
             timeArray: timeArray,
             allPrize: allPrize,
-            shopCar: shopCar
+            shopCar: shopCar,
+            remark: app.globalData.remark,
+            checked: checked
         })
+        console.log(checked);
     },
     checkboxChange (e) {
         let all = e.currentTarget.dataset.pay;
@@ -59,10 +73,9 @@ Page({
             selected.push(select);
             this.setData({
                 all: this.data.all + all,
-                selected: selected
+                selected: selected,
             })
         }
-        console.log(selected)
     },
     goPay () {
         let selected = this.data.selected;
@@ -122,8 +135,9 @@ Page({
         })
     },
     selectTaste () {
-        wx.navigateTo({
-            url: "../../car/remark/remark"
+        console.log("nini");
+        wx.redirectTo({
+            url: "../../car/remark/remark?remark="+JSON.stringify(this.data.selected)
         })
     }
 })

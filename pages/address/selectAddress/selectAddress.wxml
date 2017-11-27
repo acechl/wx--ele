@@ -1,3 +1,4 @@
 <view class="selectAddress">
-    
+    <import src="../../../template/header/header.wxml"/>
+    <template is="header" data="{{title:'选择地址'}}"></template>
 </view>
