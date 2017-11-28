@@ -1,0 +1,19 @@
+<view class="searchAddress">
+    <import src="../../../template/header/header.wxml" />
+    <template is="header" data="{{title:'搜索地址'}}"></template>
+    <view class="search">
+        <view style="position:alsolute">
+            <input type="" placeholder="请输入小区/写字楼/学校等"/>
+            <view class="icon"></view>
+        </view>
+        <view>搜索</view>
+    </view>
+    <view class="list">
+        <view>
+            <view wx:for="{{all}}" bindtap="selectAdd" data-add="{{item.place}}">
+                <view>{{item.place}}</view>
+                <view>{{item.address}}</view>
+            </view>
+        </view>
+    </view>
+</view>

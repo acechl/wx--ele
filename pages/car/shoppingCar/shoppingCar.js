@@ -126,7 +126,7 @@ Page({
     },
     selectAddress () {
         wx.navigateTo({
-            url: ""
+            url: "../../address/selectAddress/selectAddress"
         })
     },
     timeChange (e) {

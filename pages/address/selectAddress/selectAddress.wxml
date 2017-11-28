@@ -1,4 +1,12 @@
-<view class="selectAddress">
+<view class="selectAddress" style="height:{{winHeight}}px">
     <import src="../../../template/header/header.wxml"/>
     <template is="header" data="{{title:'选择地址'}}"></template>
+    <view class="address">
+        <view>
+            <view wx:for=""></view>
+        </view>
+    </view>
+    <view class="addAddress" bindtap="addAddress">
+        <view>+</view>新增收货地址
+    </view>
 </view>
