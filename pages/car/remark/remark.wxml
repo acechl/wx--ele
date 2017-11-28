@@ -7,7 +7,7 @@
         <view class="title">快速备注</view>
         <view class="content clearfix">
             <view wx:for="{{list}}" wx:for-index="index" class="clearfix">
-                <view wx:for="{{item.type}}" wx:for-index="idx" wx:for-item="items" class="list {{idx == 0?first:''}} {{idx == items.length?'last':''}}">
+                <view wx:for="{{item.type}}" wx:for-index="idx" wx:for-item="items" class="list {{(idx == 0 && item.length >1)?'first':''}} {{(idx == (item.length-1)&&item.length>1?'last':'')}}" data-value="{{items}}" bindtap="selectRemark">
                     {{items}}
                 </view>
             </view>
