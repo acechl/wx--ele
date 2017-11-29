@@ -1,1 +1,30 @@
 @import "../../../common.less";
+@import "../../../template/header/header.less";
+.selectAddress {
+    background-color: #efeff4;
+    
+    .addAddress {
+        background-color: #fff;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 40px;
+        line-height: 40px;
+        color: #3190e8;
+        text-align: center;
+        width: 100%;
+        view {
+            position: absolute;
+            border: 1px solid #3190e8;
+            border-radius: 50%;
+            height: 16px;
+            width: 16px;
+            top: 12px;
+            left: 50%;
+            margin-left: -60px;
+            line-height: 15px;
+            text-align: center;
+            font-size: 32rpx;
+        }
+    }
+}

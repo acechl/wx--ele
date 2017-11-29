@@ -192,9 +192,17 @@
   float: right;
   color: #999;
   font-family: Consolas;
-  width: 100px;
+  width: 30px;
   text-align: right;
   font-size: 40rpx;
+}
+.shoppingCar .detail .taste .remark {
+  font-size: 24rpx !important;
+  color: #333;
+  width: calc(100% - 40px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .shoppingCar .middle {
   padding-bottom: 60px;

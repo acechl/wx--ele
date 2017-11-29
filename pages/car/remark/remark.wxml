@@ -7,7 +7,11 @@
         <view class="title">快速备注</view>
         <view class="content clearfix">
             <view wx:for="{{list}}" wx:for-index="index" class="clearfix">
+<<<<<<< HEAD
                 <view wx:for="{{item.type}}" wx:for-index="idx" wx:for-item="items" class="list {{(idx == 0 && item.length >1)?'first':''}} {{(idx == (item.length-1)&&item.length>1?'last':'')}}" data-value="{{items}}" bindtap="selectRemark">
+=======
+                <view wx:for="{{item.detail}}" wx:for-index="idx" wx:for-item="items" class="list {{(idx == 0 && item.length>1)?'first':''}} {{(idx == (item.length-1)&&item.length>1)?'last':''}} {{selected[index].selected[idx] == 'unselected'?'':'selected'}}" data-type="{{item.type}}" bindtap="selectedClick" data-index="{{idx}}" data-remark="{{items}}">
+>>>>>>> 7fab7979b0de734fa681d1de38232ed7b16c0f67
                     {{items}}
                 </view>
             </view>
@@ -15,7 +19,7 @@
     </view>
     <view class="otherRemark">
         <view class="title">其他备注</view>
-        <textarea placeholder="请输入备注内容(可不填)" />
+        <textarea placeholder="请输入备注内容(可不填)" bindinput="textareaInput" value="{{textarea}}" bindlinechange="linechange"/>
     </view>
-    <button type="default" size="defaultSize" bindtap="defaultTap" hover-class="defaultTap">确定</button>
+    <button type="default" size="defaultSize" bindtap="SureTap" hover-class="defaultTap">确定</button>
 </view>

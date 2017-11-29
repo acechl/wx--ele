@@ -11,7 +11,10 @@
     "pages/car/shoppingCar/shoppingCar",
     "pages/login/login/login",
     "pages/login/register/register",
-    "pages/car/remark/remark"
+    "pages/car/remark/remark",
+    "pages/address/selectAddress/selectAddress",
+    "pages/address/addAddress/addAddress",
+    "pages/address/searchAddress/searchAddress"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,0 +1,79 @@
+<view class="addAddress" style="height:{{winHeight}}px">
+    <import src="../../../template/header/header.wxml" />
+    <template is="header" data="{{title:'添加地址'}}"></template>
+    <view class="detail">
+        <form bindsubmit="" bindreset="">
+            <view class="concact clearfix single">
+                <view class="left">联系人</view>
+                <view class="right">
+                    <view class="input">
+                        <input type="text" placeholder="你的姓名" bindinput="nameChange" value="{{name}}"/>
+                    </view>
+                    <view>
+                        <radio-group bindchange="sexChange" class="clearfix">
+                            <label for="">
+                                <radio value="sex" data-id="male" class="sex"></radio>
+                                <view class="{{sex=='male'?'selected':''}}">男士</view>
+                            </label>
+                            <label for="">
+                                <radio value="sex" data-id="female" class="sex"></radio>
+                                <view class="{{sex=='female'?'selected':''}}">女士</view>
+                            </label>
+                        </radio-group>
+                    </view>
+                </view>
+            </view>
+            <view class="phone clearfix">
+                <view class="left">电话</view>
+                <view class="right">
+                    <view class="first clearfix">
+                        <input type="text" placeholder="你的手机号" bindinput="phoneChange" value="{{phone}}"/>
+                        <view bindtap="showStandBy">+</view>
+                    </view>
+                    <view class="second" wx:if="{{show}}">
+                        <input type="text" placeholder="备选电话" bindinput="standChange" value="{{stand}}"/>
+                    </view>
+                </view>
+            </view>
+            <view class="location clearfix">
+                <view class="left">位置</view>
+                <view class="right clearfix">
+                    <input type="text" value="{{location}}" placeholder="小区/写字楼/学校等"/>
+                    <view bindtap="locationChange">{{">"}}</view>
+                </view>
+            </view>
+            <view class="de-address clearfix single">
+                <view class="left">详细地址</view>
+                <view class="right">
+                    <textarea placeholder="详细地址(如门牌号等)" bindinput="deAddChange" value="{{de_address}}"/>
+                </view>
+            </view>
+            <view class="babel clearfix single">
+                <view class="left">标签</view>
+                <view class="right">
+                    <radio-group bindchange="babelChange">
+                        <label for="">
+                            <radio data-id="home"></radio>
+                            <view class="{{babel=='home'?'selected':''}}">家</view>
+                        </label>
+                        <label for="">
+                            <radio data-id="school"></radio>
+                            <view class="{{bebel=='school'?'selected':''}}">学校</view>
+                        </label>
+                        <label for="">
+                            <radio data-id="company"></radio>
+                            <view class="{{babel=='company'?'selected':''}}">公司</view>
+                        </label>
+                    </radio-group>
+                </view>
+            </view>
+        </form>
+    </view>
+    <view class="sure">
+        <button bindtap="makeSure">确定</button>
+    </view>
+    <view wx:if="{{showing}}">
+        <import src="../../../template/toast/wx-toast/wx-toast.wxml"/>
+        <template is="wx-toast" data="{{message:mes}}"></template>
+    </view>
+</view>
