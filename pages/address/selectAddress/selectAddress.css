@@ -34,6 +34,61 @@
 .selectAddress {
   background-color: #efeff4;
 }
+.selectAddress .single {
+  background-color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #bbb;
+  box-sizing: border-box;
+}
+.selectAddress .single .left {
+  float: left;
+  width: calc(100% - 40px);
+}
+.selectAddress .single .right {
+  float: right;
+  color: #00d762;
+  width: 40px;
+  line-height: 40px;
+  height: 40px;
+  font-size: 30rpx;
+}
+.selectAddress .single .name {
+  display: inline-flex;
+  align-items: flex-end;
+}
+.selectAddress .single .name text:first-child {
+  color: #333;
+  font-weight: 600;
+  font-size: 30rpx;
+}
+.selectAddress .single .name text {
+  color: #666;
+  font-size: 24rpx;
+}
+.selectAddress .single .phone {
+  color: #666;
+  font-size: 24rpx;
+  margin-left: 5px;
+  align-items: center;
+}
+.selectAddress .single .sex {
+  align-items: center;
+}
+.selectAddress .single .place {
+  width: 100%;
+  color: #666;
+  display: inline-flex;
+  margin-top: 4px;
+}
+.selectAddress .single .place .babel {
+  background-color: #3190e8;
+  color: #fff;
+  padding: 2px 4px;
+  border-radius: 1px;
+}
+.selectAddress .single .place view:last-child {
+  margin-left: 5px;
+}
 .selectAddress .addAddress {
   background-color: #fff;
   position: fixed;

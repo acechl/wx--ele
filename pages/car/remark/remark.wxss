@@ -69,13 +69,10 @@
 .remark .firstRemark .content .list {
   border: 1px solid #ccc;
   padding: 3px 8px;
-  float: left;
-<<<<<<< HEAD
   margin-left: -2px;
-=======
+  float: left;
   margin-left: -1px;
   margin-bottom: 5px;
->>>>>>> 7fab7979b0de734fa681d1de38232ed7b16c0f67
 }
 .remark .firstRemark .content .first {
   border-radius: 5px 0 0 5px;

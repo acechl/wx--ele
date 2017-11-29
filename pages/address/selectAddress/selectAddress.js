@@ -1,7 +1,8 @@
 let app = getApp();
 Page({
     data: {
-        winHeight: 0
+        winHeight: 0,
+        address: []
     },
     onLoad () {
 
@@ -14,6 +15,14 @@ Page({
                     winHeight: res.windowHeight
                 })
             }
+        })
+        wx.getStorage({
+            key: 'address',
+            success: function(res) {
+                that.setData({
+                    address: res.data
+                })
+            } 
         })
     },
     addAddress () {
