@@ -2,18 +2,22 @@
     <import src="../../../template/header/header.wxml" />
     <template is="header" data="{{title:'搜索地址'}}"></template>
     <view class="search">
-        <view style="position:alsolute">
-            <input type="" placeholder="请输入小区/写字楼/学校等"/>
+        <view style="position:alsolute" class="left">
+            <input type="" placeholder="请输入小区/写字楼/学校等" bindinput="addSearch"/>
             <view class="icon"></view>
         </view>
-        <view>搜索</view>
+        <view class="right" bindtap="searching">搜索</view>
     </view>
     <view class="list">
         <view>
-            <view wx:for="{{all}}" bindtap="selectAdd" data-add="{{item.place}}">
+            <view wx:for="{{all}}" bindtap="selectAdd" data-add="{{item.place}}" class="single">
                 <view>{{item.place}}</view>
                 <view>{{item.address}}</view>
             </view>
         </view>
+    </view>
+    <view wx:if="{{show}}" class="tips">
+        <import src="../../../template/toast/wx-toast/wx-toast.wxml"/>
+        <template is="wx-toast" data="{{message:tips}}"></template>
     </view>
 </view>

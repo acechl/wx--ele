@@ -2,7 +2,61 @@
 @import "../../../template/header/header.less";
 .selectAddress {
     background-color: #efeff4;
-    
+    .single {
+        background-color: #fff;
+        padding: 10px;
+        border-bottom: 1px solid #bbb;
+        .bs();
+        .left {
+            .fl();
+            width: calc(~"100% - 40px");
+        }
+        .right {
+            .fr();
+            color: #00d762;
+            width: 40px;
+            line-height: 40px;
+            height: 40px;
+            font-size: 30rpx;
+        }
+        .name {
+            display: inline-flex;
+            align-items: flex-end;
+            text:first-child {
+                color: #333;
+                font-weight: 600;
+                font-size: 30rpx;
+            }
+            text {
+                color: #666;
+                font-size: 24rpx;
+            }
+        }
+        .phone {
+            color: #666;
+            font-size: 24rpx;
+            margin-left: 5px;
+            align-items: center
+        }
+        .sex {
+            align-items: center;
+        }
+        .place {
+            width: 100%;
+            color: #666;
+            display: inline-flex;
+            margin-top: 4px;
+            .babel {
+                background-color: #3190e8;
+                color: #fff;
+                padding: 2px 4px;
+                border-radius: 1px;
+            }
+            view:last-child {
+                margin-left: 5px;
+            }
+        }
+    }
     .addAddress {
         background-color: #fff;
         position: fixed;

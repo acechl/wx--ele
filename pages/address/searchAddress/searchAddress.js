@@ -4,7 +4,13 @@ Page({
     data: {
         wushan: {},
         erzhong: {},
-        all: []
+        all: [],
+        addSearch: "",
+        erzhong: {},
+        wushan: {},
+        tips: "",
+        show: false,
+        params: {}
     },
     onShow () {
         let wushan = Mock.mock({
@@ -41,9 +47,51 @@ Page({
            erzhong: erzhong,
            all: all
        })
-       console.log(this.data.all)
     },
-    onLoad () {
-
+    onLoad (options) {
+        this.setData({
+            params: options.detail
+        })
+        console.log(options.detail)
+    },
+    addSearch (e) {
+        this.setData({
+            addSearch: e.detail.value
+        })
+    },
+    searching () {
+        if(this.data.addSearch.indexOf("二中") != -1) {//选中了二中
+            this.setData({
+                all: this.data.erzhong.type
+            })
+        }else if(this.data.addSearch.indexOf("五山") != -1){
+            this.setData({
+                all: this.data.wushan.type
+            })
+        }else {
+            this.showToast("请输入正确的地址");
+            this.cancelToast();
+        }
+    },
+    cancelToast () {
+        setTimeout(()=>{
+            this.setData({
+                show: false,
+                tips: ""
+            })
+        },2000)
+    },
+    showToast (tips) {
+        this.setData({
+            show: true,
+            tips: tips
+        })
+    },
+    selectAdd (e) {
+        let that = this;
+        let place = e.currentTarget.dataset.add;
+        wx.redirectTo({
+            url: "../addAddress/addAddress?place="+place+"&detail="+that.data.params
+        })
     }
 })

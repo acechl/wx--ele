@@ -1,10 +1,65 @@
 @import "../../../common.less";
 @import "../../../template/header/header.less";
+@import "../../../template/toast/wx-toast/wx-toast.less";
 .searchAddress {
+    .tips {
+        position: fixed;
+        left: 50%;
+        top: 30%;
+        z-index: 2;
+        transform: translate(-50%,-50%);
+    }
     .search {
+        padding: 0 10px;
+        position: relative;
+        margin-top: 20px;
         .icon {
             background: data-uri("../../../images/search.png");
+            background-size: 100%;
             position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 7px;
+            left: 20px;
+        }
+        input {
+            padding-left: 40px;
+            color: #999;
+            height: 30px;
+            border: 1px solid #ddd;
+            .bs();
+        }
+        .right {
+            position: absolute;
+            right: 0;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #0097ff;
+            color: #fff;
+            font-weight: 600;
+            font-size: 26rpx;
+            top: 0;
+            right: 10px;
+        }
+        .left {
+            padding-right: 60px;
+            .bs();
+        }
+    }
+    .list {
+        margin-top: 10px;
+        padding: 0 10px;
+        .single {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            view:first-child {
+                color: #333;
+            }
+            view:last-child {
+                color: #999;
+            }
         }
     }
 }

@@ -1,5 +1,9 @@
 <view class="addAddress" style="height:{{winHeight}}px">
-    <import src="../../../template/header/header.wxml" />
+    <view wx:if="{{showing}}" class="tips">
+        <import src="../../../template/toast/wx-toast/wx-toast.wxml"/>
+        <template is="wx-toast" data="{{message:mes}}"></template>
+    </view>
+    <import src="../../../template/header/header.wxml"/>
     <template is="header" data="{{title:'添加地址'}}"></template>
     <view class="detail">
         <form bindsubmit="" bindreset="">
@@ -12,11 +16,11 @@
                     <view>
                         <radio-group bindchange="sexChange" class="clearfix">
                             <label for="">
-                                <radio value="sex" data-id="male" class="sex"></radio>
+                                <radio value="male"class="sex"></radio>
                                 <view class="{{sex=='male'?'selected':''}}">男士</view>
                             </label>
                             <label for="">
-                                <radio value="sex" data-id="female" class="sex"></radio>
+                                <radio value="female" class="sex"></radio>
                                 <view class="{{sex=='female'?'selected':''}}">女士</view>
                             </label>
                         </radio-group>
@@ -53,15 +57,15 @@
                 <view class="right">
                     <radio-group bindchange="babelChange">
                         <label for="">
-                            <radio data-id="home"></radio>
+                            <radio value="home"></radio>
                             <view class="{{babel=='home'?'selected':''}}">家</view>
                         </label>
                         <label for="">
-                            <radio data-id="school"></radio>
-                            <view class="{{bebel=='school'?'selected':''}}">学校</view>
+                            <radio value="school"></radio>
+                            <view class="{{babel=='school'?'selected':''}}">学校</view>
                         </label>
                         <label for="">
-                            <radio data-id="company"></radio>
+                            <radio value="company"></radio>
                             <view class="{{babel=='company'?'selected':''}}">公司</view>
                         </label>
                     </radio-group>
@@ -71,9 +75,5 @@
     </view>
     <view class="sure">
         <button bindtap="makeSure">确定</button>
-    </view>
-    <view wx:if="{{showing}}">
-        <import src="../../../template/toast/wx-toast/wx-toast.wxml"/>
-        <template is="wx-toast" data="{{message:mes}}"></template>
     </view>
 </view>

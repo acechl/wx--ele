@@ -31,6 +31,70 @@
   height: 40px;
   width: 40px;
 }
+.wx_toast {
+  padding: 5px 10px;
+  line-height: 30px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+.searchAddress .tips {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+.searchAddress .search {
+  padding: 0 10px;
+  position: relative;
+  margin-top: 20px;
+}
 .searchAddress .search .icon {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAeCAYAAADdGWXmAAAAAXNSR0IArs4c6QAAA7VJREFUSA21lltIk2EYx923eZiFzU6YdRMF0U1RGaVptOk6QkYUQkgXEZVEIN1oFkglIgWGoZfdFBSU0cGEQKckBRJ2kWUoiy5WqSW1wmyJh/V7Pr93rK0xp/OFh+f9nsP//77Pe/pMCVGay+Xa6Pf7CxGHyWRaQXgG/d/ofr57kcdWq7U5JyfnexSoBFOkgJaWllyArgCcHSlG2Yn7Q7/ObDbX2O32H8oeqsPIurq6Er1e73UCT0kwQF9QjZqmNdHvoz+YnJycOjIyshzbtsnJyQPYdzIowRrCdig/P7+Dflj7h6y9vX3+xMREE4k7APChq9PT02uzsrKkbBEbVdhAfK2RN4Y+7nQ6b4YmBMgIMLE+D9CFJH5mhIUOh+NVaEKkb/I08qvRZeSPk7+bfFdwvKY+2traKgyib9i2x0IkGBBMFhQUlKMvg2OhvPc6OjqWKXzROhnly8B5TjdoWhFJH4KDYumzXpXEN0OYPjo6ejE4VyeDqALjPEbVGDr14ODp9MHwWyyWUvQY8cco7SqVpzECDbIiMdC/pByz0Wz/9+TfRsxgH1ZYGmu1lY+liJsd9EY5ZquZ2X0Do1BhyazWywfONmWMh2Y3ths46xQeNi1TPijhJ2WMh6aUv8D5iaRyDhcIpmwQvYMWR1wb1dKvLiZkE2Ap41e9o2mybvFuOiYX9RQH6P3CQBlXxpNJzi6YVpkdL4JPsDVu6hcGyS6c5ngRUrE9BtZzhak5HA65yXshWswBdCrHbDV4RwSDmT1SWPoNwgLeMAxVBAUuZxUUq25tbbWDUyAlTEpKUudt6m6ErB7AjwRsIrA0VvDg+M7OzjRwGsQGWU1eXp5X+fWZcSbkpT2D04++yrnYpwJi0T09PUnDw8N3yFkLVjeTqAvO18nEwFUltZUb20zgQwhLxD7dxnOyZGBgoJX4vcgQGPuNSQQgwtYHkiq8540IF7u1jE0U8RF1u93JHo+nhNJdQBaR5yFnPzmvAyxGJ4xM7KybvAINRrKY3iJPKEsftkF0KjoTyUVki6dJELNp4QAX+3y+euzjPDVHmd24+KT9l0wcxn1WTvcEslBskRokL/FV8ug+lRhy3ajVDOoaj+lZsUmLSDblTkjgJrDwE5QHoIPRhv03YmtivT0qXjSVyUY9w5dISYso6V2xRyWToJk0CE9DVs8g5fbfwqzfzRmZDBDCWxAWQ9iXkpKyObD1ZzL6aDk2m+0kRN0QrmHT1M0pmfzcQnYQGUQyog0uLn42WQqzM/0FXTKWPLk7ay8AAAAASUVORK5CYII=");
+  background-size: 100%;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 7px;
+  left: 20px;
+}
+.searchAddress .search input {
+  padding-left: 40px;
+  color: #999;
+  height: 30px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+.searchAddress .search .right {
+  position: absolute;
+  right: 0;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #0097ff;
+  color: #fff;
+  font-weight: 600;
+  font-size: 26rpx;
+  top: 0;
+  right: 10px;
+}
+.searchAddress .search .left {
+  padding-right: 60px;
+  box-sizing: border-box;
+}
+.searchAddress .list {
+  margin-top: 10px;
+  padding: 0 10px;
+}
+.searchAddress .list .single {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+.searchAddress .list .single view:first-child {
+  color: #333;
+}
+.searchAddress .list .single view:last-child {
+  color: #999;
 }
