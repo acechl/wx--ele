@@ -14,10 +14,37 @@ Page({
         path: "",
         winHeight: 0,
         remark: app.globalData.remark,
-        menu: []
+        menu: [],
+        address: [],
+        hasAdd: false,
+        id:""
     },
     onLoad (options) {
+        let that = this;
         let menu = JSON.parse(options.remark || "[]");
+        wx.getStorage({
+            key: "add",
+            success: function (res) {
+                if(options.id || (res.data != undefined)){ //当有选择过的地址时
+                    that.setData({
+                        hasAdd: true
+                    })
+                }else {//当没有选择过的地址时
+                    that.setData({
+                        hasAdd: false
+                    })
+                }
+                if(options.id){//当有options.id时  说明是点击了地址
+                    that.setData({
+                        id:options.id
+                    })
+                }else {//当没有options
+                    that.setData({
+                        id: res.data
+                    })
+                }
+            }
+        })
         this.setData({
             path: options.path,
             menu: menu,
@@ -29,6 +56,7 @@ Page({
         let shopCar = wx.getStorageSync("shopCar") || [];
         let that = this;
         let checked = [];
+        let add = [];
         wx.getSystemInfo({
             success (res) {
                 that.setData({
@@ -49,6 +77,21 @@ Page({
             }
         })
         let timeArray = ["尽快送达|预计14:14","12:15","12:30","12:45","13:00","13:15","13:30","13:45","14:00","14:15","14:30","14:45","15:00","15:15","15:30","15:45","16:00"];
+        wx.getStorage({
+            key: "address",
+            success: function (res) {
+                res.data.forEach((value,index,arr)=>{
+                   if(value.id == that.data.id){
+                        console.log(value);
+                        add.push(value);
+                        console.log(add);
+                        that.setData({
+                            address: add
+                        })
+                   } 
+               })
+            }
+        })
         this.setData({
             timeArray: timeArray,
             allPrize: allPrize,
@@ -56,7 +99,6 @@ Page({
             remark: app.globalData.remark,
             checked: checked
         })
-        console.log(checked);
     },
     checkboxChange (e) {
         let all = e.currentTarget.dataset.pay;
@@ -125,7 +167,7 @@ Page({
         }
     },
     selectAddress () {
-        wx.navigateTo({
+        wx.redirectTo({
             url: "../../address/selectAddress/selectAddress"
         })
     },

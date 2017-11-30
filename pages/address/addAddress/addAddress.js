@@ -36,20 +36,10 @@ Page({
                 })
             }  
         })
-        // console.log(this.data.detail)
-        // this.setData({
-        //     detail: this.data.detail,
-        //     name: this.data.detail.name || "",
-        //     sex: this.data.detail.sex || "",
-        //     phone: this.data.detail.phone || "",
-        //     stand: this.data.detail.stand || "",
-        //     location: this.data.place || (this.data.detail.location || ""),
-        //     de_address: this.data.detail.de_address || "",
-        //     babel: this.data.detail.babel || ""
-        // })
     },
     onLoad (options) {
         let place = options.place || "";
+        console.log(place)
         let detail = {};
         let that = this;
         if(options.id){//有id值
@@ -78,11 +68,12 @@ Page({
                 sex: detail.sex || "",
                 phone: detail.phone || "",
                 stand: detail.stand || "",
-                location: detail.place || (detail.location || ""),
+                location: place || (detail.location || ""),
                 de_address: detail.de_address || "",
                 babel: detail.babel || ""
             })
         }
+        console.log(this.data.location);
     },
     makeSure () {//确定
         let phone = /^1(3|4|5|7|8)\d{9}$/;
@@ -190,6 +181,11 @@ Page({
         this.setData({
             showing: true,
             mes: meg
+        })
+    },
+    goBack () {
+        wx.redirectTo({
+            url: "../../address/selectAddress/selectAddress"
         })
     }
 })

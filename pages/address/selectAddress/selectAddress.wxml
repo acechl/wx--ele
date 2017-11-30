@@ -3,23 +3,30 @@
     <template is="header" data="{{title:'选择地址'}}"></template>
     <view class="address">
         <view>
-            <view wx:for="{{address}}" class="single clearfix">
-                <view class="left">
-                    <view class="name">
-                        <text>{{item.name}}</text>
-                        <text wx:if="{{item.sex == 'male'}}" class="sex">男士</text>
-                        <text wx:if="{{item.sex == 'female'}}" class="sex">女士</text>
-                        <text class="phone">{{item.phone}}</text>
-                    </view>
-                    <view class="place">
-                        <view wx:if="{{item.babel == 'home'}}" class="babel">家</view>
-                        <view wx:if="{{item.babel == 'school'}}" class="babel">学校</view>
-                        <view wx:if="{{item.babel=='company'}}" class="babel">公司</view>
-                        <view>{{item.location}}</view>
+            <radio-group>
+                <view wx:for="{{address}}" class="single clearfix" bindtap="backAddress" data-id="{{item.id}}">
+                    <view class="label">
+                        <radio value="{{item.id}}" class="{{id ==item.id?'':'opacity'}}" checked="{{id==item.id?'true':''}}"></radio>
+                        <view class="radio-left">
+                            <view class="left">
+                                <view class="name">
+                                    <text>{{item.name}}</text>
+                                    <text wx:if="{{item.sex == 'male'}}" class="sex">男士</text>
+                                    <text wx:if="{{item.sex == 'female'}}" class="sex">女士</text>
+                                    <text class="phone">{{item.phone}}</text>
+                                </view>
+                                <view class="place">
+                                    <view wx:if="{{item.babel == 'home'}}" class="babel">家</view>
+                                    <view wx:if="{{item.babel == 'school'}}" class="babel">学校</view>
+                                    <view wx:if="{{item.babel=='company'}}" class="babel">公司</view>
+                                    <view>{{item.location}}</view>
+                                </view>
+                            </view>
+                            <view class="right" bindtap="editing" data-id="{{item.id}}">编辑</view>
+                        </view>
                     </view>
                 </view>
-                <view class="right" bindtap="editing" data-id="{{item.id}}">编辑</view>
-            </view>
+             </radio-group>
         </view>
     </view>
     <view class="addAddress" bindtap="addAddress">

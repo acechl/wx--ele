@@ -84,7 +84,58 @@
             </swiper-item>
             <swiper-item>
                 <view class="comment">
-
+                    <view class="top" wx:for="{{shop}}">
+                        <view class="left">
+                            <view>{{item.average}}</view>
+                            <view>综合评价</view>
+                            <view>高于周围商家{{item.higher}}</view>
+                        </view>
+                        <view class="right">
+                            <view class="server">
+                                <view>服务态度</view>
+                                <import src="../../template/star/star.wxml"></import>
+                                <template is="star" data="{{star:item.server}}"></template>
+                                <view>{{item.server}}</view>
+                            </view>
+                            <view class="taste">
+                                <view>菜品评价</view>
+                                <import src="../../template/star/star.wxml"></import>
+                                <template is="star" data="{{star:item.taste}}"></template>
+                                <view>{{item.taste}}</view>
+                            </view>
+                            <view>
+                                <text>送达时间</text>
+                                <text>{{item.time}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="middle">
+                        <view wx:for="{{comment}}" data-type="{{item.babel}}" bindtap="typeChange" class="{{item.babel == "unsatisfy"?'grey':''}}">
+                            <text>{{item.content}}</text>
+                            <text>{{item.qua}}</text>
+                        </view>
+                    </view>
+                    <view class="bottom">
+                        <view wx:for="{{comments}}" data-type="{{item.type}}">
+                            <view wx:for="{{item.con}}" wx:for-item="items">
+                                <image src=""></image>
+                                <view class="right">
+                                    <view>
+                                        <text>{{items.name}}</text>
+                                        <text>{{items
+                                        .time}}</text>
+                                    </view>
+                                    <view>
+                                        <import src="../../template/star/star.wxml"></import>
+                                        <template is="star"></template>
+                                    </view>
+                                    <view>
+                                        <view wx:for="{{items.menu}}" wx:for-item="item1" wx:for-index="idx">{{item1[idx]}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
                 </view>
             </swiper-item>
             <swiper-item>
@@ -94,7 +145,7 @@
             </swiper-item>
         </swiper>
     </view>
-    <view class="car" wx:for="{{shop}}" style="position:relative;z-index:2">
+    <view class="car" wx:for="{{shop}}" style="position:relative;z-index:2" wx:if="{{current == 0}}">
         <view class="cicle">
             <view class="{{booking == 0?'empty':'full'}} b_cicle"></view>
             <view class="num" wx:if="{{booking != 0}}">{{booking}}</view>

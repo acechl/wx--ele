@@ -13,17 +13,50 @@
     .address {
         .bg-f();
         .m10();
-        height: 80px;
+        height: 70px;
         position: relative;
-        view:first-child {
+        .adding {
             .fl();
             margin-left: 10px;
-            line-height: 80px;
+            line-height: 70px;
         }
-        view:nth-child(2) {
+        .something {
+            .fl();
+            margin-left: 10px;
+            padding: 10px;
+            .bs();
+            .name {
+                display: inline-flex;
+                align-items: flex-end;
+                margin-bottom: 10px;
+                .na {
+                    font-size: 30rpx;
+                    font-weight: 600;
+                    color: #333;
+                }
+                .phone {
+                    font-size: 24rpx;
+                    color: #333;
+                    margin-left: 5px;
+                }
+            }
+            .place {
+                .location {
+                    color: #bbb;
+                    .es();
+                }
+                .babel {
+                    background-color: #3190e8;
+                    color: #fff;
+                    padding: 2px 4px;
+                    margin-right: 10px;
+                }
+            }
+        }
+        .enter {
             .fr();
             margin-right: 10px;
-            line-height: 80px;
+            line-height: 70px;
             font-family: Consolas;
             width: 30px;
             text-align: center;
@@ -185,7 +218,7 @@
         height: 50px;
         line-height: 50px;
         left: 0;
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(0,0,0,0.9);
         view:first-child {
             .fl();
             color: #fff;

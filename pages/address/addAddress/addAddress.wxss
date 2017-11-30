@@ -146,6 +146,11 @@
   line-height: 40px;
   color: #666;
   padding-left: 10px;
+  width: calc(100% - 30px);
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .addAddress .location .right view:last-child {
   float: right;

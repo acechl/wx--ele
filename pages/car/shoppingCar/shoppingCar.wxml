@@ -9,8 +9,22 @@
         <template is="wx-toast" data="{{message: tips}}"></template>
     </view>
     <view class="address clearfix">
-        <view>请添加一个收获地址</view>
-        <view bindtap="selectAddress">{{">"}}</view>
+        <view wx:if="{{!hasAdd}}" class="adding">请添加一个收获地址</view>
+        <view wx:if="{{hasAdd}}" wx:for="{{address}}" class="something">
+            <view class="name">
+                <text class="na">{{item.name}}</text>
+                <text wx:if="{{item.sex == 'male'}}" class="sex">男士</text>
+                <text wx:if="{{item.sex == 'female'}}" class="sex">女士</text>
+                <text class="phone">{{item.phone}}</text>
+            </view>
+            <view class="place">
+                <text wx:if="{{item.babel == 'home'}}" class="babel">家</text>
+                <text wx:if="{{item.babel == 'school'}}" class="babel">学校</text>
+                <text wx:if="{{item.babel=='company'}}" class="babel">公司</text>
+                <text class="location">{{item.location}}</text>
+            </view>
+        </view>
+        <view bindtap="selectAddress" class="enter">{{">"}}</view>
         <view class="bg-i"></view>
     </view>
     <view class="time clearfix">

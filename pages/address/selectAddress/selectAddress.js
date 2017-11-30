@@ -2,7 +2,9 @@ let app = getApp();
 Page({
     data: {
         winHeight: 0,
-        address: []
+        address: [],
+        selected: "",
+        id: ""
     },
     onLoad () {
 
@@ -24,6 +26,19 @@ Page({
                 })
             } 
         })
+        wx.getStorage({
+            key: "add",
+            success: function (res) {
+                that.setData({
+                    id: res.data
+                })
+                console.log(that.data.id)
+            }
+        })
+        this.setData({
+            selected: app.globalData.selected
+        });
+
     },
     addAddress () {
         wx.redirectTo({
@@ -33,6 +48,20 @@ Page({
     editing (e) {
         wx.redirectTo({
             url: "../addAddress/addAddress?id="+e.currentTarget.dataset.id
+        })
+    },
+    goBack () {
+        wx.redirectTo({
+            url: "../../car/shoppingCar/shoppingCar"
+        })
+    },
+    backAddress (e) {
+        wx.setStorage({
+            key: "add",
+            data: e.currentTarget.dataset.id
+        })
+        wx.redirectTo({
+            url: "../../car/shoppingCar/shoppingCar?id="+e.currentTarget.dataset.id
         })
     }
 })

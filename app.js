@@ -17,7 +17,8 @@ App({
     shopCar: [],
     password: "acehuangchl123",
     verificate: "911214",
-    remark: ""
+    remark: "",
+    selected: "hana"
   },
   onLaunch () {
     //调用API从本地缓存中获取数据

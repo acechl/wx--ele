@@ -20,7 +20,9 @@ Page({
         shopCar: [],
         booking: 0,
         allPrize: 0,
-        user: ""
+        user: "",
+        comment: [],
+        coments: []
     },
     onLoad (options) {
         this.setData({
@@ -30,6 +32,7 @@ Page({
         })
     },
     onShow () {
+        let time = new Date().getTime();
         let winHeight = 0;
         let user =  wx.getStorageSync('user');
         let shopCar = wx.getStorageSync('shopCar') || [];
@@ -49,7 +52,7 @@ Page({
                 "least": 20,
                 "tips":"公告: 欢迎光临，用餐高峰期请提前下单，谢谢",
                 "activity":[{"name":"首","detail":"新用户下单立减17元(不与其它活动同享)","color":"rgb(112, 188, 70)"},{"name":"减","detail":"满40减12，满60减20","color":"rgb(240, 115, 115)"},{"name":"折","detail":"新宫保鸡丁套餐,饿了么5折限量钜惠","color":"rgb(240, 115, 115)"},{"name":"特","detail":"11.11吃货狂欢节","color":"rgb(241, 136, 79)"}],
-                "average":4.5
+                "average":4.5,"higher":"70.3%","server":4.6,"taste":4.8,"time":25,"detail":"暂无简介","phone":"86202387","address":"广州市越秀区中山五路地铁公园前站东端景点商业街A6号商铺","time":"10:00-21:00"
             }]
         })
         let goods = Mock.mock({
@@ -63,6 +66,26 @@ Page({
                 {"name":"甜蜜蜜","id":"goods6","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"特惠餐(葱香鸡饭+金桔汁)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"特惠餐(卤肉饭+金桔汁)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"超值双人套餐","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
                 {"name":"包都德","id":"goods7","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"鲍汁排骨豪华套餐(凤爪)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲍汁排骨豪华套餐(豆腐)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"黑椒肥牛豪华套餐(凤爪)","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
                 {"name":"焗焗赢","id":"goods8","ad":"大家喜欢吃，才叫真好吃","least":20,"fare":5,"goods":[{"name":"黑椒肥牛豪华套餐(豆腐)","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","last":"9","img":"../../images/good.jpeg"},{"name":"鲍汁排骨饭套餐【招牌】","num":"231","good":"100%","newPrize":"10","oldPrize":"20","discount":"5","d_detail":"每单限1份优惠","img":"../../images/fruit.jpeg"},{"name":"黑椒肥牛饭套餐","num":"231","good":"100%","newPrize":"10","img":"../../images/humbeger.jpeg"}]},
+            ]
+        })
+        let comment = Mock.mock({
+            "content": [
+                {"content":"全部","qua":"241","babel":"all"},
+                {"content":"满意","qua":"239","babel":"satisfy"},
+                {"content":"不满意","qua":"2","babel":"unsatisfy"},
+                {"content":"有图","qua":"20","babel":"pic"}
+            ]
+        })
+        let comments = Mock.mock({
+            "content": [
+                {type:"all",con:[{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]}]},
+                
+                {type:"satisfy",con:[{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]}]},
+
+                {type:"unsatisfy",con:[{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]}]},
+
+                {type:"pic",con:[{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]},{name:"匿名用户","average":3.4,time:time,menu:["芋头","地瓜","仙草4号(芋头+红豆+珍珠)"]}]},
+               
             ]
         })
         let selected = [];
@@ -84,10 +107,14 @@ Page({
             selected: selected,
             shoppingCar: shoppingCar,
             shopCar: shopCar,
-            user: user
+            user: user,
+            comment: comment.content,
+            comments: comments.content
         })
     },
     changeTab (e) {
+        console.log(e)
+        console.log(e.detail.current)
     },
     goBack () {
         if(this.data.path == "index") {
@@ -294,5 +321,8 @@ Page({
                 url: "../car/shoppingCar/shoppingCar"
             })
         }
+    },
+    typeChange (e) {
+        let type = e.currentTarget.dataset.type
     }
 })
