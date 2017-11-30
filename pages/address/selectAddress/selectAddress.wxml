@@ -18,7 +18,7 @@
                         <view>{{item.location}}</view>
                     </view>
                 </view>
-                <view class="right">编辑</view>
+                <view class="right" bindtap="editing" data-id="{{item.id}}">编辑</view>
             </view>
         </view>
     </view>

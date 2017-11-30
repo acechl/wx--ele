@@ -28,6 +28,11 @@ Page({
     addAddress () {
         wx.redirectTo({
             url: "../addAddress/addAddress"
+        }) 
+    },
+    editing (e) {
+        wx.redirectTo({
+            url: "../addAddress/addAddress?id="+e.currentTarget.dataset.id
         })
     }
 })

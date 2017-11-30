@@ -15,7 +15,8 @@ Page({
         showing: false,
         place: "",
         id: 0,
-        address: []
+        address: [],
+        detail: {}
     },
     onShow () {
         let that = this;
@@ -35,21 +36,53 @@ Page({
                 })
             }  
         })
+        // console.log(this.data.detail)
+        // this.setData({
+        //     detail: this.data.detail,
+        //     name: this.data.detail.name || "",
+        //     sex: this.data.detail.sex || "",
+        //     phone: this.data.detail.phone || "",
+        //     stand: this.data.detail.stand || "",
+        //     location: this.data.place || (this.data.detail.location || ""),
+        //     de_address: this.data.detail.de_address || "",
+        //     babel: this.data.detail.babel || ""
+        // })
     },
     onLoad (options) {
         let place = options.place || "";
-        let detail = JSON.parse(options.detail || "{}")
-        console.log(detail)
-        this.setData({
-            detail: detail,
-            name: detail.name || "",
-            sex: detail.sex || "",
-            phone: detail.phone || "",
-            stand: detail.stand || "",
-            location: place || (detail.location || ""),
-            de_address: detail.de_address || "",
-            babel: detail.babel || ""
-        })
+        let detail = {};
+        let that = this;
+        if(options.id){//有id值
+            wx.getStorage({
+                key: "address",
+                success: function (res) {
+                   res.data.forEach((value,index,arr)=>{
+                       if(value.id == options.id){
+                           that.setData({
+                                name: value.name || "",
+                                sex: value.sex || "",
+                                phone: value.phone || "",
+                                stand: value.stand || "",
+                                location: value.place || (value.location || ""),
+                                de_address: value.de_address || "",
+                                babel: value.babel || ""
+                           })
+                       }
+                   });
+                }
+            })
+        }else {//不是id值
+            detail = JSON.parse(options.detail || "{}");
+            this.setData({
+                name: detail.name || "",
+                sex: detail.sex || "",
+                phone: detail.phone || "",
+                stand: detail.stand || "",
+                location: detail.place || (detail.location || ""),
+                de_address: detail.de_address || "",
+                babel: detail.babel || ""
+            })
+        }
     },
     makeSure () {//确定
         let phone = /^1(3|4|5|7|8)\d{9}$/;
@@ -83,6 +116,9 @@ Page({
         wx.setStorage({
             key: "address",
             data: address
+        })
+        wx.redirectTo({
+            url: "../../address/selectAddress/selectAddress"
         })
     },
     showStandBy () {
