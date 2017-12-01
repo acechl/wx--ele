@@ -22,7 +22,8 @@ Page({
         allPrize: 0,
         user: "",
         comment: [],
-        coments: []
+        coments: [],
+        type: ""
     },
     onLoad (options) {
         this.setData({
@@ -324,5 +325,10 @@ Page({
     },
     typeChange (e) {
         let type = e.currentTarget.dataset.type
+    },
+    radioChange (e) {
+        this.setData({
+            type: e.detail.value
+        })
     }
 })

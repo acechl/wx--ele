@@ -103,20 +103,25 @@
                                 <template is="star" data="{{star:item.taste}}"></template>
                                 <view>{{item.taste}}</view>
                             </view>
-                            <view>
+                            <view class="time">
                                 <text>送达时间</text>
                                 <text>{{item.time}}</text>
                             </view>
                         </view>
                     </view>
                     <view class="middle">
-                        <view wx:for="{{comment}}" data-type="{{item.babel}}" bindtap="typeChange" class="{{item.babel == "unsatisfy"?'grey':''}}">
-                            <text>{{item.content}}</text>
-                            <text>{{item.qua}}</text>
+                        <radio-group style="display:inline-flex" bindchange="radioChange">
+                            <label wx:for="{{comment}}">
+                                <radio value="{{item.babel}}"></radio>
+                                <view bindtap="typeChange" class="{{item.babel == 'unsatisfy'?'grey':''}} single {{item.type == type?'deepBlue':''}} {{type == 'unsatisfy'?'deepGrey':''}}">
+                                    <text>{{item.content}}</text>
+                                    <text>{{item.qua}}</text>
                         </view>
+                            </label>
+                        </radio-group>
                     </view>
                     <view class="bottom">
-                        <view wx:for="{{comments}}" data-type="{{item.type}}">
+                        <view wx:for="{{comments}}" data-type="{{item.type}}" wx:if="{{type==item.type}}">
                             <view wx:for="{{item.con}}" wx:for-item="items">
                                 <image src=""></image>
                                 <view class="right">

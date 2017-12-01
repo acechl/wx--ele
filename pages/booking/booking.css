@@ -375,6 +375,102 @@
   font-size: 34rpx;
   box-sizing: border-box;
 }
+.booking .food_detail .comment {
+  background-color: #f5f5f5;
+}
+.booking .food_detail .comment .top {
+  display: inline-flex;
+  padding: 20px 10px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.booking .food_detail .comment .top .left {
+  padding-right: 20px;
+  border-right: 1px solid #ddd;
+  width: 200px;
+}
+.booking .food_detail .comment .top .left view:first-child {
+  color: #ff6000;
+  font-weight: 700;
+  font-size: 40rpx;
+  text-align: center;
+}
+.booking .food_detail .comment .top .left view:nth-child(2) {
+  color: #666;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 30px;
+}
+.booking .food_detail .comment .top .left view:nth-child(3) {
+  color: #999;
+  font-size: 24rpx;
+  text-align: center;
+}
+.booking .food_detail .comment .top .right {
+  margin-left: 30px;
+}
+.booking .food_detail .comment .top .right .server,
+.booking .food_detail .comment .top .right .taste {
+  display: inline-flex;
+}
+.booking .food_detail .comment .top .right .server view:first-child,
+.booking .food_detail .comment .top .right .taste view:first-child {
+  color: #666;
+  font-size: 24rpx;
+}
+.booking .food_detail .comment .top .right .server .star,
+.booking .food_detail .comment .top .right .taste .star {
+  margin: 0 10px;
+}
+.booking .food_detail .comment .top .right .server .view:last-child,
+.booking .food_detail .comment .top .right .taste .view:last-child {
+  color: #f60;
+  font-size: 20rpx;
+}
+.booking .food_detail .comment .top .right .taste {
+  margin: 10px 0;
+}
+.booking .food_detail .comment .top .right .time {
+  color: #666;
+  font-size: 24rpx;
+}
+.booking .food_detail .comment .middle {
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.booking .food_detail .comment .middle view {
+  background-color: #ebf5ff;
+  color: #6d7885;
+  height: 30px;
+  line-height: 30px;
+  padding: 2px 8px;
+}
+.booking .food_detail .comment .middle label {
+  position: relative;
+  margin-left: 10px;
+}
+.booking .food_detail .comment .middle label .deepBlue {
+  background-color: #0097ff;
+  color: #fff;
+}
+.booking .food_detail .comment .middle label .deepGrey {
+  background-color: #ccc;
+  color: #fff;
+}
+.booking .food_detail .comment .middle radio {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+}
+.booking .food_detail .comment .middle .grey {
+  background-color: #f5f5f5 !important;
+  color: #333 !important;
+}
 .booking .tips {
   position: fixed;
   top: 50%;
