@@ -1,9 +1,9 @@
-let app = getApp();
+let app = getApp()
 Page({
-    data: {
+  data: {
 
-    },
-    onLaunch () {
-        
-    }
+  },
+  onLaunch () {
+
+  }
 })

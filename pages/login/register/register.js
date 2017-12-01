@@ -1,12 +1,12 @@
-let app = getApp();
+let app = getApp()
 Page({
-    data: {
+  data: {
 
-    },
-    onLoad () {
+  },
+  onLoad () {
 
-    },
-    onShow () {
-        
-    }
+  },
+  onShow () {
+
+  }
 })

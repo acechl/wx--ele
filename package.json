@@ -1,0 +1,15 @@
+{
+  "name": "my-cool-package",
+  "devDependencies": {
+    "standard": "*"
+  }, 
+  "scripts": {
+    "test": "standard && node my-tests.js"
+  },
+  "standard": {
+        "ignore": [
+           "utils/*.js"
+        ],
+        "globals": ["App","wx","Page","getApp","showToast","cancelToast"]
+    }
+}

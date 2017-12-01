@@ -39,7 +39,7 @@
             <view class="{{current == 1?'selected':''}}" data-current="1" bindtap="clickTab"><text>评价</text></view>
             <view class="{{current == 2?'selected':''}}" data-current="2" bindtap="clickTab"><text>店铺</text></view>
         </view>
-        <swiper  bindchange="changeTab" current="{{current}}" style="height:{{winHeight-210}}px">
+        <swiper  bindchange="changeTab" current="{{current}}" style="height:{{winHeight-210}}px" style="{{current==0?'height:'+(winHeight-210)+'px':'height:'+(winHeight-150)+'px'}}">
             <swiper-item>
                 <view class="goods clearfix">
                     <view class="goods_left" style="height:{{winHeight-210}}px;overflow:auto">
@@ -83,70 +83,101 @@
                 </view>
             </swiper-item>
             <swiper-item>
-                <view class="comment">
-                    <view class="top" wx:for="{{shop}}">
-                        <view class="left">
-                            <view>{{item.average}}</view>
-                            <view>综合评价</view>
-                            <view>高于周围商家{{item.higher}}</view>
+                <scroll-view scroll-y="true" style="height:{{winHeight-150}}px" lower-threshold="100" bindscrolltolower="commentScroll">
+                    <view class="comment">
+                        <view class="top" wx:for="{{shop}}">
+                            <view class="left">
+                                <view>{{item.average}}</view>
+                                <view>综合评价</view>
+                                <view>高于周围商家{{item.higher}}</view>
+                            </view>
+                            <view class="right">
+                                <view class="server">
+                                    <view>服务态度</view>
+                                    <import src="../../template/star/star.wxml"></import>
+                                    <template is="star" data="{{star:item.server}}"></template>
+                                    <view>{{item.server}}</view>
+                                </view>
+                                <view class="taste">
+                                    <view>菜品评价</view>
+                                    <import src="../../template/star/star.wxml"></import>
+                                    <template is="star" data="{{star:item.taste}}"></template>
+                                    <view>{{item.taste}}</view>
+                                </view>
+                                <view class="time">
+                                    <text>送达时间</text>
+                                    <text>{{item.time}}</text>
+                                </view>
+                            </view>
                         </view>
-                        <view class="right">
-                            <view class="server">
-                                <view>服务态度</view>
-                                <import src="../../template/star/star.wxml"></import>
-                                <template is="star" data="{{star:item.server}}"></template>
-                                <view>{{item.server}}</view>
-                            </view>
-                            <view class="taste">
-                                <view>菜品评价</view>
-                                <import src="../../template/star/star.wxml"></import>
-                                <template is="star" data="{{star:item.taste}}"></template>
-                                <view>{{item.taste}}</view>
-                            </view>
-                            <view class="time">
-                                <text>送达时间</text>
-                                <text>{{item.time}}</text>
+                        <view class="middle">
+                            <radio-group style="display:inline-flex" bindchange="radioChange">
+                                <label wx:for="{{comment}}">
+                                    <radio value="{{item.babel}}"></radio>
+                                    <view bindtap="typeChange" class="{{item.babel == 'unsatisfy'?'grey':''}} single {{item.babel == type?'deepBlue':''}} {{(type == 'unsatisfy' && item.babel == 'unsatisfy')?'deepGrey':''}}">
+                                        <text>{{item.content}}</text>
+                                        <text>{{item.qua}}</text>
+                                    </view>
+                                </label>
+                            </radio-group>
+                        </view>
+                        <view class="bottom">
+                            <view wx:for="{{comments}}" data-type="{{item.type}}" wx:if="{{tBottom == item.type}}" wx:for-index="idx">
+                                <view>
+                                    <view wx:for="{{item.con}}" wx:for-item="items" class="single">
+                                        <image src="../../images/user_large.jpg"></image>
+                                        <view class="right">
+                                            <view>
+                                                <text class="name">{{items.name}}</text>
+                                                <text wx:if="{{items.send}}">{{items.send}}分钟送达</text>
+                                            </view>
+                                            <view class="stars">
+                                                <import src="../../template/star/star.wxml"></import>
+                                                <template is="star" data="{{star:items.average}}"></template>
+                                            </view>
+                                            <view class="b-bottom">
+                                                <view wx:for="{{items.menu}}" wx:for-item="item1" wx:for-index="idx">{{item1}}</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                               </view>
+                               <view class="toast">{{scroll[idx].tips}}</view>
                             </view>
                         </view>
                     </view>
-                    <view class="middle">
-                        <radio-group style="display:inline-flex" bindchange="radioChange">
-                            <label wx:for="{{comment}}">
-                                <radio value="{{item.babel}}"></radio>
-                                <view bindtap="typeChange" class="{{item.babel == 'unsatisfy'?'grey':''}} single {{item.type == type?'deepBlue':''}} {{type == 'unsatisfy'?'deepGrey':''}}">
-                                    <text>{{item.content}}</text>
-                                    <text>{{item.qua}}</text>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item class="shop">
+                    <view wx:for="{{shop}}">
+                        <view class="activity">
+                            <view class="title">活动与服务</view>
+                            <view class="content">
+                                <view wx:for="{{item.activity}}" wx:for-item="items">
+                                    <text style="background:{{items.color}}">{{items.name}}</text>
+                                    <text>{{items.detail}}</text>
+                                </view>
+                            </view>
                         </view>
-                            </label>
-                        </radio-group>
-                    </view>
-                    <view class="bottom">
-                        <view wx:for="{{comments}}" data-type="{{item.type}}" wx:if="{{type==item.type}}">
-                            <view wx:for="{{item.con}}" wx:for-item="items">
-                                <image src=""></image>
-                                <view class="right">
-                                    <view>
-                                        <text>{{items.name}}</text>
-                                        <text>{{items
-                                        .time}}</text>
-                                    </view>
-                                    <view>
-                                        <import src="../../template/star/star.wxml"></import>
-                                        <template is="star"></template>
-                                    </view>
-                                    <view>
-                                        <view wx:for="{{items.menu}}" wx:for-item="item1" wx:for-index="idx">{{item1[idx]}}</view>
-                                    </view>
+                        <view class="detail">
+                            <view class="title">商家信息</view>
+                            <view class="content">
+                                <view class="c_detail">{{item.detail}}</view>
+                                <view class="clearfix" bindtap="phoneCall" data-phone="{{item.phone}}">
+                                    <view class="left">商家电话</view>
+                                    <view class="right">{{item.phone}}</view>
+                                </view>
+                                <view class="clearfix address">
+                                    <view class="left">地址</view>
+                                    <view class="right">{{item.address}}</view>
+                                </view>
+                                <view class="clearfix">
+                                    <view class="left">营业时间</view>
+                                    <view class="right">{{item.time}}</view>
                                 </view>
                             </view>
                         </view>
                     </view>
-                </view>
-            </swiper-item>
-            <swiper-item>
-                <view class="shop">
-                
-                </view>
+           
             </swiper-item>
         </swiper>
     </view>
