@@ -13,7 +13,8 @@ Page({
     user: {},
     password: app.globalData.password,
     verificate: app.globalData.verificate,
-    path: ''
+    path: '',
+    url: ""
   },
   onLoad (options) {
     this.setData({
@@ -37,6 +38,15 @@ Page({
           winHeight: res.windowHeight
         })
       }
+    })
+    let url = "";
+    if (this.data.path == 'shoppingCar') {
+      url = '../../car/shoppingCar/shoppingCar'
+    }else if(this.data.path == "me") {
+      url = "../../me/me" 
+    }
+    this.setData({
+      url: url
     })
   },
   switchChange () {
@@ -63,6 +73,7 @@ Page({
     })
   },
   verificationTap () {
+    let that= this;
     let phone = /^1(3|4|5|7|8)\d{9}$/
     let user = this.data.user
     if (this.data.phone1Value.length == 0 || this.data.verificationValue.length == 0) {
@@ -79,15 +90,14 @@ Page({
       return false
     }
     user.phone = this.data.phone1Value
+    user.nickName = "acechl"
     wx.setStorage({
       key: 'user',
       data: user
     })
-    if (this.data.path == 'shoppingCar') {
-      wx.navigateTo({
-        url: '../../car/shoppingCar/shoppingCar'
-      })
-    }
+    wx.redirectTo({
+      url: that.data.url
+    })
   },
   passwordTap () {
     let that = this
@@ -110,16 +120,15 @@ Page({
       this.cancelToast()
       return false
     }
-    user.phone = this.data.phoneValue
+    user.phone = this.data.phoneValue;
+    user.nickName = "acechl";
     wx.setStorage({
       key: 'user',
       data: user
     })
-    if (this.data.path == 'shoppingCar') {
-      wx.navigateTo({
-        url: '../../car/shoppingCar/shoppingCar?path=login'
-      })
-    }
+    wx.redirectTo({
+      url: that.data.url
+    })
   },
   swiperChange (e) {
     this.setData({

@@ -1,0 +1,49 @@
+<view class="me" style="height:{{winHeight}}px">
+    <import src="../../template/header/header.wxml"></import>
+    <template is="header" data="{{title:'我的'}}"></template>
+    <view class="login" bindtap="login">
+        <image src="../../images/user_large.jpg" wx:if="{{!login.pic}}"/>
+        <image src="{{login.pic}}" wx:if="{{login.pic}}"/>
+        <view class="middle">
+            <view wx:if="{{!login}}">登录/注册</view>
+            <view wx:if="{{!login}}">登录后享受更多特权</view>
+            <view wx:if="{{login}}">{{login.nickName}}</view>
+            <view wx:if="{{login}}">{{login.phone}}</view>
+        </view>
+        <view class="right">{{">"}}</view>
+    </view>
+    <view class="two">
+        <view>
+            <view class="pic"></view>
+            <view class="word">优惠</view>
+        </view>
+        <view>
+            <view class="pic"></view>
+            <view class="word">金币</view>
+        </view>
+    </view>
+    <view class="address clearfix">
+        <view class="left">我的地址</view>
+        <view class="right">{{">"}}</view>
+    </view>
+    <view class="money clearfix">
+        <view>
+            <view class="left">金币商城</view>
+            <view class="right">{{">"}}</view>
+        </view>
+        <view>
+            <view class="left">分享拿5元现金</view>
+            <view class="right">{{">"}}</view>
+        </view>
+    </view>
+    <view class="con clearfix">
+        <view>
+            <view class="left">我的客服</view>
+            <view class="right">{{">"}}</view>
+        </view>
+        <view>
+            <view class="left">下载饿了么App</view>
+            <view class="right">{{">"}}</view>
+        </view>
+    </view>
+</view>

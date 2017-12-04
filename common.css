@@ -1,3 +1,10 @@
 .mb10 {
   margin-bottom: 10px;
 }
+.tips {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,12 @@
+<view class="nickNameEdit" style="height:{{winHeight}}px">
+    <import is="" src="../../../../template/header/header.wxml"/>
+    <template is="header" data="{{title:'账户信息'}}"></template>
+    <view class="input">
+        <input type="text" placeholder="用户名" bindinput="nickNameChange"/>
+    </view>
+    <button bindtap="sureChange">确定修改</button>
+    <view class="tips" wx:if="{{show}}">
+        <import src="../../../../template/toast/wx-toast/wx-toast.wxml"/>
+        <template is="wx-toast" data="{{message: tips}}"></template>
+    </view>
+</view>

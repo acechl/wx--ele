@@ -14,7 +14,11 @@
     "pages/car/remark/remark",
     "pages/address/selectAddress/selectAddress",
     "pages/address/addAddress/addAddress",
-    "pages/address/searchAddress/searchAddress"
+    "pages/address/searchAddress/searchAddress",
+    "pages/me/center/center",
+    "pages/me/edit/nickNameEdit/nickNameEdit",
+    "pages/me/edit/passwordEdit/passwordEdit",
+    "pages/me/edit/phoneEdit/phoneEdit"
   ],
   "window":{
     "backgroundTextStyle":"light",
