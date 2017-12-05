@@ -3,25 +3,28 @@
     <template is="header" data="{{title:'账户信息'}}"></template>
     <view class="pic clearfix">
         <view class="left">头像</view>
-        <image src="../../../images/user_large.jpg" wx:if="{{!login.pic}}" class="right"/>
-        <image src="{{login.pic}}" wx:if="{{login.pic}}" class="right"/>
+        <image src="../../../images/user_large.jpg" wx:if="{{!login.pic}}" class="right" bindtap="picChange"/>
+        <image src="{{login.pic}}" wx:if="{{login.pic}}" class="right" bindtap="picChange"/>
     </view>
     <view class="nickName clearfix">
         <view class="left">用户名</view>
-        <view class="right" bindtap="nickNameChange">{{login.nickName}}</view>
+        <view class="right" wx:if="{{!login.nickName}}" bindtap="nickNameChange">未设置</view>
+        <view class="right" bindtap="nickNameChange" wx:if="{{login.nickName}}">{{login.nickName}}</view>
     </view>
     <view class="phone">
         <view class="title">账号绑定</view>
         <view class="content clearfix">
             <view class="left">手机</view>
-            <view class="right" bindtap="phoneChange">{{login.phone}}</view>
+            <view class="right" wx:if="{{!login.phone}}">未设置</view>
+            <view class="right" bindtap="phoneChange" wx:if="{{login.phone}}">{{login.phone}}</view>
         </view>
     </view>
     <view class="safe">
          <view class="title">安全设置</view>
          <view class="content clearfix">
             <view class="left">登录密码</view>
-             <view class="right" bindtap="passwordChange">{{password}}</view>
+            <view class="right" bindtap="passwordChange" wx:if="{{!login.password}}">未设置</view>
+            <view class="right" bindtap="passwordChange" wx:if="{{login.password}}">{{login.password}}</view>
          </view>
      </view>
     <view class="quit" bindtap="quitLogin">退出登录</view>

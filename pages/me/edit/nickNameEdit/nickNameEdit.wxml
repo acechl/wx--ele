@@ -4,9 +4,13 @@
     <view class="input">
         <input type="text" placeholder="用户名" bindinput="nickNameChange"/>
     </view>
-    <button bindtap="sureChange">确定修改</button>
+    <button bindtap="sureChange" class="{{change?'button':''}}">确定修改</button>
     <view class="tips" wx:if="{{show}}">
         <import src="../../../../template/toast/wx-toast/wx-toast.wxml"/>
         <template is="wx-toast" data="{{message: tips}}"></template>
+    </view>
+    <view class="tips">
+        <import src="../../../../template/toast/wx-toast/wx-toast.wxml"></import>
+        <template is="wx-toast" data="{{message:tips}}"></template>
     </view>
 </view>

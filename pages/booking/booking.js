@@ -145,9 +145,23 @@ Page({
     }
   },
   goCar () {
-    wx.navigateTo({
-      url: '../car/shoppingCar/shoppingCar'
+    let login;
+    wx.getStorage({
+      key: "user",
+      success () {
+        login = res.data
+      }
     })
+    if(login){
+      wx.navigateTo({
+        url: '../car/shoppingCar/shoppingCar'
+      })
+    }else {
+      wx.redirectTo({
+        url: "../login/login/login?path=booking"
+      })
+    }
+    
   },
   moreActivity () {
     this.setData({

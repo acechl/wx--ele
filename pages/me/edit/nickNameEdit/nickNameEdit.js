@@ -4,7 +4,8 @@ Page({
         winHeight:0,
         value: "",
         login: "",
-        show: false
+        show: false,
+        change: false
     },
     onShow () {
         let that = this;
@@ -29,7 +30,7 @@ Page({
     },
     sureChange () {
         let login = this.data.login;
-        if(e.detail.value.length == 0){
+        if(this.data.value.length == 0){
             this.showToast("请输入昵称");
             return false;
             setTimeout(()=>{
@@ -37,11 +38,27 @@ Page({
             },2000)
         }
         login.nickName = this.data.value;
+        wx.setStorage({
+            key: "user",
+            data: login
+        })
+        wx.redirectTo({
+            url: "../../center/center"
+        })
     },
     nickNameChange (e) {
-        that.setData({
+        this.setData({
             value: e.detail.value
         })
+        if(e.detail.value.length > 0) {
+            this.setData({
+                change: true
+            })
+        }else {
+            this.setData({
+                change: false
+            })
+        }
     },
     cancelToast () {
         setTimeout(() => {

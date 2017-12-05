@@ -30,6 +30,13 @@
 .mb10 {
   margin-bottom: 10px;
 }
+.tips {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
 .center {
   background-color: #f5f5f5;
 }
@@ -43,7 +50,7 @@
   float: right;
   color: #666;
   font-size: 30rpx;
-  line-height: 40px;
+  line-height: 60px;
 }
 .center .nickName,
 .center .pic {

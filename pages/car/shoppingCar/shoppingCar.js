@@ -123,8 +123,8 @@ Page({
     let selected = this.data.selected
     let shopCar = this.data.shopCar
     if (selected.length == 0) {
-      showToast()
-      cancelToast()
+      this.showToast('请选择要下单的商品')
+      this.cancelToast()
       return false
     }
     selected.forEach((value, index, arr) => {
@@ -134,17 +134,17 @@ Page({
       key: 'shopCar',
       value: shopCar
     })
-    showToast()
+    this.showToast("下单成功")
     setTimeout(function () {
       wx.switchTab({
         url: '../../index/index'
       })
     }, 2000)
   },
-  showToast () {
+  showToast (meg) {
     this.setData({
       show: true,
-      tips: '请选择要下单的商品'
+      tips: meg
     })
   },
   cancelToast () {

@@ -44,6 +44,8 @@ Page({
       url = '../../car/shoppingCar/shoppingCar'
     }else if(this.data.path == "me") {
       url = "../../me/me" 
+    }else if(this.data.path == "booking") {
+      url = "../../car/shoppingCar/shoppingCar"
     }
     this.setData({
       url: url
@@ -95,9 +97,15 @@ Page({
       key: 'user',
       data: user
     })
-    wx.redirectTo({
-      url: that.data.url
-    })
+    if(this.data.path == "me") {
+      wx.switchTab({
+        url: that.data.url
+      })
+    }else {
+      wx.redirectTo({
+        url: that.data.url
+      })
+    }
   },
   passwordTap () {
     let that = this
@@ -126,9 +134,15 @@ Page({
       key: 'user',
       data: user
     })
-    wx.redirectTo({
-      url: that.data.url
-    })
+    if(this.data.path == "me") {
+      wx.switchTab({
+        url: that.data.url
+      })
+    }else {
+      wx.redirectTo({
+        url: that.data.url
+      })
+    }
   },
   swiperChange (e) {
     this.setData({

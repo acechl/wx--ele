@@ -1,4 +1,20 @@
 <view class="phoneEdit" style="height:{{winHeight}}px">
     <import is="" src="../../../../template/header/header.wxml" />
     <template is="header" data="{{title:'解绑手机'}}"></template>
+    <view class="phone">
+        <view>
+            <view class="number" wx:if="{{!new}}">{{newPhone}}  {{phone}}</view>
+            <input type="text" value="{{phoneValue}}" bindinput="phoneChange" wx:if="{{new}}" placeholder="新手机号"/>
+            <view class="getVcode">{{vcode}}</view>
+        </view>
+        <view class="vcode">
+            <view>验证码</view>
+            <input type="text" placeholder="请输入验证码" bindinput="vcodeChange" value="{{value}}"/>
+        </view>
+        <button bindtap="textPhone" class="{{change?'button':''}}">{{button}}</button>
+    </view>
+    <view class="tips" wx:if="{{show}}">
+        <import src="../../../../template/toast/wx-toast/wx-toast.wxml"></import>
+        <template is="wx-toast" data="{{message:tips}}"></template>
+    </view>
 </view>
