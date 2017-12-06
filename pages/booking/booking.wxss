@@ -48,7 +48,7 @@
 }
 .booking .shop_detail .back view:first-child {
   float: left;
-  font-family: Consolas;
+  -webkit-font-family: Consolas;
   font-size: 38rpx;
 }
 .booking .shop_detail .back view:last-child {

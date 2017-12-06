@@ -24,7 +24,7 @@
          <view class="content clearfix">
             <view class="left">登录密码</view>
             <view class="right" bindtap="passwordChange" wx:if="{{!login.password}}">未设置</view>
-            <view class="right" bindtap="passwordChange" wx:if="{{login.password}}">{{login.password}}</view>
+            <view class="right" bindtap="passwordChange" wx:if="{{login.password}}">设置</view>
          </view>
      </view>
     <view class="quit" bindtap="quitLogin">退出登录</view>

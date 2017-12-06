@@ -231,7 +231,7 @@
   top: 0;
   left: 10px;
   font-size: 38rpx;
-  font-family: Consolas;
+  -webkit-font-family: Consolas;
   z-index: 12;
 }
 .makeMenu .search .input {

@@ -1,6 +1,13 @@
 .mb10 {
   margin-bottom: 10px;
 }
+.tips {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
 .star {
   display: inline-block;
 }
@@ -48,7 +55,7 @@
 }
 .booking .shop_detail .back view:first-child {
   float: left;
-  font-family: Consolas;
+  -webkit-font-family: Consolas;
   font-size: 38rpx;
 }
 .booking .shop_detail .back view:last-child {

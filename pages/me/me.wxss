@@ -17,7 +17,7 @@
   height: 40px;
   width: 40px;
   padding-left: 10px;
-  font-family: Consolas;
+  -webkit-font-family: Consolas;
   font-size: 46rpx;
 }
 .header .space {
@@ -62,7 +62,7 @@
 }
 .me .login .right {
   position: absolute;
-  font-family: Consolas;
+  -webkit-font-family: Consolas;
   right: 10px;
   top: 10px;
   font-size: 50rpx;
@@ -127,5 +127,5 @@
   float: right;
   color: #bbb;
   font-size: 30rpx;
-  font-family: Consolas;
+  -webkit-font-family: Consolas;
 }
