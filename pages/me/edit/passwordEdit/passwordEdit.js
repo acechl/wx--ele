@@ -57,9 +57,11 @@ Page({
         })
     },
     passSure () {
+        console.log(this.data.surePass);
+        console.log(this.data.newPass);
+        
+        console.log(this.data.oldPass);
         let login = this.data.login;
-        console.log(this.data.exit);
-        console.log(this.data.oldPass)
         if(this.data.exit){
             if(this.data.oldPass.length == 0 || this.data.newPass.length == 0 ||                    this.data.surePass.length == 0){
                 this.showToast("请输入密码");
@@ -69,7 +71,6 @@ Page({
                 return false;
             }
             if(this.data.oldPass != this.data.login.password){
-                console.log("nini")
                 this.showToast("旧密码输入不正确");
                 setTimeout(()=>{
                     this.cancelToast()
@@ -77,9 +78,6 @@ Page({
                 return false;
             }   
         }else {
-            console.log("ninii");
-            console.log(this.data.newPass.length);
-            console.log(this.data.surePass.length);
             if(this.data.newPass.length == 0 || this.data.surePass.length == 0){
                 this.showToast("请输入密码");
                 setTimeout(()=>{
