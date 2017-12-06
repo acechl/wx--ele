@@ -27,7 +27,7 @@ Page({
   },
   onLoad (options) {
     this.setData({
-      title: options.title
+      title: options.title || options.id
     })
   },
   onShow () {
@@ -238,7 +238,7 @@ Page({
   bookinggoods (e) {
     wx.redirectTo({
       url: '../../booking/booking?path=tabMenu&title=' + e.currentTarget.dataset
-            .title + '&path=tabMenu&id=' + this.data.title
+            .title + '&path=tabMenu&id=' + this.data.title+"&id="+this.data.title
     })
   },
   moreActivity () {

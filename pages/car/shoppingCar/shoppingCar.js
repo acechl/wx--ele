@@ -18,7 +18,8 @@ Page({
     address: [],
     hasAdd: false,
     id: '',
-    title: ""
+    title: "",
+    titles: ""
   },
   onLoad (options) {
     let that = this
@@ -50,7 +51,8 @@ Page({
       path: options.path,
       menu: menu,
       selected: menu,
-      title: options.title
+      title: options.title,
+      titles: options.id
     })
   },
   onShow () {
@@ -163,14 +165,14 @@ Page({
       //   delta: 2
       // })
       wx.redirectTo({
-        url: "../../booking/booking?title="+this.data.title
+        url: "../../booking/booking?title="+this.data.title+"&id="+this.data.titles
       })
     } else {
       // wx.navigateBack({
       //   delta: 1
       // })
       wx.redirectTo({
-        url: "../../booking/booking?title="+this.data.title
+        url: "../../booking/booking?title="+this.data.title+"&id="+this.data.titles
       })
     }
   },

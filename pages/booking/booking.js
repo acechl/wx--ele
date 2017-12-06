@@ -28,6 +28,7 @@ Page({
     show: false,
     tip: "",
     login: "",
+    titles: "",
     scroll: [{type:"all",loading:true,page:1,tips:"",show:false},{type:"satisfy",loading:true,page:1,tips:"",show:false},{type:"unsatisfy",loading:true,page:1,tips:"",show:false},{type:"pic",loading:true,page:1,tips:"",show:false}]
   },
   onLoad (options) {
@@ -35,7 +36,7 @@ Page({
     this.setData({
       title: options.title,
       path: options.path,
-      id: options.id
+      titles: options.id
     })
   },
   onShow () {
@@ -143,7 +144,7 @@ Page({
       })
     }else if(this.data.path == "tabMenu"){
       wx.redirectTo({
-        url: '../menu/tabMenu/tabMenu?title=' + this.data.id
+        url: '../menu/tabMenu/tabMenu?title=' + this.data.id+"&id="+this.data.titles
       })
     }else if(this.data.path == "makeMenu") {
       wx.redirectTo({
@@ -155,18 +156,18 @@ Page({
       })
     }else {
       wx.redirectTo({
-        url: "../menu/tabMenu/tabMenu?title="+this.data.id
+        url: "../menu/tabMenu/tabMenu?title="+this.data.id+"&id="+this.data.titles
       })
     }
   },
   goCar () {
     if(this.data.user){
       wx.redirectTo({
-        url: '../car/shoppingCar/shoppingCar?title='+this.data.title
+        url: '../car/shoppingCar/shoppingCar?title='+this.data.title+"&id="+this.data.titles
       })
     }else {
       wx.redirectTo({
-        url: "../login/login/login?path=booking&title="+this.data.title
+        url: "../login/login/login?path=booking&title="+this.data.title+"&id="+this.data.titles
       })
     }
   },
