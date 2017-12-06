@@ -25,7 +25,8 @@ Page({
     flag: [],
     page: 1,
     iden: false,
-    meg: ''
+    meg: '',
+    winWidth: 0
   },
   onLaunch () { // 当小程序初始化完成时，全局触发一次
   },
@@ -80,7 +81,8 @@ Page({
     wx.getSystemInfo({
       success (res) {
         that.setData({
-          winHeight: res.windowHeight
+          winHeight: res.windowHeight,
+          winWidth: res.windowWidth
         })
       }
     })
@@ -101,17 +103,17 @@ Page({
 
   },
   clickAddress () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../address/setAddress/setAddress'
     })
   },
   clickMenu () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../menu/makeMenu/makeMenu'
     })
   },
   clickType (e) {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../menu/makeMenu/makeMenu?id=' + e.currentTarget.id
     })
   },
@@ -199,13 +201,13 @@ Page({
     })
   },
   clickFood (e) {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../menu/tabMenu/tabMenu?title=' + e.currentTarget.dataset.title
     })
   },
   bookinggoods (e) {
-    wx.navigateTo({
-      url: '../booking/booking?title=' + e.currentTarget.dataset
+    wx.redirectTo({
+      url: '../booking/booking?path=index&title=' + e.currentTarget.dataset
             .title + '&path=index'
     })
   }

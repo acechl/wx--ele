@@ -36,5 +36,8 @@ Page({
         url: "../login/login/login?path=me"
       })
     }
+  },
+  myAddress () {
+    
   }
 })

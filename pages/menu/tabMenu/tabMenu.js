@@ -1,5 +1,5 @@
 let app = getApp()
-let Mock = require('../../../utils/mock')
+let Mock = require('../../../utils/mock');
 Page({
   data: {
     winHeight: '',
@@ -37,14 +37,14 @@ Page({
         winHeight = res.windowHeight
       }
     })
-    let classify_left = this.data.classify_left
-    let classify_right = this.data.classify_right
-    let rank_type = this.data.rank_type
-    let shop_attr = this.data.shop_attr
-    let consume = this.data.consume
-    let activity_type = this.data.activity_type
-    let send_type = this.data.send_type
-    let selection = []
+    let classify_left = this.data.classify_left;
+    let classify_right = this.data.classify_right;
+    let rank_type = this.data.rank_type;
+    let shop_attr = this.data.shop_attr;
+    let consume = this.data.consume;
+    let activity_type = this.data.activity_type;
+    let send_type = this.data.send_type;
+    let selection = [];
     classify_left.type.forEach((value, index, arr) => {
       if (index == 0) {
         selection[index] = true
@@ -236,8 +236,8 @@ Page({
   scrollDown (e) {
   },
   bookinggoods (e) {
-    wx.navigateTo({
-      url: '../../booking/booking?title=' + e.currentTarget.dataset
+    wx.redirectTo({
+      url: '../../booking/booking?path=tabMenu&title=' + e.currentTarget.dataset
             .title + '&path=tabMenu&id=' + this.data.title
     })
   },

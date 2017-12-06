@@ -62,7 +62,6 @@
 .index .top .classify scroll-view {
   width: 100%;
   height: 20px;
-  display: inline-flex;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
@@ -72,6 +71,9 @@
   line-height: 20px;
   color: #fff;
   margin-right: 10px;
+}
+.index .top .classify scroll-view .type:last-child {
+  margin-right: 30px;
 }
 .index .introduce {
   display: flex;

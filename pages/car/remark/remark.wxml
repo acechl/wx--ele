@@ -1,4 +1,4 @@
-<view class="remark">
+<view class="remark" style="height:{{winHeight}}px">
     <view class="remarkHeader">
         <import src="../../../template/header/header.wxml"/>
         <template is="header" data="{{title:'订单备注'}}"></template>

@@ -79,6 +79,7 @@ Page({
             }   
         }else {
             if(this.data.newPass.length == 0 || this.data.surePass.length == 0){
+                console.log("nii")
                 this.showToast("请输入密码");
                 setTimeout(()=>{
                     this.cancelToast()
@@ -109,11 +110,11 @@ Page({
             tips: ''
           })
         }, 2000)
-      },
-      showToast (meg) {
+    },
+    showToast (meg) {
         this.setData({
           show: true,
           tips: meg
         })
-      }
+    }
 })

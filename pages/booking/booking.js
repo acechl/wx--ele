@@ -27,9 +27,11 @@ Page({
     tBottom: "all",
     show: false,
     tip: "",
+    login: "",
     scroll: [{type:"all",loading:true,page:1,tips:"",show:false},{type:"satisfy",loading:true,page:1,tips:"",show:false},{type:"unsatisfy",loading:true,page:1,tips:"",show:false},{type:"pic",loading:true,page:1,tips:"",show:false}]
   },
   onLoad (options) {
+    console.log(options)
     this.setData({
       title: options.title,
       path: options.path,
@@ -40,7 +42,8 @@ Page({
     let time = new Date().getTime()
     let winHeight = 0
     let user = wx.getStorageSync('user')
-    let shopCar = wx.getStorageSync('shopCar') || []
+    let shopCar = wx.getStorageSync('shopCar') || [];
+    let login;
     wx.getSystemInfo({
       success (res) {
         winHeight = res.windowHeight
@@ -127,7 +130,7 @@ Page({
       shopCar: shopCar,
       user: user,
       comment: comment.content,
-      comments: comments.content
+      comments: comments.content,
     })
   },
   changeTab (e) {
@@ -138,30 +141,34 @@ Page({
       wx.switchTab({
         url: '../index/index'
       })
-    } else {
-      wx.navigateTo({
+    }else if(this.data.path == "tabMenu"){
+      wx.redirectTo({
         url: '../menu/tabMenu/tabMenu?title=' + this.data.id
+      })
+    }else if(this.data.path == "makeMenu") {
+      wx.redirectTo({
+        url: "../menu/makeMenu/makeMenu"
+      })
+    }else if(this.data.path == "booking") {
+      wx.redirectTo({
+        url: "../booking/booking"
+      })
+    }else {
+      wx.redirectTo({
+        url: "../menu/tabMenu/tabMenu?title="+this.data.id
       })
     }
   },
   goCar () {
-    let login;
-    wx.getStorage({
-      key: "user",
-      success () {
-        login = res.data
-      }
-    })
-    if(login){
-      wx.navigateTo({
-        url: '../car/shoppingCar/shoppingCar'
+    if(this.data.user){
+      wx.redirectTo({
+        url: '../car/shoppingCar/shoppingCar?title='+this.data.title
       })
     }else {
       wx.redirectTo({
-        url: "../login/login/login?path=booking"
+        url: "../login/login/login?path=booking&title="+this.data.title
       })
     }
-    
   },
   moreActivity () {
     this.setData({
@@ -343,12 +350,12 @@ Page({
       data: that.data.shopCar
     })
     if (!this.data.user) { // 没有登录或者注册
-      wx.navigateTo({
-        url: '../login/login/login?path=shoppingCar'
+      wx.redirectTo({
+        url: '../login/login/login?path=shoppingCar&title='+this.data.title
       })
     } else {
-      wx.navigateTo({
-        url: '../car/shoppingCar/shoppingCar'
+      wx.redirectTo({
+        url: '../car/shoppingCar/shoppingCar?title='+this.data.title
       })
     }
   },

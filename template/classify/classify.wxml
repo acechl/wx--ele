@@ -6,16 +6,20 @@
     </view>
     <view class="content">
         <view class="classify_content clearfix" wx:if="{{show.classify}}">
-            <view class="left">
-                <view wx:for="{{classify_left.type}}" class="{{selection[index]?'c_s':'s_s'}} clearfix c_c" bindtap="classify_select" wx:for-index="index" data-index="{{index}}">
-                    <view>{{item.name}}</view>
-                    <view>{{item.num}}</view>
-                </view>
-            </view>
-            <view class="right">
-                <view wx:for="{{classify_right.type}}" class="clearfix c_c" wx:for-index="index" data-index="{{index}}" wx:if="{{!selection[0]}}" bindtap="go_select">
+            <view style="height: 400px;overflow: auto" class="left">
+                <view>
+                    <view wx:for="{{classify_left.type}}" class="{{selection[index]?'c_s':'s_s'}} clearfix c_c" bindtap="classify_select" wx:for-index="index" data-index="{{index}}">
                         <view>{{item.name}}</view>
                         <view>{{item.num}}</view>
+                    </view>
+                </view>
+            </view>
+            <view style="height:400px;overflow: auto" class="right">
+                <view>
+                    <view wx:for="{{classify_right.type}}" class="clearfix c_c" wx:for-index="index"    data-index="{{index}}" wx:if="{{!selection[0]}}" bindtap="go_select">
+                        <view>{{item.name}}</view>
+                        <view>{{item.num}}</view>
+                    </view>
                 </view>
             </view>
         </view>

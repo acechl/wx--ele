@@ -181,7 +181,7 @@
             </swiper-item>
         </swiper>
     </view>
-    <view class="car" wx:for="{{shop}}" style="position:relative;z-index:2" wx:if="{{current == 0}}">
+    <view class="car" wx:for="{{shop}}" style="z-index:2" wx:if="{{current == 0}}">
         <view class="cicle">
             <view class="{{booking == 0?'empty':'full'}} b_cicle"></view>
             <view class="num" wx:if="{{booking != 0}}">{{booking}}</view>

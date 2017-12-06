@@ -38,7 +38,7 @@
     <scroll-view scroll-y="true" lower-threshold="100" bindscrolltolower="toLower" style="height:{{winHeight}}px" bindscroll="scrollDown" enable-back-to-top = "true" wx:if="{{search && !nothing}}">
         <view>
             <view class="food_intro" wx:if="{{search}}" style="padding-top: 100px">
-                <view wx:for="{{search_food.type}}" class="single"  wx:for-index="idx">
+                <view wx:for="{{search_food.type}}" class="single"  wx:for-index="idx" bindtap="goBooking" data-title="{{item.name}}">
                     <view class="shop_detail clearfix">
                         <image src="{{item.img}}"/>
                         <view>
@@ -61,7 +61,7 @@
                         </view>
                     </view>
                 </view>
-                <view class="more" bindtap="goods_fade" data-index="{{idx}}">{{more[idx].name}}<text class="{{more[idx].name=='收起'?'arrow_up':''}} arrow"></text></view>
+                <view class="more" catchtap="goods_fade" data-index="{{idx}}">{{more[idx].name}}<text class="{{more[idx].name=='收起'?'arrow_up':''}} arrow"></text></view>
                 </view>
             </view>
         </view>

@@ -5,7 +5,8 @@ Page({
     selected: [],
     remark: [],
     textarea: '',
-    menu: ''
+    menu: '',
+    winHeight: 0
   },
   onLoad (options) {
     this.setData({
@@ -13,7 +14,8 @@ Page({
     })
   },
   onShow () {
-    let selected = []
+    let selected = [];
+    let winHeight = 0;
     let list = [{'type': 'hot', 'detail': ['不要辣', '少点辣', '多点辣']}, {'type': 'caraway', 'detail': ['不要香菜']}, {'type': 'onion', 'detail': ['不要洋葱']}, {'type': 'vigenar', 'detail': ['多点醋']}, {'type': 'scallion', 'detail': ['多点葱']}]
     list.forEach((value, index, arr) => {
       value.length = value.detail.length
@@ -22,11 +24,16 @@ Page({
         selected[index].selected[index1] = 'unselected'
       })
     })
+    wx.getSystemInfo({
+      success (res) {
+        winHeight = res.windowHeight
+      }
+    })
     this.setData({
       list: list,
-      selected: selected
+      selected: selected,
+      winHeight: winHeight
     })
-    console.log(list)
   },
   goBack () {
     wx.redirectTo({

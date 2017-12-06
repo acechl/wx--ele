@@ -1,6 +1,13 @@
 .mb10 {
   margin-bottom: 10px;
 }
+.tips {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
 .header {
   width: 100%;
   background-image: linear-gradient(90deg, #0af, #0085ff);
@@ -8,7 +15,6 @@
   height: 40px;
   line-height: 40px;
   position: relative;
-  padding: 0 40px;
   box-sizing: border-box;
   text-align: center;
   font-size: 36rpx;
@@ -169,14 +175,14 @@
   border-bottom: 1px solid #ddd;
 }
 .shoppingCar .booking .single .bottom .content .first {
-  height: 70px;
-  line-height: 70px;
-}
-.shoppingCar .booking .single .bottom .content .first view:first-child {
-  float: left;
+  line-height: 30px;
+  position: relative;
+  margin-bottom: 10px;
 }
 .shoppingCar .booking .single .bottom .content .first view:last-child {
-  float: right;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
 }
 .shoppingCar .booking .single .bottom .content .first view:last-child text:first-child {
   margin-right: 20rpx;

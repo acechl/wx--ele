@@ -47,7 +47,7 @@
                 </checkbox-group>
                 <view class="content">
                     <view class="menu">
-                        <view wx:for="{{item.menu}}" wx:for-item="items" class="first clearfix">
+                        <view wx:for="{{item.menu}}" wx:for-item="items" class="first">
                             <view>{{items.name}}</view>
                             <view>
                                 <text>x{{items.num}}</text>
