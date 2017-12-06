@@ -38,7 +38,7 @@
                             {{items.name}}
                         </view>
                     </view>
-                    <view class="fifth_right" wx:if="{{item.number >= 3}}" bindtap="tapRotate" data-index = "{{idx}}">{{item.number}}个活动
+                    <view class="fifth_right" wx:if="{{item.number >= 3}}" catchtap="tapRotate" data-index = "{{idx}}">{{item.number}}个活动
                         <text class="arrow" style="transform: rotate({{flag[idx].deg}}deg)"></text>
                     </view>
                 </view>

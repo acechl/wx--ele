@@ -1,6 +1,13 @@
 .mb10 {
   margin-bottom: 10px;
 }
+.tips {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
 .star {
   display: inline-block;
 }
@@ -48,7 +55,7 @@
 }
 .booking .shop_detail .back view:first-child {
   float: left;
-  -webkit-font-family: Consolas;
+  font-family: Consolas;
   font-size: 38rpx;
 }
 .booking .shop_detail .back view:last-child {
@@ -611,10 +618,9 @@
 .booking .car {
   width: 100%;
   position: fixed;
-  bottom: -12rpx;
   background-color: rgba(61, 61, 63, 0.9);
   height: 50px;
-  position: relative;
+  bottom: 0px;
 }
 .booking .car .cicle {
   position: absolute;
@@ -622,7 +628,7 @@
   left: 20px;
 }
 .booking .car .cicle .b_cicle {
-  width: 40px;
+  width: 50px;
   height: 50px;
   border-radius: 50%;
 }
@@ -645,8 +651,8 @@
   top: -5px;
 }
 .booking .car .detail {
-  margin-top: 10px;
   margin-left: 100px;
+  padding-top: 5px;
 }
 .booking .car .detail view:first-child {
   color: #fff;
@@ -666,7 +672,7 @@
   color: #fff;
   font-size: 40rpx;
   font-weight: 600;
-  line-height: 40px;
+  line-height: 50px;
 }
 .booking .car .least .goPay {
   background-color: #4cd964;

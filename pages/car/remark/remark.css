@@ -1,6 +1,13 @@
 .mb10 {
   margin-bottom: 10px;
 }
+.tips {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
 .header {
   width: 100%;
   background-image: linear-gradient(90deg, #0af, #0085ff);
@@ -8,7 +15,6 @@
   height: 40px;
   line-height: 40px;
   position: relative;
-  padding: 0 40px;
   box-sizing: border-box;
   text-align: center;
   font-size: 36rpx;
@@ -21,7 +27,7 @@
   height: 40px;
   width: 40px;
   padding-left: 10px;
-  -webkit-font-family: Consolas;
+  font-family: Consolas;
   font-size: 46rpx;
 }
 .header .space {
@@ -90,7 +96,10 @@
   box-sizing: border-box;
   padding-bottom: 10px;
 }
-.remark .otherRemark textareat {
+.remark .otherRemark .title {
+  margin-bottom: 10px;
+}
+.remark .otherRemark textarea {
   color: #666;
   padding: 10px;
   font-size: 30rpx;
@@ -98,13 +107,17 @@
   border-radius: 5px;
   outline: none;
   resize: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 .remark button {
-  width: 100%;
+  width: 88%;
+  margin-left: 6%;
   background-color: #4cd964;
   color: #fff;
   height: 40px;
   line-height: 40px;
+  margin-top: 20px;
   border-radius: 5px;
   margin-top: 10px;
 }

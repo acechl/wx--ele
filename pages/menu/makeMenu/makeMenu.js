@@ -310,7 +310,7 @@ Page({
     let more_num = []
     search_food.type.forEach((value, index, arr) => {
       let num = value.food.length - 2
-      more.push({'name': '展开更多商品' + num + '个', 'height': '160px'})
+      more.push({'name': '展开更多商品' + num + '个', 'height': '180px'})
       more_num.push(num)
     })
     this.setData({
@@ -327,7 +327,7 @@ Page({
       if (index == e.currentTarget.dataset.index) {
         if (value.height == 'auto') {
                     // 展开了 需要收起来
-          arr[index] = {'name': '展开更多商品' + more_num[index] + '个', 'height': '160px'}
+          arr[index] = {'name': '展开更多商品' + more_num[index] + '个', 'height': '180px'}
         } else {
                     // 收起来了 需要展开
           arr[index] = {'name': '收起', 'height': 'auto'}
@@ -366,7 +366,7 @@ Page({
     let more_num = []
     search_food.type.forEach((value, index, arr) => {
       let num = value.food.length - 2
-      more.push({'name': '展开更多商品' + num + '个', 'height': '160px'})
+      more.push({'name': '展开更多商品' + num + '个', 'height': '180px'})
       more_num.push(num)
     })
     setTimeout(() => {
@@ -379,5 +379,10 @@ Page({
         times: times + 1
       })
     }, 1000)
+  },
+  goBooking (e) {
+    wx.redirectTo({
+      url: "../../booking/booking?path=makeMenu&title="+e.currentTarget.dataset.title
+    })
   }
 })

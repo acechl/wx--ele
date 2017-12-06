@@ -20,7 +20,7 @@
             color: #fff;
             view:first-child {
                 .fl();
-                -webkit-font-family: Consolas;
+                font-family: Consolas;
                 font-size: 38rpx;
             }
             view:last-child {
@@ -591,16 +591,15 @@
     .car {
         width: 100%;
         position: fixed;
-        bottom: -12rpx;
         background-color: rgba(61,61,63,.9);
         height: 50px;
-        position: relative;
+        bottom: 0px;
         .cicle {
             position: absolute;
             top: -10px;
             left: 20px;
             .b_cicle {
-                width: 40px;
+                width: 50px;
                 height: 50px;
                 border-radius: 50%; 
              }
@@ -624,8 +623,8 @@
              }
         }
         .detail {
-            margin-top: 10px;
             margin-left: 100px;
+            padding-top: 5px;
             view:first-child {
                 color: #fff;
                 font-size: 36rpx;
@@ -645,7 +644,7 @@
             color: #fff;
             font-size: 40rpx;
             font-weight: 600;
-            line-height: 40px;
+            line-height: 50px;
             .goPay {
                 background-color: #4cd964;
                 text-align: center;

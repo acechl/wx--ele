@@ -31,7 +31,7 @@
             top: 0;
             left: 10px;
             font-size: 38rpx;
-            -webkit-font-family: Consolas;
+            font-family: Consolas;
             z-index: 12;
         }
         .input {
@@ -144,7 +144,6 @@
         scroll-view {
             width: 100%;
             height: 25px;
-            display: inline-flex;
             flex-wrap: nowrap;
             white-space: nowrap;
         }
@@ -156,6 +155,9 @@
             height: 25px;
             line-height: 25px;
             margin-right: 8px;
+        }
+        .single:last-child {
+            margin-right: 20px;
         }
     }
     .food_intro {
@@ -220,6 +222,7 @@
                     width: 100%;
                     padding-left: 70px;
                     box-sizing: border-box;
+                    height: 70px;
                     view:first-child {
                         font-size: 34rpx;
                         color: #333;

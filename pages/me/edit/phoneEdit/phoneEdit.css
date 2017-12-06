@@ -17,7 +17,7 @@
   height: 40px;
   width: 40px;
   padding-left: 10px;
-  -webkit-font-family: Consolas;
+  font-family: Consolas;
   font-size: 46rpx;
 }
 .header .space {

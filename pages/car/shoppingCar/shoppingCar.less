@@ -57,7 +57,7 @@
             .fr();
             margin-right: 10px;
             line-height: 70px;
-            -webkit-font-family: Consolas;
+            font-family: Consolas;
             width: 30px;
             text-align: center;
         }
@@ -136,13 +136,13 @@
                         border-bottom: 1px solid #ddd;
                     }
                     .first {
-                        height: 70px;
-                        line-height: 70px;
-                        view:first-child {
-                            .fl();
-                        }
+                        line-height: 30px;
+                        position: relative;
+                        margin-bottom: 10px;
                         view:last-child {
-                            .fr();
+                            position: absolute;
+                            right: 10px;
+                            bottom: 0;
                             text:first-child {
                                 margin-right: 20rpx;
                             }
@@ -193,7 +193,7 @@
             view:last-child {
                 .fr();
                 color: #999;
-                -webkit-font-family: Consolas;
+                font-family: Consolas;
                 width: 30px;
                 text-align: right;
                 font-size: 40rpx;

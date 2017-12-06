@@ -17,11 +17,12 @@ Page({
     menu: [],
     address: [],
     hasAdd: false,
-    id: ''
+    id: '',
+    title: ""
   },
   onLoad (options) {
     let that = this
-    let menu = JSON.parse(options.remark || '[]')
+    let menu = JSON.parse(options.remark || '[]');
     wx.getStorage({
       key: 'add',
       success: function (res) {
@@ -48,7 +49,8 @@ Page({
     this.setData({
       path: options.path,
       menu: menu,
-      selected: menu
+      selected: menu,
+      title: options.title
     })
   },
   onShow () {
@@ -157,12 +159,18 @@ Page({
   },
   goBack () {
     if (this.data.path == 'login') {
-      wx.navigateBack({
-        delta: 2
+      // wx.navigateBack({
+      //   delta: 2
+      // })
+      wx.redirectTo({
+        url: "../../booking/booking?title="+this.data.title
       })
     } else {
-      wx.navigateBack({
-        delta: 1
+      // wx.navigateBack({
+      //   delta: 1
+      // })
+      wx.redirectTo({
+        url: "../../booking/booking?title="+this.data.title
       })
     }
   },

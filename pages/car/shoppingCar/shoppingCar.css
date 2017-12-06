@@ -27,7 +27,7 @@
   height: 40px;
   width: 40px;
   padding-left: 10px;
-  -webkit-font-family: Consolas;
+  font-family: Consolas;
   font-size: 46rpx;
 }
 .header .space {
@@ -96,7 +96,7 @@
   float: right;
   margin-right: 10px;
   line-height: 70px;
-  -webkit-font-family: Consolas;
+  font-family: Consolas;
   width: 30px;
   text-align: center;
 }
@@ -175,14 +175,14 @@
   border-bottom: 1px solid #ddd;
 }
 .shoppingCar .booking .single .bottom .content .first {
-  height: 70px;
-  line-height: 70px;
-}
-.shoppingCar .booking .single .bottom .content .first view:first-child {
-  float: left;
+  line-height: 30px;
+  position: relative;
+  margin-bottom: 10px;
 }
 .shoppingCar .booking .single .bottom .content .first view:last-child {
-  float: right;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
 }
 .shoppingCar .booking .single .bottom .content .first view:last-child text:first-child {
   margin-right: 20rpx;
@@ -230,7 +230,7 @@
 .shoppingCar .detail .taste view:last-child {
   float: right;
   color: #999;
-  -webkit-font-family: Consolas;
+  font-family: Consolas;
   width: 30px;
   text-align: right;
   font-size: 40rpx;

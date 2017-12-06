@@ -231,7 +231,7 @@
   top: 0;
   left: 10px;
   font-size: 38rpx;
-  -webkit-font-family: Consolas;
+  font-family: Consolas;
   z-index: 12;
 }
 .makeMenu .search .input {
@@ -340,7 +340,6 @@
 .makeMenu .filtrate scroll-view {
   width: 100%;
   height: 25px;
-  display: inline-flex;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
@@ -352,6 +351,9 @@
   height: 25px;
   line-height: 25px;
   margin-right: 8px;
+}
+.makeMenu .filtrate .single:last-child {
+  margin-right: 20px;
 }
 .makeMenu .food_intro {
   background-color: #f5f5f5;
@@ -415,6 +417,7 @@
   width: 100%;
   padding-left: 70px;
   box-sizing: border-box;
+  height: 70px;
 }
 .makeMenu .food_intro .single .food_detail .content view:first-child {
   font-size: 34rpx;

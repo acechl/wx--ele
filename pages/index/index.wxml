@@ -12,10 +12,8 @@
             </view>
         </view>
         <view class="classify" style="margin-top:{{m_top}}px">
-            <scroll-view scroll-x = "true" scroll-left="0">
-                <view>
-                    <view wx:for="{{type.type}}" class="type" id="{{item.name}}" bindtap="clickType">{{item.name}}</view>
-                </view>
+            <scroll-view scroll-x = "true" style="width:{{winWidth}}px">
+                <view wx:for="{{type.type}}" class="type" id="{{item.name}}" bindtap="clickType">{{item.name}}</view>
             </scroll-view>
         </view>
     </view>

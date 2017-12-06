@@ -14,11 +14,13 @@ Page({
     password: app.globalData.password,
     verificate: app.globalData.verificate,
     path: '',
-    url: ""
+    url: "",
+    title:""
   },
   onLoad (options) {
     this.setData({
-      path: options.path
+      path: options.path,
+      title: options.title
     })
   },
   onShow () {
@@ -41,11 +43,11 @@ Page({
     })
     let url = "";
     if (this.data.path == 'shoppingCar') {
-      url = '../../car/shoppingCar/shoppingCar'
+      url = '../../car/shoppingCar/shoppingCar?title='+this.data.title
     }else if(this.data.path == "me") {
       url = "../../me/me" 
     }else if(this.data.path == "booking") {
-      url = "../../car/shoppingCar/shoppingCar"
+      url = "../../car/shoppingCar/shoppingCar?title="+this.data.title
     }
     this.setData({
       url: url
